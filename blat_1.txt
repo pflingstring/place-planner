@@ -1,4 +1,42 @@
 Aufgabe 3
 (a)
+Fragen und Unklarheiten zur Anforderungsbeschreibung
+
+Punkt 1
+keine Unklarheit
+
+Punkt 2
+Organisation der Gruppen: In der Vorstellung des Projekts in der Einführungsveranstaltung wurde schon über das Thema 
+Gruppen diskutiert, im Punkt 2 der Anforderungsbeschreibung wird gesagt, dass Gruppen Eigenschaften erhalten, die von 
+berechtigten Personen bearbeitet werden können. Das widerspricht der Ausführung vom Dienstag, wonach eine Gruppe nur 
+von einem einzelnen User individuell innerhalb seiner Kontaktliste festgelegt wird. 
+Zudem: Was sind die Eigenschaften einer Gruppe?
+
+Punkt 3
+Gruppe -> siehe Punkt 2
+
+Punkt 4
+keine Unklarheit
+
+Punkt 5
+5.1.1
+PLZ muss zusätzlich eingegeben werden, sonst kann es Duplikate geben!
+5.1.2
+Adresse und Koordination müssen zusammenpassen->Dabei müsste es einen gewissen Spielraum geben, da durch tippen auf die Karte
+vielleicht nicht immer die exakt gleichen Koordinaten getroffen werden, wie bei der Adresseingabe. Evtl. eines von beiden
+Priorisieren.
+
+Punkt 6
+Ein-/Ausgabeformate
+Wann wird das Datenformat vorgegeben und welches?
+
+Punkt 7
+keine Unklarheit
+
+Punkt 8
+keine Unklarheit
+
+
+
 
 (b)
