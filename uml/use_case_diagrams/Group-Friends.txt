@@ -1,0 +1,23 @@
+@startuml
+
+title Friends/Groups
+
+rectangle Groups {
+  (Create)
+  (Edit)
+  (Delete)
+}
+
+rectangle Friends {
+  (Create )
+  (Delete )
+}
+user -down-> (Create)
+user -down-> (Edit)
+user -down-> (Delete)
+
+user -up-> (Create )
+user -up-> (Delete )
+
+
+@enduml
