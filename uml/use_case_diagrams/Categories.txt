@@ -1,0 +1,17 @@
+@startuml
+
+title Categories
+
+rectangle {
+  (Create)
+  (Edit)
+  (Delete)
+}
+
+user -down-> (Create)
+user -down-> (Edit)
+user -down-> (Delete)
+
+user -up-> (Merge 2 Categories)
+
+@enduml
