@@ -1,0 +1,45 @@
+@startuml
+
+title Locations
+
+rectangle Add-Locations {
+  (To List)
+  (To Map)
+}
+
+rectangle Show-Locations {
+  (In Map)
+  (In List)
+  (Details)
+}
+
+rectangle Search/Filter{
+  (List)
+  (Map)
+}
+
+' add locations
+user -down--> (To List)
+user -down--> (To Map)
+
+' show locations
+user -down--> (In List)
+user -down--> (In Map)
+user -down--> (Details)
+
+' search/filter
+user -down--> (List)
+user -down--> (Map)
+
+user -up--> (Import Locations)
+user -up--> (Export Locations)
+
+user -left-> (Delete Location)
+user -left-> (Edit Location)
+
+user -right-> (Merge 2 Locations)
+user -right-> (Sort Location)
+user -right-> (Share Location)
+
+
+@enduml
