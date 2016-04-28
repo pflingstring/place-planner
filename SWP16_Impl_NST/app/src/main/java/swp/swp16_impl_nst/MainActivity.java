@@ -9,8 +9,14 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.content.SharedPreferences;
+import android.widget.EditText;
+
 public class MainActivity extends AppCompatActivity
 {
+    private static final String FILENAME = "List_Places";
+    private static final String VAL_KEY = "Places";
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -29,6 +35,10 @@ public class MainActivity extends AppCompatActivity
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
+
+        editText = (EditText) findViewById(R.id.editText1);
+        SharedPreferences sharedPrefs = getSharedPreferences(FILENAME, 0);
+        editText.setText(sharedPrefs.getString(VAL_KEY, "Standardwert, falls nicht gesetzt"));
     }
 
     @Override
@@ -54,5 +64,15 @@ public class MainActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        SharedPreferences sharedPrefs = getSharedPreferences(FILENAME, 0);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        editor.putString(VAL_KEY, editText.getText().toString());
+        editor.commit();
     }
 }

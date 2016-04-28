@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Funktioniert es?"
+        android:text="Test"
         android:id="@+id/textView"
         android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
@@ -36,9 +36,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Dann schreibt mal in die Gruppe. :)"
+        android:text="Text wird über session gespeichert"
         android:id="@+id/textView3"
         android:layout_below="@+id/textView"
         android:layout_alignLeft="@+id/textView"
         android:layout_alignStart="@+id/textView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText1"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:text="Text eingeben" />
 </RelativeLayout>
