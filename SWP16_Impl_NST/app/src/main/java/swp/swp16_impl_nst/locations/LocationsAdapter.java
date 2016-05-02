@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -17,21 +18,25 @@ public class LocationsAdapter extends RecyclerView.Adapter<LocationsAdapter.View
     public LocationsAdapter(List<Location> data)
     { dataSet = data; }
 
-
     public static class ViewHolder extends RecyclerView.ViewHolder
     {
+        public ImageView icon;
         public TextView locationName;
+        public TextView locationComment;
 
         public ViewHolder(View view)
         {
             super(view);
-            locationName = (TextView) view.findViewById(R.id.location_name);
+            icon = (ImageView) view.findViewById(R.id.icon);
+            locationName    = (TextView) view.findViewById(R.id.location_name);
+            locationComment = (TextView) view.findViewById(R.id.location_comment);
         }
 
         public void setLocationName(String name)
-        {
-            locationName.setText(name);
-        }
+        { locationName.setText(name); }
+
+        public void setLocationComment(String comment)
+        { locationComment.setText(comment); }
     }
 
     @Override
@@ -48,7 +53,8 @@ public class LocationsAdapter extends RecyclerView.Adapter<LocationsAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position)
     {
         Location location = dataSet.get(position);
-        holder.setLocationName(location.getName() + "\n" + location.getCategory().getName());
+        holder.setLocationName(location.getName());
+        holder.setLocationComment(location.getComment());
     }
 
     @Override

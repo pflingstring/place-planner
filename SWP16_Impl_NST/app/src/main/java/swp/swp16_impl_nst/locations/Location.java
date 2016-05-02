@@ -23,10 +23,10 @@ public class Location
     private Address address;
     private GpsCoordinates coordinates;
     private Contact contact;
-    List<Category> categories = new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();
 
     private final long createdTimestamp = System.currentTimeMillis();
-    private long lastModifiedTimestamp = createdTimestamp;
+    private long  lastModifiedTimestamp = createdTimestamp;
 
     private Location(Builder builder)
     {
@@ -43,6 +43,17 @@ public class Location
         rating = builder.rating;
     }
 
+    public String getComment()
+    { return comment; }
+
+    public String getName()
+    { return this.name; }
+
+    public Category getCategory()
+    { return this.categories.get(0); }      // TODO: return all categories
+
+
+
     public static class Builder
     {
         // required parameters
@@ -58,55 +69,37 @@ public class Location
         private GpsCoordinates coordinates;
         private Contact contact;
 
-        public Builder(String name, Category category, Address address)
-        {
-            this.name = name;
-            this.category = category;
-            this.address  = address;
-        }
+        public Builder(String name)
+        { this.name = name; }
+
+        public Builder category(Category category)
+        { this.category = category; return this; }
+
+        public Builder address(Address address)
+        { this.address = address; return this; }
 
         public Builder comment(String comment)
-        {
-            this.comment = comment;
-            return this;
-        }
+        { this.comment = comment; return this; }
 
         public Builder mediaUrl(String url)
-        {
-            mediaUrl = url;
-            return this;
-        }
+        { mediaUrl = url; return this; }
 
         public Builder owner(User user)
-        {
-            owner = user;
-            return this;
-        }
+        { owner = user; return this; }
 
         public Builder gpsCoordinates(GpsCoordinates coordinates)
-        {
-            this.coordinates = coordinates;
-            return this;
-        }
+        { this.coordinates = coordinates; return this; }
 
         public Builder contact(Contact contact)
-        {
-            this.contact = contact;
-            return this;
-        }
+        { this.contact = contact; return this; }
 
         public Location build()
         {
+            if (address == null || category == null)
+                throw new IllegalArgumentException("Address and category may not be null");
             return new Location(this);
         }
     }
-
-    public String getName()
-    { return this.name; }
-
-    public Category getCategory()
-    { return this.categories.get(0); }
-
 
 
 }

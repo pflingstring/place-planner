@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">SWP16_Impl_NST</string>
     <string name="action_settings">Settings</string>
+
+    <string name="category_icon">Icon</string>
+
 </resources>

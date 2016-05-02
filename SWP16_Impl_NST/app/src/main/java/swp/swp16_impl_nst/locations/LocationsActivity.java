@@ -30,12 +30,21 @@ public class LocationsActivity extends AppCompatActivity
         recyclerView.setLayoutManager(layoutManager);
 
         List<Location> data = new ArrayList<>();
-        data.add(new Location.Builder("eagles", new Category(1, "bird"), new Address()).build());
-        Location l1 = new Location.Builder("stags", new Category(2, "animal"), new Address()).build();
-        Location l2 = new Location.Builder("cats", new Category(3, "animal"), new Address()).build();
-        Location l3 = new Location.Builder("dogs", new Category(4, "animal"), new Address()).build();
-        Location l4 = new Location.Builder("pigs", new Category(5, "animal"), new Address()).build();
-        data.add(l1); data.add(l2); data.add(l3); data.add(l4);
+
+        Category inMarburg = new Category(1, "Marburg");
+        Location l1 = new Location.Builder("Schloss")
+                .address(new Address())
+                .category(inMarburg)
+                .comment("Auf dem Berg")
+                .build();
+
+        Location l2 = new Location.Builder("E-Kirche")
+                .address(new Address())
+                .category(inMarburg)
+                .comment("Unter in der Stadt")
+                .build();
+
+        data.add(l1); data.add(l2);
 
         adapter = new LocationsAdapter(data);
         recyclerView.setAdapter(adapter);
