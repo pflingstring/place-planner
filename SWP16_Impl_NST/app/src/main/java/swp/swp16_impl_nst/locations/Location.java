@@ -1,6 +1,8 @@
 package swp.swp16_impl_nst.locations;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import swp.swp16_impl_nst.locations.fields.Address;
 import swp.swp16_impl_nst.locations.fields.Category;
@@ -21,7 +23,7 @@ public class Location
     private Address address;
     private GpsCoordinates coordinates;
     private Contact contact;
-    List<Category> categories;
+    List<Category> categories = new ArrayList<>();
 
     private final long createdTimestamp = System.currentTimeMillis();
     private long lastModifiedTimestamp = createdTimestamp;
@@ -31,6 +33,14 @@ public class Location
         name = builder.name;
         categories.add(builder.category);
         address = builder.address;
+
+        id = UUID.randomUUID().toString();
+        coordinates = builder.coordinates;
+        comment  = builder.comment;
+        mediaUrl = builder.mediaUrl;
+        contact  = builder.contact;
+        owner  = builder.owner;
+        rating = builder.rating;
     }
 
     public static class Builder
@@ -84,6 +94,19 @@ public class Location
             this.contact = contact;
             return this;
         }
+
+        public Location build()
+        {
+            return new Location(this);
+        }
     }
+
+    public String getName()
+    { return this.name; }
+
+    public Category getCategory()
+    { return this.categories.get(0); }
+
+
 
 }
