@@ -4,14 +4,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.RatingBar;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.locations.fields.Address;
-import swp.swp16_impl_nst.locations.fields.Category;
+import swp.swp16_impl_nst.models.locations.fields.Address;
+import swp.swp16_impl_nst.models.locations.fields.Category;
+import swp.swp16_impl_nst.models.locations.Location;
 
 public class LocationsActivity extends AppCompatActivity
 {

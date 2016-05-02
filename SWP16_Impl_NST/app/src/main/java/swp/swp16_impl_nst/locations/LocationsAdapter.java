@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import swp.swp16_impl_nst.R;
+import swp.swp16_impl_nst.models.locations.Location;
 
 public class LocationsAdapter extends RecyclerView.Adapter<LocationsAdapter.ViewHolder>
 {

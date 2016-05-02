@@ -1,15 +1,15 @@
-package swp.swp16_impl_nst.locations;
+package swp.swp16_impl_nst.models.locations;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import swp.swp16_impl_nst.locations.fields.Address;
-import swp.swp16_impl_nst.locations.fields.Category;
-import swp.swp16_impl_nst.locations.fields.Contact;
-import swp.swp16_impl_nst.locations.fields.GpsCoordinates;
-import swp.swp16_impl_nst.locations.fields.Rating;
-import swp.swp16_impl_nst.locations.fields.User;
+import swp.swp16_impl_nst.models.locations.fields.Address;
+import swp.swp16_impl_nst.models.locations.fields.Category;
+import swp.swp16_impl_nst.models.locations.fields.Contact;
+import swp.swp16_impl_nst.models.locations.fields.GpsCoordinates;
+import swp.swp16_impl_nst.models.locations.fields.Rating;
+import swp.swp16_impl_nst.models.locations.fields.User;
 
 public class Location
 {
@@ -51,7 +51,6 @@ public class Location
 
     public Category getCategory()
     { return this.categories.get(0); }      // TODO: return all categories
-
 
 
     public static class Builder
