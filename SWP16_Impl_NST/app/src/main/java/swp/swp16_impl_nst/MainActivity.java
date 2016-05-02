@@ -1,5 +1,6 @@
 package swp.swp16_impl_nst;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +12,8 @@ import android.view.MenuItem;
 
 import android.content.SharedPreferences;
 import android.widget.EditText;
+
+import swp.swp16_impl_nst.locations.LocationsActivity;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -39,6 +42,12 @@ public class MainActivity extends AppCompatActivity
         editText = (EditText) findViewById(R.id.editText1);
         SharedPreferences sharedPrefs = getSharedPreferences(FILENAME, 0);
         editText.setText(sharedPrefs.getString(VAL_KEY, "Standardwert, falls nicht gesetzt"));
+    }
+
+    public void toLocations(View view)
+    {
+        Intent intent = new Intent(this, LocationsActivity.class);
+        startActivity(intent);
     }
 
     @Override

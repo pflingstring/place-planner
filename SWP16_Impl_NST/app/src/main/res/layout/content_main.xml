@@ -51,4 +51,12 @@
         android:layout_alignLeft="@+id/textView3"
         android:layout_alignStart="@+id/textView3"
         android:text="Text eingeben" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Locations"
+        android:onClick="toLocations"
+        android:layout_below="@+id/editText1"
+        />
 </RelativeLayout>
