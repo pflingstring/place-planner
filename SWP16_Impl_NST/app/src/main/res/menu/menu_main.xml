@@ -7,4 +7,20 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/location_hinzufuegen"
+        android:title="@string/location_hinzufuegen"/>
+    <item
+        android:id="@+id/locations_anzeigen"
+        android:title="@string/locations_anzeigen"/>
+    <item
+        android:id="@+id/location_suchen"
+        android:title="@string/location_suchen"/>
+    <item
+        android:id="@+id/locations_importieren"
+        android:title="@string/locations_importieren"/>
+    <item
+        android:id="@+id/locations_exportieren"
+        android:title="@string/locations_exportieren"/>
+
 </menu>

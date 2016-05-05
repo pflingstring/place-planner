@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">SWP16_Impl_NST</string>
     <string name="action_settings">Settings</string>
+    <string name="location_hinzufuegen">Location hinzufuegen</string>
+    <string name="locations_anzeigen">Locations anzeigen</string>
+    <string name="location_suchen">Location suchen</string>
+    <string name="locations_importieren">Locations importieren</string>
+    <string name="locations_exportieren">Locations exportieren</string>
+
 </resources>
