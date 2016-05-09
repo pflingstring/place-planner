@@ -29,6 +29,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".locations.LocationsMainActivity"/>
         </activity>
+        <activity
+            android:name=".locations.LocationDetailsActivity"
+            android:label="@string/title_activity_location_details"
+            android:parentActivityName=".locations.LocationsMainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="swp.swp16_impl_nst.locations.LocationsMainActivity"/>
+        </activity>
     </application>
 
 </manifest>

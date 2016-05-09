@@ -2,9 +2,14 @@
     <string name="app_name">SWP16_Impl_NST</string>
     <string name="action_settings">Settings</string>
 
+    <string name="locations">Locations</string>
+    <string name="locationDetails">LocationDetails</string>
+
     <string name="delete_location">Delete</string>
     <string name="add_location">Add</string>
     <string name="edit_location">Edit</string>
     <string name="category_icon">Icon</string>
+    <string name="title_activity_location_details">LocationDetailsActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 </resources>
