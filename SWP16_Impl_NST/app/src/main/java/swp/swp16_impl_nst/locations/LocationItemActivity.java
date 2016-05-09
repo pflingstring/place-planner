@@ -55,12 +55,17 @@ public class LocationItemActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
+        int id = item.getItemId();
         switch (item.getItemId())
         {
             case R.id.edit_location :
-                Toast toast = Toast.makeText(getApplicationContext(), "Edit item " + item.getItemId(), Toast.LENGTH_SHORT);
-                toast.show();
+                Toast edit = Toast.makeText(getApplicationContext(), "Edit item " + id, Toast.LENGTH_SHORT);
+                edit.show();
+                return true;
 
+            case R.id.delete_location :
+                Toast delete = Toast.makeText(getApplicationContext(), "Delete item " + id, Toast.LENGTH_SHORT);
+                delete.show();
                 return true;
         }
 

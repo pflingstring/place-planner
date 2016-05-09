@@ -10,4 +10,11 @@
         app:showAsAction="ifRoom"
         />
 
+    <item
+        android:id="@+id/delete_location"
+        android:icon="@drawable/ic_category_default"
+        android:title="@string/delete_location"
+        app:showAsAction="ifRoom"
+        />
+
 </menu>
