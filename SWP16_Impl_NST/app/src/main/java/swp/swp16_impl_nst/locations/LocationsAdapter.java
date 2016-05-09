@@ -16,6 +16,9 @@ public class LocationsAdapter extends RecyclerView.Adapter<LocationsAdapter.View
 {
     private List<Location> dataSet;
 
+    public List<Location> getDataSet()
+    { return dataSet; }
+
     public LocationsAdapter(List<Location> data)
     { dataSet = data; }
 
