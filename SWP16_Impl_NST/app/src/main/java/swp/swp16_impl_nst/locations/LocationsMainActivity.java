@@ -67,7 +67,7 @@ public class LocationsMainActivity extends AppCompatActivity
 
                 bundle.putParcelable("loc", location);
                 intent.putExtras(bundle);
-                intent.setClass(getApplicationContext(), LocationItemActivity.class);
+                intent.setClass(getApplicationContext(), LocationDetailsActivity.class);
                 startActivity(intent);
             }
 

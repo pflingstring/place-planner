@@ -8,8 +8,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
-            android:name=".MainActivity"
+            android:name=".locations.LocationsMainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -18,8 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".locations.LocationsMainActivity">
-        </activity>
+
         <activity
             android:name=".locations.LocationItemActivity"
             android:parentActivityName=".locations.LocationsMainActivity">
@@ -29,6 +29,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".locations.LocationsMainActivity"/>
         </activity>
+
         <activity
             android:name=".locations.LocationDetailsActivity"
             android:label="@string/title_activity_location_details"
@@ -38,6 +39,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="swp.swp16_impl_nst.locations.LocationsMainActivity"/>
         </activity>
+
     </application>
 
 </manifest>
