@@ -1,5 +1,8 @@
 package swp.swp16_impl_nst.models.locations;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -11,7 +14,7 @@ import swp.swp16_impl_nst.models.locations.fields.GpsCoordinates;
 import swp.swp16_impl_nst.models.locations.fields.Rating;
 import swp.swp16_impl_nst.models.locations.fields.User;
 
-public class Location
+public class Location implements Parcelable
 {
     private String id;
     private String name;
@@ -20,6 +23,10 @@ public class Location
 
     private User owner;
     private Rating rating;
+
+    public Address getAddress()
+    { return address; }
+
     private Address address;
     private GpsCoordinates coordinates;
     private Contact contact;
@@ -101,4 +108,59 @@ public class Location
     }
 
 
+    @Override
+    public int describeContents()
+    {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags)
+    {
+        dest.writeString(this.id);
+        dest.writeString(this.name);
+        dest.writeString(this.comment);
+        dest.writeString(this.mediaUrl);
+        dest.writeParcelable(this.owner, flags);
+        dest.writeInt(this.rating == null ? -1 : this.rating.ordinal());
+        dest.writeParcelable(this.address, flags);
+        dest.writeParcelable(this.coordinates, flags);
+        dest.writeParcelable(this.contact, flags);
+        dest.writeList(this.categories);
+//        dest.writeLong(this.createdTimestamp);
+        dest.writeLong(this.lastModifiedTimestamp);
+    }
+
+    protected Location(Parcel in)
+    {
+        this.id = in.readString();
+        this.name = in.readString();
+        this.comment = in.readString();
+        this.mediaUrl = in.readString();
+        this.owner = in.readParcelable(User.class.getClassLoader());
+        int tmpRating = in.readInt();
+        this.rating = tmpRating == -1 ? null : Rating.values()[tmpRating];
+        this.address = in.readParcelable(Address.class.getClassLoader());
+        this.coordinates = in.readParcelable(GpsCoordinates.class.getClassLoader());
+        this.contact = in.readParcelable(Contact.class.getClassLoader());
+        this.categories = new ArrayList<Category>();
+        in.readList(this.categories, Category.class.getClassLoader());
+//        this.createdTimestamp = in.readLong();
+        this.lastModifiedTimestamp = in.readLong();
+    }
+
+    public static final Parcelable.Creator<Location> CREATOR = new Parcelable.Creator<Location>()
+    {
+        @Override
+        public Location createFromParcel(Parcel source)
+        {
+            return new Location(source);
+        }
+
+        @Override
+        public Location[] newArray(int size)
+        {
+            return new Location[size];
+        }
+    };
 }
