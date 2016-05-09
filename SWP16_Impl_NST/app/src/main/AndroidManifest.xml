@@ -20,6 +20,15 @@
         </activity>
         <activity android:name=".locations.LocationsMainActivity">
         </activity>
+        <activity
+            android:name=".locations.LocationItemActivity"
+            android:parentActivityName=".locations.LocationsMainActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".locations.LocationsMainActivity"/>
+        </activity>
     </application>
 
 </manifest>

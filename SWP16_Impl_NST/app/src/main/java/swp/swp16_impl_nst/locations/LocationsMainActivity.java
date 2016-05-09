@@ -1,5 +1,6 @@
 package swp.swp16_impl_nst.locations;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -59,12 +60,13 @@ public class LocationsMainActivity extends AppCompatActivity
             public void onItemClick(View view, int position)
             {
                 Location location = adapter.getDataSet().get(position);
+                Intent intent = new Intent();
+                Bundle bundle = new Bundle();
 
-                String msg = location.getComment();
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast toast = Toast.makeText(getApplicationContext(), msg, duration);
-                toast.show();
+                bundle.putParcelable("loc", location);
+                intent.putExtras(bundle);
+                intent.setClass(getApplicationContext(), LocationItemActivity.class);
+                startActivity(intent);
             }
 
             @Override
