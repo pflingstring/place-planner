@@ -3,6 +3,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="delete_location">Delete</string>
+    <string name="add_location">Add</string>
     <string name="edit_location">Edit</string>
     <string name="category_icon">Icon</string>
 
