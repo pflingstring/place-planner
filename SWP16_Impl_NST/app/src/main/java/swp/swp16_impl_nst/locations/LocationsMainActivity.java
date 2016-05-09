@@ -16,7 +16,7 @@ import swp.swp16_impl_nst.models.locations.fields.Category;
 import swp.swp16_impl_nst.models.locations.Location;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
-public class LocationsActivity extends AppCompatActivity
+public class LocationsMainActivity extends AppCompatActivity
 {
     private RecyclerView recyclerView;
     private LocationsAdapter adapter;
@@ -26,7 +26,7 @@ public class LocationsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_locations);
+        setContentView(R.layout.activity_locations_main);
 
         recyclerView = (RecyclerView) findViewById(R.id.rview_locations);
         layoutManager = new LinearLayoutManager(this);

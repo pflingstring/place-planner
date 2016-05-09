@@ -10,10 +10,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import android.content.SharedPreferences;
-import android.widget.EditText;
-
-import swp.swp16_impl_nst.locations.LocationsActivity;
+import swp.swp16_impl_nst.locations.LocationsMainActivity;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -41,7 +38,7 @@ public class MainActivity extends AppCompatActivity
 
     public void toLocations(View view)
     {
-        Intent intent = new Intent(this, LocationsActivity.class);
+        Intent intent = new Intent(this, LocationsMainActivity.class);
         startActivity(intent);
     }
 
