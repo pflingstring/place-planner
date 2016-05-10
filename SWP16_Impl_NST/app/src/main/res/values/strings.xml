@@ -6,5 +6,10 @@
     <string name="add_location">Add</string>
     <string name="edit_location">Edit</string>
     <string name="category_icon">Icon</string>
+    <string name="locations_anzeigen">Alle Locations_anzeigen</string>
+    <string name="location_hinzufuegen">Location Hinzufügen</string>
+    <string name="location_suchen">Location suchen</string>
+    <string name="locations_importieren">Locations importieren</string>
+    <string name="locations_exportieren">Locations exportieren</string>
 
 </resources>

@@ -9,7 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import swp.swp16_impl_nst.locations.AddLocationMainActivity;
 import swp.swp16_impl_nst.locations.LocationsMainActivity;
 
 public class MainActivity extends AppCompatActivity
@@ -61,6 +63,17 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings)
         {
+            Toast.makeText(getApplicationContext(), "Settings gedrückt!", Toast.LENGTH_LONG).show();
+            return true;
+        }
+        if (id == R.id.locations_anzeigen){
+            Intent intent = new Intent (this, LocationsMainActivity.class);
+            startActivity(intent);
+
+            }
+        if (id == R.id.location_suchen){
+            Intent Intent = new Intent(this, AddLocationMainActivity.class);
+            startActivity(Intent);
             return true;
         }
 
