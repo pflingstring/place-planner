@@ -94,7 +94,7 @@ public class LocationTabbedActivity extends AppCompatActivity
             if (position == 0)
                 return LocationDetailsFragment.newInstance(LocationTabbedActivity.position);
             else
-                return LocationEditFragment.newInstance(null, position);
+                return LocationEditFragment.newInstance(LocationTabbedActivity.position);
         }
 
         @Override
