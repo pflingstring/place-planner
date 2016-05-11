@@ -1,5 +1,7 @@
 package swp.swp16_impl_nst.models.locations;
 
+import android.os.Build;
+import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -19,16 +21,45 @@ public class Location implements Parcelable
     private String id;
     private String name;
     private String comment;
+
+    public String getMediaUrl()
+    {
+        return mediaUrl;
+    }
+
     private String mediaUrl;
 
+    public User getOwner()
+    {
+        return owner;
+    }
+
     private User owner;
+
+    public Rating getRating()
+    {
+        return rating;
+    }
+
     private Rating rating;
 
     public Address getAddress()
     { return address; }
 
     private Address address;
+
+    public GpsCoordinates getCoordinates()
+    {
+        return coordinates;
+    }
+
     private GpsCoordinates coordinates;
+
+    public Contact getContact()
+    {
+        return contact;
+    }
+
     private Contact contact;
     private List<Category> categories = new ArrayList<>();
 
@@ -98,6 +129,9 @@ public class Location implements Parcelable
 
         public Builder contact(Contact contact)
         { this.contact = contact; return this; }
+
+        public Builder rating(Rating rating)
+        { this.rating = rating; return this; }
 
         public Location build()
         {
