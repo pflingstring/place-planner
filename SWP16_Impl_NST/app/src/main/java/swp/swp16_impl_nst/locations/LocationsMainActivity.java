@@ -10,12 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.models.locations.fields.Address;
-import swp.swp16_impl_nst.models.locations.fields.Category;
 import swp.swp16_impl_nst.models.locations.Location;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
@@ -31,28 +26,12 @@ public class LocationsMainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locations_main);
 
+        LocationProvider provider = new LocationProvider();
+
         recyclerView = (RecyclerView) findViewById(R.id.rview_locations);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
-        List<Location> data = new ArrayList<>();
-
-        Category inMarburg = new Category(1, "Marburg");
-        Location l1 = new Location.Builder("Schloss")
-                .address(new Address())
-                .category(inMarburg)
-                .comment("Auf dem Berg")
-                .build();
-
-        Location l2 = new Location.Builder("E-Kirche")
-                .address(new Address())
-                .category(inMarburg)
-                .comment("Unten in der Stadt")
-                .build();
-
-        data.add(l1); data.add(l2);
-
-        adapter = new LocationsAdapter(data);
+        adapter = new LocationsAdapter(LocationProvider.locations);
         recyclerView.setAdapter(adapter);
 
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
@@ -77,11 +56,9 @@ public class LocationsMainActivity extends AppCompatActivity
         }));
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_locations_main, menu);
         return true;
     }
