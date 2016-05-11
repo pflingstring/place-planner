@@ -20,4 +20,15 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!--Details/Edit location-->
+    <string name="name">Name</string>
+    <string name="comment">Comment</string>
+    <string name="address">Address</string>
+    <string name="mediaUrl">MediaURL</string>
+    <string name="rating">Rating</string>
+    <string name="owner">Owner</string>
+    <string name="coordinates">GPS-Coordinates</string>
+    <string name="contactDetails">Contacts</string>
+    <string name="categories">Categories</string>
+
 </resources>
