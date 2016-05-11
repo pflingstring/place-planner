@@ -17,8 +17,7 @@ import swp.swp16_impl_nst.models.locations.Location;
 
 public class LocationTabbedActivity extends AppCompatActivity
 {
-    Location location;
-    private int position;
+    private static int position;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -55,9 +54,7 @@ public class LocationTabbedActivity extends AppCompatActivity
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null)
-            location = bundle.getParcelable("loc");
+        position = getIntent().getIntExtra(LocationsMainActivity.CURRENT_POSITION, -1);
     }
 
     @Override
@@ -95,9 +92,9 @@ public class LocationTabbedActivity extends AppCompatActivity
         public Fragment getItem(int position)
         {
             if (position == 0)
-                return LocationDetailsFragment.newInstance(location, position);
+                return LocationDetailsFragment.newInstance(LocationTabbedActivity.position);
             else
-                return LocationEditFragment.newInstance(location, position);
+                return LocationEditFragment.newInstance(null, position);
         }
 
         @Override
