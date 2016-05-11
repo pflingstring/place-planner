@@ -2,7 +2,6 @@ package swp.swp16_impl_nst.locations;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,11 +12,12 @@ import android.view.View;
 import android.widget.Toast;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.models.locations.Location;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
 public class LocationsMainActivity extends AppCompatActivity
 {
+    public final static String CURRENT_POSITION = "swp.current_location";
+
     private RecyclerView recyclerView;
     private LocationsAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -42,12 +42,8 @@ public class LocationsMainActivity extends AppCompatActivity
             @Override
             public void onItemClick(View view, int position)
             {
-                Location location = adapter.getDataSet().get(position);
                 Intent intent = new Intent();
-                Bundle bundle = new Bundle();
-
-                bundle.putParcelable("loc", location);
-                intent.putExtras(bundle);
+                intent.putExtra(CURRENT_POSITION, position);
                 intent.setClass(getApplicationContext(), LocationTabbedActivity.class);
                 startActivity(intent);
             }
