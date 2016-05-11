@@ -1,57 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:paddingBottom="10dp"
-              android:paddingLeft="5dp"
-              android:paddingRight="5dp">
+<android.support.v4.widget.NestedScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="swp.swp16_impl_nst.locations.LocationEditFragment">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/name"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/location_name"
-        android:text="@string/locationDetails"
-        />
+        android:id="@+id/name"/>
+    <View style="@style/Divider"/>
 
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/address"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/location_comment"
-        android:text="@string/section_format"
-        />
+        android:id="@+id/address"/>
+    <View style="@style/Divider"/>
 
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/comment"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/location_mediaUrl"
-        android:text="@string/add_location"
-        />
+        android:id="@+id/comment"/>
+    <View style="@style/Divider"/>
 
-
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/mediaUrl"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/location_owner"
-        />
+        android:id="@+id/mediaUrl"/>
+    <View style="@style/Divider"/>
 
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/rating"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/location_rating"
-        />
+        android:id="@+id/rating"/>
+    <View style="@style/Divider"/>
 
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/owner"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/location_address"
-        />
+        android:id="@+id/owner"/>
+    <View style="@style/Divider"/>
 
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/coordinates"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/location_gps_coordinates"
-        />
+        android:id="@+id/gpsCoordinates"/>
+    <View style="@style/Divider"/>
 
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/contactDetails"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/contactDetails"/>
+    <View style="@style/Divider"/>
+
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/categories"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/categories"/>
 
 </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
