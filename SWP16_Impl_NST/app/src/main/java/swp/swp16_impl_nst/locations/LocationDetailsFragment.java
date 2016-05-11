@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.models.locations.Location;
@@ -13,15 +12,15 @@ import swp.swp16_impl_nst.models.locations.Location;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link LocationItemFragment} interface
+ * {@link LocationDetailsFragment} interface
  * to handle interaction events.
- * Use the {@link LocationItemFragment#newInstance} factory method to
+ * Use the {@link LocationDetailsFragment#newInstance} factory method to
  * create an instance of this fragment.
  *
  */
-public class LocationItemFragment extends Fragment {
+public class LocationDetailsFragment extends Fragment {
 
-    public LocationItemFragment()
+    public LocationDetailsFragment()
     { /** Required empty public constructor */ }
 
     public static final String LOCATION_AND_POSITION = "LOCATION_AND_POSITION";
@@ -33,11 +32,11 @@ public class LocationItemFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment LocationItemFragment.
+     * @return A new instance of fragment LocationDetailsFragment.
      */
-    public static LocationItemFragment newInstance(Location location, int position)
+    public static LocationDetailsFragment newInstance(Location location, int position)
     {
-        LocationItemFragment fragment = new LocationItemFragment();
+        LocationDetailsFragment fragment = new LocationDetailsFragment();
         Bundle args = new Bundle();
         args.putParcelable(LOCATION_AND_POSITION, location);
         args.putInt(LOCATION_AND_POSITION, position);
@@ -62,8 +61,7 @@ public class LocationItemFragment extends Fragment {
                               ViewGroup      container,
                               Bundle savedInstanceState) {
 
-
-        return inflater.inflate(R.layout.fragment_location_item, container, false);
+        return inflater.inflate(R.layout.fragment_location_details, container, false);
     }
 
     /**

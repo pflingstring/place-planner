@@ -48,7 +48,7 @@ public class LocationsAdapter extends RecyclerView.Adapter<LocationsAdapter.View
     {
         View v = LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.view_location_item, parent, false);
+                .inflate(R.layout.rview_location_item, parent, false);
 
         return new ViewHolder(v);
     }

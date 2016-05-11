@@ -9,19 +9,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.models.locations.Location;
 
-public class LocationDetailsActivity extends AppCompatActivity
+public class LocationTabbedActivity extends AppCompatActivity
 {
     Location location;
     private int position;
@@ -45,7 +39,7 @@ public class LocationDetailsActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_location_details);
+        setContentView(R.layout.activity_location_tabbed);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -69,7 +63,7 @@ public class LocationDetailsActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.menu_location_details, menu);
+        getMenuInflater().inflate(R.menu.menu_location_tabbed, menu);
         return true;
     }
 
@@ -100,8 +94,10 @@ public class LocationDetailsActivity extends AppCompatActivity
         @Override
         public Fragment getItem(int position)
         {
-            // getItem is called to instantiate the fragment for the given page.
-            return LocationItemFragment.newInstance(location, position);
+            if (position == 0)
+                return LocationDetailsFragment.newInstance(location, position);
+            else
+                return LocationEditFragment.newInstance(location, position);
         }
 
         @Override
