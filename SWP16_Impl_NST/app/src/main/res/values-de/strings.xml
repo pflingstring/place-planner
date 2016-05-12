@@ -1,0 +1,17 @@
+<resources>
+    <!--TabbedActivity-->
+    <string name="details">Einzelheiten</string>
+    <string name="edit">Bearbeiten</string>
+
+    <!--Details/Edit location-->
+    <string name="name">Name</string>
+    <string name="comment">Kommentar</string>
+    <string name="address">Addresse</string>
+    <string name="mediaUrl">MedienURL</string>
+    <string name="rating">Bewertung</string>
+    <string name="owner">Besitzer</string>
+    <string name="coordinates">GPS-Koordinaten</string>
+    <string name="contactDetails">Kontakte</string>
+    <string name="categories">Kategorien</string>
+
+</resources>

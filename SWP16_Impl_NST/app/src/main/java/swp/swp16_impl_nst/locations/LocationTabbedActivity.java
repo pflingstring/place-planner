@@ -107,9 +107,9 @@ public class LocationTabbedActivity extends AppCompatActivity
             switch (tabPosition)
             {
                 case 0:
-                    return "Details";
+                    return getResources().getString(R.string.details);
                 case 1:
-                    return "Edit";
+                    return getResources().getString(R.string.edit);
             }
             return null;
         }

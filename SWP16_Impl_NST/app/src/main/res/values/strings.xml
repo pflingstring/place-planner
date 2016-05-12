@@ -20,7 +20,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <!--Details/Edit location-->
+    <!--location Tabs-->
+    <string name="details">Details</string>
+    <string name="edit">Edit</string>
+
+    <!--location Details/Edit-->
     <string name="name">Name</string>
     <string name="comment">Comment</string>
     <string name="address">Address</string>
