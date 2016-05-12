@@ -89,9 +89,9 @@ public class LocationTabbedActivity extends AppCompatActivity
         }
 
         @Override
-        public Fragment getItem(int position)
+        public Fragment getItem(int tabPosition)
         {
-            if (position == 0)
+            if (tabPosition == 0)
                 return LocationDetailsFragment.newInstance(LocationTabbedActivity.position);
             else
                 return LocationEditFragment.newInstance(LocationTabbedActivity.position);
@@ -102,9 +102,9 @@ public class LocationTabbedActivity extends AppCompatActivity
         { return 2; }
 
         @Override
-        public CharSequence getPageTitle(int position)
+        public CharSequence getPageTitle(int tabPosition)
         {
-            switch (position)
+            switch (tabPosition)
             {
                 case 0:
                     return "Details";
