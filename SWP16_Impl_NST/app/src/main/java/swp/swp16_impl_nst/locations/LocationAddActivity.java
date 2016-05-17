@@ -20,7 +20,7 @@ public class LocationAddActivity extends AppCompatActivity
     }
 
     @Override
-    public void onSaveChanges(Location location)
+    public void onOkButtonClicked(Location location)
     {
         LocationProvider.locations.add(location);
         navigateBack(null);

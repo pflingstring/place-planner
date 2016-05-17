@@ -1,7 +1,6 @@
 package swp.swp16_impl_nst.locations;
 
 import android.os.Bundle;
-import android.support.annotation.VisibleForTesting;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,28 +9,30 @@ import android.widget.TextView;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.models.locations.Location;
+import swp.swp16_impl_nst.utils.LocationUtils;
 
 public class LocationDetailsFragment extends Fragment
 {
     private final static String CURRENT_POSITION = LocationsMainActivity.CURRENT_POSITION;
     private Location location;
     private TextView name;
+    private TextView owner;
+    private TextView rating;
     private TextView address;
     private TextView comment;
     private TextView mediaUrl;
-    private TextView rating;
-    private TextView owner;
-    private TextView coordinates;
     private TextView contacts;
     private TextView categories;
+    private TextView coordinates;
 
     public LocationDetailsFragment()
     { /** Required empty public constructor */ }
 
+
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
+     * Creates a new instance of this fragment
      *
+     * @param position - position of the Location in the list
      * @return A new instance of fragment LocationDetailsFragment.
      */
     public static LocationDetailsFragment newInstance(int position)
@@ -48,47 +49,53 @@ public class LocationDetailsFragment extends Fragment
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        location = LocationProvider.locations.get(
-                getArguments().getInt(CURRENT_POSITION));
+
+        int locationPosition = getArguments().getInt(CURRENT_POSITION);
+        location = LocationProvider.locations.get(locationPosition);
     }
 
     @Override
     public View onCreateView (LayoutInflater inflater,
                               ViewGroup      container,
                               Bundle savedInstanceState)
+    { return inflater.inflate(R.layout.fragment_location_details, container, false); }
+
+    @Override
+    public void onStart()
     {
-
-        View view = inflater.inflate(R.layout.fragment_location_details, container, false);
-
-        // TODO: make a generic helper function; check for nulls
-        name = (TextView) view.findViewById(R.id.name);
-        name.setText(location.getName());
-
-        address = (TextView) view.findViewById(R.id.address);
-        address.setText(location.getAddress().toString());
-
-        comment = (TextView) view.findViewById(R.id.comment);
-        comment.setText(location.getComment());
-
-        mediaUrl = (TextView) view.findViewById(R.id.mediaUrl);
-        mediaUrl.setText(location.getMediaUrl());
-
-        rating = (TextView) view.findViewById(R.id.rating);
-        rating.setText(location.getRating().toString());
-
-        owner = (TextView) view.findViewById(R.id.owner);
-        owner.setText(location.getOwner().toString());
-
-        coordinates = (TextView) view.findViewById(R.id.gpsCoordinates);
-        coordinates.setText(location.getCoordinates().toString());
-
-        contacts = (TextView) view.findViewById(R.id.contactDetails);
-        contacts.setText(location.getContact().toString());
-
-        categories = (TextView) view.findViewById(R.id.categories);
-        categories.setText(location.getCategory().toString());
-
-        return view;
+        super.onStart();
+        
+        if (getView() != null)
+            LocationUtils.populateViews(this, getView(), location);
     }
+
+
+    // setters
+    public void setName(TextView name)
+    { this.name = name; }
+
+    public void setOwner(TextView owner)
+    { this.owner = owner; }
+
+    public void setRating(TextView rating)
+    { this.rating = rating; }
+
+    public void setAddress(TextView address)
+    { this.address = address; }
+
+    public void setComment(TextView comment)
+    { this.comment = comment; }
+
+    public void setContacts(TextView contacts)
+    { this.contacts = contacts; }
+
+    public void setMediaUrl(TextView mediaUrl)
+    { this.mediaUrl = mediaUrl; }
+
+    public void setCategories(TextView categories)
+    { this.categories = categories; }
+
+    public void setCoordinates(TextView coordinates)
+    { this.coordinates = coordinates; }
 
 }

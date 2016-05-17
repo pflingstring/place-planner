@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.models.locations.Location;
@@ -23,16 +22,8 @@ import swp.swp16_impl_nst.utils.LocationUtils;
 public class LocationEditFragment extends Fragment
     implements View.OnClickListener
 {
-    public interface OnClickListener
-    { void onSaveChanges(Location location); }
-
-    public LocationEditFragment()
-    { /** Required empty public constructor */ }
-
-    private final static String CURRENT_POSITION =
-          LocationsMainActivity.CURRENT_POSITION;
+    private final static String CURRENT_POSITION = LocationsMainActivity.CURRENT_POSITION;
     OnClickListener clickListener;
-
     private EditText name;
     private EditText owner;
     private EditText rating;
@@ -44,10 +35,14 @@ public class LocationEditFragment extends Fragment
     private EditText categories;
     private EditText coordinates;
 
+    public LocationEditFragment()
+    { /** Required empty public constructor */ }
+
+
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
+     * Creates a new instance of this fragment
      *
+     * @param position - position of the Location in the list
      * @return A new instance of fragment LocationDetailsFragment.
      */
     public static LocationEditFragment newInstance(int position)
@@ -77,9 +72,10 @@ public class LocationEditFragment extends Fragment
     {
         super.onAttach(context);
 
-        // This makes sure that the container activity has implemented
-        // the callback interface. If not, it throws an exception
-        try { clickListener = (OnClickListener) context; }
+        try
+        {
+            clickListener = (OnClickListener) context;
+        }
         catch (ClassCastException e)
         {
             String className = context.getClass().getSimpleName();
@@ -89,12 +85,12 @@ public class LocationEditFragment extends Fragment
 
     @Override
     public View onCreateView (LayoutInflater inflater,
-            ViewGroup container,
-            Bundle savedInstanceState)
+                              ViewGroup container,
+                              Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.fragment_location_edit, container, false);
-        Button button = (Button) view.findViewById(R.id.okButton);
-        button.setOnClickListener(this);
+        Button okButton = (Button) view.findViewById(R.id.okButton);
+        okButton.setOnClickListener(this);
 
         return view;
     }
@@ -122,17 +118,23 @@ public class LocationEditFragment extends Fragment
                 .contact(new Contact())
                 .build();
 
-        clickListener.onSaveChanges(location);
-
-        Toast toast = Toast.makeText(getActivity(), "Created new Location", Toast.LENGTH_SHORT);
-        toast.show();
+        clickListener.onOkButtonClicked(location);
     }
 
+
+    public interface OnClickListener
+    { void onOkButtonClicked(Location location); }
 
 
     // Setters
     public void setName(EditText name)
     { this.name = name; }
+
+    public void setOwner(EditText owner)
+    { this.owner = owner; }
+
+    public void setRating(EditText rating)
+    { this.rating = rating; }
 
     public void setAddress(EditText address)
     { this.address = address; }
@@ -140,21 +142,15 @@ public class LocationEditFragment extends Fragment
     public void setComment(EditText comment)
     { this.comment = comment; }
 
-    public void setMediaUrl(EditText mediaUrl)
-    { this.mediaUrl = mediaUrl; }
-
-    public void setRating(EditText rating)
-    { this.rating = rating; }
-
-    public void setOwner(EditText owner)
-    { this.owner = owner; }
-
-    public void setCoordinates(EditText coordinates)
-    { this.coordinates = coordinates; }
-
     public void setContacts(EditText contacts)
     { this.contacts = contacts; }
 
+    public void setMediaUrl(EditText mediaUrl)
+    { this.mediaUrl = mediaUrl; }
+
     public void setCategories(EditText categories)
     { this.categories = categories; }
+
+    public void setCoordinates(EditText coordinates)
+    { this.coordinates = coordinates; }
 }

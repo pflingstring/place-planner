@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.models.locations.Location;
@@ -22,21 +21,8 @@ public class LocationTabbedActivity extends AppCompatActivity
     implements LocationEditFragment.OnClickListener
 {
     private static int position;
-
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
+    private SectionsPagerAdapter mSectionsPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,32 +30,25 @@ public class LocationTabbedActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_tabbed);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
+        // setup toolbar
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // setup adapter
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        if (mViewPager != null)
+            mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
+        if (tabLayout != null)
+            tabLayout.setupWithViewPager(mViewPager);
 
         position = getIntent().getIntExtra(LocationsMainActivity.CURRENT_POSITION, -1);
     }
-
-    public void navigateBack(View view)
-    { NavUtils.navigateUpFromSameTask(this); }
-
-    @Override
-    public void onSaveChanges(Location location)
-    {
-        navigateBack(null);
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -90,17 +69,22 @@ public class LocationTabbedActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
+    @Override
+    public void onOkButtonClicked(Location location)
+    {
+        NavUtils.navigateUpFromSameTask(this);
+    }
+
+    // `Cancel` button from EditFragment
+    public void navigateBack(View view)
+    { NavUtils.navigateUpFromSameTask(this); }
+
+
+    // returns a fragment corresponding to one of the tabs
     public class SectionsPagerAdapter extends FragmentPagerAdapter
     {
-
         public SectionsPagerAdapter(FragmentManager fm)
-        {
-            super(fm);
-        }
+        { super(fm); }
 
         @Override
         public Fragment getItem(int tabPosition)
