@@ -139,14 +139,18 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Cancel"
-                android:layout_weight="1"/>
+                android:text="@string/cancel"
+                android:layout_weight="1"
+                android:onClick="navigateBack"
+            />
             <Button
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="OK"/>
+                android:text="@string/ok"
+                android:onClick="saveChanges"
+            />
         </LinearLayout>
 
     </LinearLayout>

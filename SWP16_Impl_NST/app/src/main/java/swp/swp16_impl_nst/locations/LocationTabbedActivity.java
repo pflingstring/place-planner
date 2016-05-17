@@ -11,6 +11,8 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.models.locations.Location;
@@ -55,6 +57,18 @@ public class LocationTabbedActivity extends AppCompatActivity
         tabLayout.setupWithViewPager(mViewPager);
 
         position = getIntent().getIntExtra(LocationsMainActivity.CURRENT_POSITION, -1);
+    }
+
+    public void navigateBack(View view)
+    {
+        Toast toast = Toast.makeText(getApplicationContext(), "CANCEL tabbed", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    public void saveChanges(View view)
+    {
+        Toast toast = Toast.makeText(getApplicationContext(), "OK tabbed", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     @Override
