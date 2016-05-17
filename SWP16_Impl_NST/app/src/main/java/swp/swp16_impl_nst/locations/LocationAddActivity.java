@@ -1,5 +1,6 @@
 package swp.swp16_impl_nst.locations;
 
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,8 +20,7 @@ public class LocationAddActivity extends AppCompatActivity
 
     public void navigateBack(View view)
     {
-        Toast toast = Toast.makeText(getApplicationContext(), "CANCEL", Toast.LENGTH_SHORT);
-        toast.show();
+        NavUtils.navigateUpFromSameTask(this);
     }
 
     public void saveChanges(View view)

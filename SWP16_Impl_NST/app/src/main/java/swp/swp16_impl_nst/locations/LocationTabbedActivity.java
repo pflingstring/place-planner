@@ -1,6 +1,7 @@
 package swp.swp16_impl_nst.locations;
 
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -61,14 +62,11 @@ public class LocationTabbedActivity extends AppCompatActivity
 
     public void navigateBack(View view)
     {
-        Toast toast = Toast.makeText(getApplicationContext(), "CANCEL tabbed", Toast.LENGTH_SHORT);
-        toast.show();
+        NavUtils.navigateUpFromSameTask(this);
     }
 
     public void saveChanges(View view)
     {
-        Toast toast = Toast.makeText(getApplicationContext(), "OK tabbed", Toast.LENGTH_SHORT);
-        toast.show();
     }
 
     @Override
