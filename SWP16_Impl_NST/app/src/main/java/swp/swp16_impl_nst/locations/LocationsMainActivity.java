@@ -28,6 +28,7 @@ public class LocationsMainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locations_main);
 
+
         LocationProvider provider = new LocationProvider();
 
         recyclerView = (RecyclerView) findViewById(R.id.rview_locations);
@@ -84,8 +85,13 @@ public class LocationsMainActivity extends AppCompatActivity
                 Toast edit = Toast.makeText(getApplicationContext(), "Add item " + id, Toast.LENGTH_SHORT);
                 edit.show();
                 return true;
+            case R.id.menu_add_location:
+                Toast edit2 = Toast.makeText(getApplicationContext(), "Add item is pressed " + id, Toast.LENGTH_SHORT);
+                edit2.show();
+                return true;
+
         }
 
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 }

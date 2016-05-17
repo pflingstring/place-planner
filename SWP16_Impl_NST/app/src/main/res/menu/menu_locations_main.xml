@@ -9,5 +9,25 @@
         android:icon="@drawable/ic_category_default"
         app:showAsAction="ifRoom"
         />
+    <item
+        android:id="@+id/menu_add_location"
+        android:title="@string/add_location"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_search_location"
+        android:title="@string/search_location"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_sort_location"
+        android:title="@string/sort_location"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_import_location"
+        android:title="@string/import_location"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_export_location"
+        android:title="@string/export_location"
+        app:showAsAction="never"/>
 
 </menu>

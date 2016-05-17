@@ -7,15 +7,16 @@
     <string name="title_activity_location_details">View/Edit</string>
     <string name="section_format">TMP2</string>
 
-    <string name="delete_location">Delete</string>
-    <string name="add_location">Add</string>
-    <string name="edit_location">Edit</string>
+    <!--menu items-->
+    <string name="delete_location">Location löschen</string>
+    <string name="add_location">Location hinzufügen</string>
+    <string name="edit_location">Location bearbeiten</string>
     <string name="category_icon">Icon</string>
-    <string name="locations_anzeigen">Alle Locations_anzeigen</string>
-    <string name="location_hinzufuegen">Location Hinzufügen</string>
-    <string name="location_suchen">Location suchen</string>
-    <string name="locations_importieren">Locations importieren</string>
-    <string name="locations_exportieren">Locations exportieren</string>
+    <string name="show_location">Alle Locations_anzeigen</string>
+    <string name="search_location">Location suchen</string>
+    <string name="sort_location">Locations sortieren</string>
+    <string name="import_location">Locations importieren</string>
+    <string name="export_location">Locations exportieren</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
