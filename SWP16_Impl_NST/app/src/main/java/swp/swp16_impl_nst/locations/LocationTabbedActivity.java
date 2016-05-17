@@ -1,6 +1,7 @@
 package swp.swp16_impl_nst.locations;
 
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.models.locations.Location;
@@ -69,10 +71,18 @@ public class LocationTabbedActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    // edits the location at this.position
     @Override
     public void onOkButtonClicked(Location location)
     {
-        NavUtils.navigateUpFromSameTask(this);
+        LocationProvider.locations.remove(position);
+        LocationProvider.locations.add(position, location);
+
+        mSectionsPagerAdapter.notifyDataSetChanged();
+        mViewPager.setCurrentItem(0);
+
+        Toast toast = Toast.makeText(this, "Location edited", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     // `Cancel` button from EditFragment
@@ -93,6 +103,12 @@ public class LocationTabbedActivity extends AppCompatActivity
                 return LocationDetailsFragment.newInstance(LocationTabbedActivity.position);
             else
                 return LocationEditFragment.newInstance(LocationTabbedActivity.position);
+        }
+
+        @Override
+        public int getItemPosition(Object object)
+        {
+            return POSITION_NONE;
         }
 
         @Override

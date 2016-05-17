@@ -50,8 +50,6 @@ public class LocationDetailsFragment extends Fragment
     {
         super.onCreate(savedInstanceState);
 
-        int locationPosition = getArguments().getInt(CURRENT_POSITION);
-        location = LocationProvider.locations.get(locationPosition);
     }
 
     @Override
@@ -64,11 +62,13 @@ public class LocationDetailsFragment extends Fragment
     public void onStart()
     {
         super.onStart();
-        
+
+        int locationPosition = getArguments().getInt(CURRENT_POSITION);
+        location = LocationProvider.locations.get(locationPosition);
+
         if (getView() != null)
             LocationUtils.populateViews(this, getView(), location);
     }
-
 
     // setters
     public void setName(TextView name)

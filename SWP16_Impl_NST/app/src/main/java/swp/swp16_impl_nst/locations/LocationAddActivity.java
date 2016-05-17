@@ -4,6 +4,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.models.locations.Location;
@@ -23,6 +24,8 @@ public class LocationAddActivity extends AppCompatActivity
     public void onOkButtonClicked(Location location)
     {
         LocationProvider.locations.add(location);
+        Toast toast = Toast.makeText(this, "Location added", Toast.LENGTH_SHORT);
+        toast.show();
         navigateBack(null);
     }
 
