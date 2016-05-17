@@ -1,32 +1,49 @@
 package swp.swp16_impl_nst.locations;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.models.locations.Location;
+import swp.swp16_impl_nst.models.locations.fields.Address;
+import swp.swp16_impl_nst.models.locations.fields.Category;
+import swp.swp16_impl_nst.models.locations.fields.Contact;
+import swp.swp16_impl_nst.models.locations.fields.GpsCoordinates;
+import swp.swp16_impl_nst.models.locations.fields.Rating;
+import swp.swp16_impl_nst.models.locations.fields.User;
+import swp.swp16_impl_nst.utils.LocationUtils;
 
-public class LocationEditFragment extends Fragment 
+public class LocationEditFragment extends Fragment
+    implements View.OnClickListener
 {
+    public interface OnClickListener
+    { void onSaveChanges(Location location); }
+
     public LocationEditFragment()
     { /** Required empty public constructor */ }
-    
-    private final static String CURRENT_POSITION = LocationsMainActivity.CURRENT_POSITION;
-    private Location location;
+
+    private final static String CURRENT_POSITION =
+          LocationsMainActivity.CURRENT_POSITION;
+    OnClickListener clickListener;
+
     private EditText name;
+    private EditText owner;
+    private EditText rating;
     private EditText address;
     private EditText comment;
     private EditText mediaUrl;
-    private EditText rating;
-    private EditText owner;
-    private EditText coordinates;
     private EditText contacts;
+    private Location location;
     private EditText categories;
-    
+    private EditText coordinates;
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -47,49 +64,97 @@ public class LocationEditFragment extends Fragment
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null)
-            location = LocationProvider.locations.get(
-                    getArguments().getInt(CURRENT_POSITION));
+        {
+            int locationPosition = getArguments().getInt(CURRENT_POSITION);
+            location = LocationProvider.locations.get(locationPosition);
+        }
+    }
+
+    @Override
+    public void onAttach(Context context)
+    {
+        super.onAttach(context);
+
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception
+        try { clickListener = (OnClickListener) context; }
+        catch (ClassCastException e)
+        {
+            String className = context.getClass().getSimpleName();
+            throw new ClassCastException(className + " must implement OnClickListener");
+        }
     }
 
     @Override
     public View onCreateView (LayoutInflater inflater,
-            ViewGroup      container,
+            ViewGroup container,
             Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.fragment_location_edit, container, false);
-
-        // TODO: make a generic helper function; check for nulls
-        if (location != null)
-        {
-            name = (EditText) view.findViewById(R.id.name);
-            name.setText(location.getName());
-
-            address = (EditText) view.findViewById(R.id.address);
-            address.setText(location.getAddress().toString());
-
-            comment = (EditText) view.findViewById(R.id.comment);
-            comment.setText(location.getComment());
-
-            mediaUrl = (EditText) view.findViewById(R.id.mediaUrl);
-            mediaUrl.setText(location.getMediaUrl());
-
-            rating = (EditText) view.findViewById(R.id.rating);
-            rating.setText(location.getRating().toString());
-
-            owner = (EditText) view.findViewById(R.id.owner);
-            owner.setText(location.getOwner().toString());
-
-            coordinates = (EditText) view.findViewById(R.id.gpsCoordinates);
-            coordinates.setText(location.getCoordinates().toString());
-
-            contacts = (EditText) view.findViewById(R.id.contactDetails);
-            contacts.setText(location.getContact().toString());
-
-            categories = (EditText) view.findViewById(R.id.categories);
-            categories.setText(location.getCategory().toString());
-        }
+        Button button = (Button) view.findViewById(R.id.okButton);
+        button.setOnClickListener(this);
 
         return view;
     }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+
+        if (getView() != null)
+            LocationUtils.populateViews(this, getView(), location);
+    }
+
+    @Override
+    public void onClick(View view)
+    {
+        Location location = new Location.Builder(name.getText().toString())
+                .address(new Address())
+                .category(new Category(1, "LOL"))
+                .comment(comment.getText().toString())
+                .mediaUrl(mediaUrl.getText().toString())
+                .rating(Rating.NO_RATING)
+                .owner(new User())
+                .gpsCoordinates(new GpsCoordinates())
+                .contact(new Contact())
+                .build();
+
+        clickListener.onSaveChanges(location);
+
+        Toast toast = Toast.makeText(getActivity(), "Created new Location", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+
+
+    // Setters
+    public void setName(EditText name)
+    { this.name = name; }
+
+    public void setAddress(EditText address)
+    { this.address = address; }
+
+    public void setComment(EditText comment)
+    { this.comment = comment; }
+
+    public void setMediaUrl(EditText mediaUrl)
+    { this.mediaUrl = mediaUrl; }
+
+    public void setRating(EditText rating)
+    { this.rating = rating; }
+
+    public void setOwner(EditText owner)
+    { this.owner = owner; }
+
+    public void setCoordinates(EditText coordinates)
+    { this.coordinates = coordinates; }
+
+    public void setContacts(EditText contacts)
+    { this.contacts = contacts; }
+
+    public void setCategories(EditText categories)
+    { this.categories = categories; }
 }

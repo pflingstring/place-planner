@@ -19,6 +19,7 @@ import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.models.locations.Location;
 
 public class LocationTabbedActivity extends AppCompatActivity
+    implements LocationEditFragment.OnClickListener
 {
     private static int position;
 
@@ -61,13 +62,14 @@ public class LocationTabbedActivity extends AppCompatActivity
     }
 
     public void navigateBack(View view)
+    { NavUtils.navigateUpFromSameTask(this); }
+
+    @Override
+    public void onSaveChanges(Location location)
     {
-        NavUtils.navigateUpFromSameTask(this);
+        navigateBack(null);
     }
 
-    public void saveChanges(View view)
-    {
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)

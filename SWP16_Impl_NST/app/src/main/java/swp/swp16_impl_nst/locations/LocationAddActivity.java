@@ -4,11 +4,12 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import swp.swp16_impl_nst.R;
+import swp.swp16_impl_nst.models.locations.Location;
 
 public class LocationAddActivity extends AppCompatActivity
+    implements LocationEditFragment.OnClickListener
 {
 
     @Override
@@ -18,14 +19,13 @@ public class LocationAddActivity extends AppCompatActivity
         setContentView(R.layout.activity_location_add);
     }
 
-    public void navigateBack(View view)
+    @Override
+    public void onSaveChanges(Location location)
     {
-        NavUtils.navigateUpFromSameTask(this);
+        LocationProvider.locations.add(location);
+        navigateBack(null);
     }
 
-    public void saveChanges(View view)
-    {
-        Toast toast = Toast.makeText(getApplicationContext(), "OK", Toast.LENGTH_SHORT);
-        toast.show();
-    }
+    public void navigateBack(View view)
+    { NavUtils.navigateUpFromSameTask(this); }
 }
