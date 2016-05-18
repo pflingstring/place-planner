@@ -7,6 +7,9 @@
     <string name="title_activity_location_details">View/Edit</string>
     <string name="section_format">TMP2</string>
 
+    <!--activity titles-->
+    <string name="title_activity_location_import">Import Locations</string>
+
     <!--menu items-->
     <string name="delete_location">Location löschen</string>
     <string name="add_location">Location hinzufügen</string>

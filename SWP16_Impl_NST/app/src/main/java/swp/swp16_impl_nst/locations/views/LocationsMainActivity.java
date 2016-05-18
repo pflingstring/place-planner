@@ -89,8 +89,10 @@ public class LocationsMainActivity extends AppCompatActivity
         switch (item.getItemId())
         {
             case R.id.menu_add_location:
-                Toast edit = Toast.makeText(getApplicationContext(), "Add item " + id, Toast.LENGTH_SHORT);
-                edit.show();
+                startActivity(new Intent().setClass(getApplicationContext(), LocationAddActivity.class));
+                return true;
+            case R.id.menu_import_location:
+                startActivity(new Intent().setClass(getApplicationContext(), LocationImportActivity.class));
                 return true;
         }
 
