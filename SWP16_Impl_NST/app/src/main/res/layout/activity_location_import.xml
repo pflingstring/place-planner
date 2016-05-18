@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/import_location_fragment"
-        android:name="swp.swp16_impl_nst.locations.views.fragments.LocationEditFragment"
+        android:name="swp.swp16_impl_nst.locations.views.fragments.LocationImportFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
