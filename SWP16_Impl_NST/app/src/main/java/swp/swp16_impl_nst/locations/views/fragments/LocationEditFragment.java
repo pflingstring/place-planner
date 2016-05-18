@@ -27,15 +27,9 @@ public class LocationEditFragment extends Fragment
     private final static String CURRENT_POSITION = LocationsMainActivity.CURRENT_POSITION;
     OnClickListener clickListener;
     private EditText name;
-    private EditText owner;
-    private EditText rating;
-    private EditText address;
     private EditText comment;
     private EditText mediaUrl;
-    private EditText contacts;
     private Location location;
-    private EditText categories;
-    private EditText coordinates;
 
     public LocationEditFragment()
     { /** Required empty public constructor */ }
@@ -132,27 +126,10 @@ public class LocationEditFragment extends Fragment
     public void setName(EditText name)
     { this.name = name; }
 
-    public void setOwner(EditText owner)
-    { this.owner = owner; }
-
-    public void setRating(EditText rating)
-    { this.rating = rating; }
-
-    public void setAddress(EditText address)
-    { this.address = address; }
-
     public void setComment(EditText comment)
     { this.comment = comment; }
-
-    public void setContacts(EditText contacts)
-    { this.contacts = contacts; }
 
     public void setMediaUrl(EditText mediaUrl)
     { this.mediaUrl = mediaUrl; }
 
-    public void setCategories(EditText categories)
-    { this.categories = categories; }
-
-    public void setCoordinates(EditText coordinates)
-    { this.coordinates = coordinates; }
 }

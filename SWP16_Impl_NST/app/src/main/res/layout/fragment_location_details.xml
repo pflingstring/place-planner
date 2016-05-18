@@ -72,7 +72,7 @@
                 android:paddingRight="10dp"/>
 
             <TextView
-                android:id="@+id/address_number"
+                android:id="@+id/street_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>

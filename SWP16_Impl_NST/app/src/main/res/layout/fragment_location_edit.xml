@@ -8,127 +8,193 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:orientation="vertical"
         android:paddingLeft="10dp"
-        android:orientation="vertical">
+        android:paddingRight="10dp">
 
+
+        <!--location name-->
         <TextView
             style="@style/SmallAndItalic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:text="@string/name"/>
+
         <EditText
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/name"
-            android:id="@+id/name"/>
+            android:hint="@string/name"/>
         <View style="@style/Divider"/>
 
+
+        <!--Address-->
         <TextView
             style="@style/SmallAndItalic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:text="@string/address"/>
+
+        <!--Street and number-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/address_street"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/street"
+                android:paddingRight="10dp"/>
+
+            <EditText
+                android:id="@+id/street_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/str_number"/>
+        </LinearLayout>
+
+        <!--city and postal code-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/address_postal_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/postal_code"
+                android:inputType="number"
+                android:paddingRight="10dp"/>
+
+            <EditText
+                android:id="@+id/address_city"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/city"/>
+        </LinearLayout>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/address"
-            android:id="@+id/address"/>
+            android:hint="@string/country"/>
         <View style="@style/Divider"/>
 
-        <TextView
-            style="@style/SmallAndItalic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="@string/comment"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/comment"
-            android:id="@+id/comment"/>
-        <View style="@style/Divider"/>
 
-        <TextView
-            style="@style/SmallAndItalic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="@string/mediaUrl"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textUri"
-            android:hint="@string/mediaUrl"
-            android:id="@+id/mediaUrl"/>
-        <View style="@style/Divider"/>
-
-        <TextView
-            style="@style/SmallAndItalic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="@string/rating"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/rating"
-            android:id="@+id/rating"/>
-        <View style="@style/Divider"/>
-
-        <TextView
-            style="@style/SmallAndItalic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="@string/owner"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/owner"
-            android:id="@+id/owner"/>
-        <View style="@style/Divider"/>
-
+        <!--GPS Coordinates-->
         <TextView
             style="@style/SmallAndItalic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:text="@string/coordinates"/>
-        <EditText
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/coordinates"
-            android:id="@+id/gpsCoordinates"/>
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/gpsLat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/lat"
+                android:inputType="number"/>
+
+            <EditText
+                android:id="@+id/gpsLong"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/lng"
+                android:inputType="number"/>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/get_curr_position"/>
         <View style="@style/Divider"/>
 
+
+        <!--rating bar-->
+        <RatingBar
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"/>
+        <View style="@style/Divider"/>
+
+
+        <!--Contact details-->
         <TextView
             style="@style/SmallAndItalic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:text="@string/contactDetails"/>
+
         <EditText
+            android:id="@+id/web_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/contactDetails"
-            android:id="@+id/contactDetails"/>
+            android:hint="@string/web_address"/>
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="@string/email"/>
+        <EditText
+            android:id="@+id/phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="@string/phone_number"/>
         <View style="@style/Divider"/>
 
+
+        <!--Comment-->
         <TextView
             style="@style/SmallAndItalic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:text="@string/categories"/>
+            android:text="@string/comment"/>
+
         <EditText
+            android:id="@+id/comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/categories"
-            android:id="@+id/categories"/>
+            android:hint="@string/comment"/>
+        <View style="@style/Divider"/>
 
+
+        <!--MediaUrl-->
+        <TextView
+            style="@style/SmallAndItalic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="@string/mediaUrl"/>
+
+        <EditText
+            android:id="@+id/mediaUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/mediaUrl"
+            android:inputType="textUri"/>
+        <View style="@style/Divider"/>
+
+
+        <!--Buttons-->
         <LinearLayout
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="match_parent"
@@ -139,20 +205,18 @@
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/cancel"
                 android:layout_weight="1"
                 android:onClick="navigateBack"
-            />
+                android:text="@string/cancel"/>
+
             <Button
-                style="?android:attr/buttonBarButtonStyle"
                 android:id="@+id/okButton"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/ok"
-            />
+                android:text="@string/ok"/>
         </LinearLayout>
-
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
