@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,9 +30,13 @@ public class LocationsMainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locations_main);
-
-
         LocationProvider provider = new LocationProvider();
+
+        // setup toolbar
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
 
         recyclerView = (RecyclerView) findViewById(R.id.rview_locations);
         layoutManager = new LinearLayoutManager(this);
@@ -83,17 +88,12 @@ public class LocationsMainActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (item.getItemId())
         {
-            case R.id.add_location:
+            case R.id.menu_add_location:
                 Toast edit = Toast.makeText(getApplicationContext(), "Add item " + id, Toast.LENGTH_SHORT);
                 edit.show();
                 return true;
-            case R.id.menu_add_location:
-                Toast edit2 = Toast.makeText(getApplicationContext(), "Add item is pressed " + id, Toast.LENGTH_SHORT);
-                edit2.show();
-                return true;
-
         }
 
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 }
