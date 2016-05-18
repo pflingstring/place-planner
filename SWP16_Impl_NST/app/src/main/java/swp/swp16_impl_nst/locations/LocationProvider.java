@@ -18,13 +18,15 @@ public class LocationProvider
     public static void add(Location location)
     { locations.add(location); }
 
-
     // TODO: load locations from an external source, f.e. internal storage
     public static void loadLocations()
     {
-        Category inMarburg = new Category(1, "Marburg");
+        Address address1 = new Address("Giesonenweg", "10", "35037", "Marburg", null);
+        Address address2 = new Address("Elisabethstr.", "1", "35037", "Marburg", "Germany");
+        Category inMarburg = new Category(1, "Historical Buildings");
+
         Location l1 = new Location.Builder("Schloss")
-                .address(new Address())
+                .address(address1)
                 .category(inMarburg)
                 .comment("Auf dem Berg")
                 .mediaUrl("www.schloss.de")
@@ -35,7 +37,7 @@ public class LocationProvider
                 .build();
 
         Location l2 = new Location.Builder("E-Kirche")
-                .address(new Address())
+                .address(address2)
                 .category(inMarburg)
                 .comment("Unten in der Stadt")
                 .mediaUrl("www.schloss.de")
@@ -44,6 +46,7 @@ public class LocationProvider
                 .gpsCoordinates(new GpsCoordinates())
                 .contact(new Contact())
                 .build();
+
         locations.add(l2);
         locations.add(l1);
     }
