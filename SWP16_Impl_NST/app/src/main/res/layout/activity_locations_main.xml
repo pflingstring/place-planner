@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="swp.swp16_impl_nst.locations.LocationsMainActivity">
+    tools:context=".locations.views.LocationsMainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,13 +33,6 @@
             android:layout_height="match_parent">
         </android.support.v7.widget.RecyclerView>
     </LinearLayout>
-
-    <!--<fragment-->
-        <!--android:name="swp.swp16_impl_nst.locations.LocationDetailsFragment"-->
-        <!--android:id="@+id/main_content"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
-    <!--</fragment>-->
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

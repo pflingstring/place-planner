@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations;
+package swp.swp16_impl_nst.locations.views.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,13 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.models.locations.Location;
-import swp.swp16_impl_nst.models.locations.fields.Address;
-import swp.swp16_impl_nst.models.locations.fields.Category;
-import swp.swp16_impl_nst.models.locations.fields.Contact;
-import swp.swp16_impl_nst.models.locations.fields.GpsCoordinates;
-import swp.swp16_impl_nst.models.locations.fields.Rating;
-import swp.swp16_impl_nst.models.locations.fields.User;
+import swp.swp16_impl_nst.locations.LocationProvider;
+import swp.swp16_impl_nst.locations.views.LocationsMainActivity;
+import swp.swp16_impl_nst.locations.model.Location;
+import swp.swp16_impl_nst.locations.model.fields.Address;
+import swp.swp16_impl_nst.locations.model.fields.Category;
+import swp.swp16_impl_nst.locations.model.fields.Contact;
+import swp.swp16_impl_nst.locations.model.fields.GpsCoordinates;
+import swp.swp16_impl_nst.locations.model.fields.Rating;
+import swp.swp16_impl_nst.locations.model.fields.User;
 import swp.swp16_impl_nst.utils.LocationUtils;
 
 public class LocationEditFragment extends Fragment

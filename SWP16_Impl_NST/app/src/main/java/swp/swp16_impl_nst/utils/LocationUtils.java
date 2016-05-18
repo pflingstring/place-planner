@@ -7,9 +7,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.locations.LocationDetailsFragment;
-import swp.swp16_impl_nst.locations.LocationEditFragment;
-import swp.swp16_impl_nst.models.locations.Location;
+import swp.swp16_impl_nst.locations.views.fragments.LocationDetailsFragment;
+import swp.swp16_impl_nst.locations.views.fragments.LocationEditFragment;
+import swp.swp16_impl_nst.locations.model.Location;
 
 public class LocationUtils
 {

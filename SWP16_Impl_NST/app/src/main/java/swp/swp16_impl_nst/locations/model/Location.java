@@ -1,15 +1,15 @@
-package swp.swp16_impl_nst.models.locations;
+package swp.swp16_impl_nst.locations.model;
 
 import java.util.List;
 import java.util.UUID;
 import java.util.ArrayList;
 
-import swp.swp16_impl_nst.models.locations.fields.User;
-import swp.swp16_impl_nst.models.locations.fields.Rating;
-import swp.swp16_impl_nst.models.locations.fields.Contact;
-import swp.swp16_impl_nst.models.locations.fields.Address;
-import swp.swp16_impl_nst.models.locations.fields.Category;
-import swp.swp16_impl_nst.models.locations.fields.GpsCoordinates;
+import swp.swp16_impl_nst.locations.model.fields.User;
+import swp.swp16_impl_nst.locations.model.fields.Rating;
+import swp.swp16_impl_nst.locations.model.fields.Contact;
+import swp.swp16_impl_nst.locations.model.fields.Address;
+import swp.swp16_impl_nst.locations.model.fields.Category;
+import swp.swp16_impl_nst.locations.model.fields.GpsCoordinates;
 
 public class Location
 {

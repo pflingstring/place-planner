@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations;
+package swp.swp16_impl_nst.locations.views.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.models.locations.Location;
+import swp.swp16_impl_nst.locations.LocationProvider;
+import swp.swp16_impl_nst.locations.views.LocationsMainActivity;
+import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.utils.LocationUtils;
 
 public class LocationDetailsFragment extends Fragment

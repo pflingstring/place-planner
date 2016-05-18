@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.models.locations.fields;
+package swp.swp16_impl_nst.locations.model.fields;
 
 public enum Rating
 {

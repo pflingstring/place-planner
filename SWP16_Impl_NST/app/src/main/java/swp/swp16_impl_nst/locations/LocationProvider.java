@@ -3,13 +3,13 @@ package swp.swp16_impl_nst.locations;
 import java.util.ArrayList;
 import java.util.List;
 
-import swp.swp16_impl_nst.models.locations.Location;
-import swp.swp16_impl_nst.models.locations.fields.Address;
-import swp.swp16_impl_nst.models.locations.fields.Category;
-import swp.swp16_impl_nst.models.locations.fields.Contact;
-import swp.swp16_impl_nst.models.locations.fields.GpsCoordinates;
-import swp.swp16_impl_nst.models.locations.fields.Rating;
-import swp.swp16_impl_nst.models.locations.fields.User;
+import swp.swp16_impl_nst.locations.model.Location;
+import swp.swp16_impl_nst.locations.model.fields.Address;
+import swp.swp16_impl_nst.locations.model.fields.Category;
+import swp.swp16_impl_nst.locations.model.fields.Contact;
+import swp.swp16_impl_nst.locations.model.fields.GpsCoordinates;
+import swp.swp16_impl_nst.locations.model.fields.Rating;
+import swp.swp16_impl_nst.locations.model.fields.User;
 
 public class LocationProvider
 {

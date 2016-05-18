@@ -1,7 +1,4 @@
-package swp.swp16_impl_nst.models.locations.fields;
-
-import android.os.Parcel;
-import android.os.Parcelable;
+package swp.swp16_impl_nst.locations.model.fields;
 
 public class GpsCoordinates
 {
