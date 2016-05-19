@@ -29,6 +29,7 @@
         </activity>
         <activity
             android:name=".locations.views.LocationAddActivity"
+            android:label="@string/title_activity_location_add"
             android:parentActivityName=".locations.views.LocationsMainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -37,6 +38,14 @@
         <activity
             android:name=".locations.views.LocationImportActivity"
             android:label="@string/title_activity_location_import"
+            android:parentActivityName=".locations.views.LocationsMainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".locations.views.LocationsMainActivity" />
+        </activity>
+        <activity
+            android:name=".locations.views.LocationExportActivity"
+            android:label="@string/title_activity_location_export"
             android:parentActivityName=".locations.views.LocationsMainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

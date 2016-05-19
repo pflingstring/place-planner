@@ -8,7 +8,9 @@
     <string name="section_format">TMP2</string>
 
     <!--activity titles-->
-    <string name="title_activity_location_import">Import Locations</string>
+    <string name="title_activity_location_import">Locations importieren</string>
+    <string name="title_activity_location_export">Locations exportieren</string>
+    <string name="title_activity_location_add">Location hinzufügen</string>
 
     <!--menu items-->
     <string name="delete_location">Location löschen</string>
@@ -26,7 +28,7 @@
     <string name="edit">Edit</string>
 
     <!--location Details/Edit-->
-    <string name="cancel">Cancel</string>
+    <string name="cancel">Abbrechen</string>
     <string name="ok">OK</string>
 
     <string name="name">Name</string>
@@ -39,4 +41,12 @@
     <string name="contactDetails">Contacts</string>
     <string name="categories">Categories</string>
 
+    <!--location Import-->
+    <string name="importbutton">Importieren</string>
+    <string name="searchbutton">Durchsuchen</string>
+    <string name="importdatei">Hier zu importierenden Dateinamen eingeben</string>
+
+    <!--location Export-->
+    <string name="exporttext">Name der Datei, in welche die Daten exportiert werden: </string>
+    <string name="exportbutton">Exportieren</string>
 </resources>

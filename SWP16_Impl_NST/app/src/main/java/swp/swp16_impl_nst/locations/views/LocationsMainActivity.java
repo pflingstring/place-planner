@@ -94,6 +94,9 @@ public class LocationsMainActivity extends AppCompatActivity
             case R.id.menu_import_location:
                 startActivity(new Intent().setClass(getApplicationContext(), LocationImportActivity.class));
                 return true;
+            case R.id.menu_export_location:
+                startActivity(new Intent().setClass(getApplicationContext(), LocationExportActivity.class));
+                return true;
         }
 
         return super.onOptionsItemSelected(item);

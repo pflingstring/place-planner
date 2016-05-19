@@ -7,32 +7,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import swp.swp16_impl_nst.R;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.InputStream;
 
 /**
  * Created by Simon on 18.05.2016.
  */
-public class LocationImportFragment extends Fragment{
+public class LocationExportFragment extends Fragment {
 
-    public LocationImportFragment() {
+    public LocationExportFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_location_import, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_location_export, container, false);
 
         return rootView;
     }
-
-
- //   public JSONObject parseJSONData() {
- //       String data = null;
- //       JSONObject JSONObject = null;
-
- //   }
-
 }

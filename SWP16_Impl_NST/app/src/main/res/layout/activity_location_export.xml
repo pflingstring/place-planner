@@ -8,8 +8,8 @@
     android:paddingRight="16dp">
 
     <fragment
-        android:id="@+id/import_location_fragment"
-        android:name="swp.swp16_impl_nst.locations.views.fragments.LocationImportFragment"
+        android:id="@+id/export_location_fragment"
+        android:name="swp.swp16_impl_nst.locations.views.fragments.LocationExportFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">

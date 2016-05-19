@@ -5,26 +5,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
 import swp.swp16_impl_nst.R;
-
 
 /**
  * Created by Simon on 18.05.2016.
  */
-public class LocationImportActivity extends AppCompatActivity{
+public class LocationExportActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_location_import);
+        setContentView(R.layout.activity_location_export);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_location_export, menu);
+        getMenuInflater().inflate(R.menu.menu_location_import, menu);
         return true;
     }
 
