@@ -65,10 +65,14 @@ public class LocationTabbedActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
-        if (id == R.id.action_settings)
+        if (id == R.id.delete_location)
         {
-            return true;
+            LocationProvider.locations.remove(position);
+            Toast toast = Toast.makeText(this, "Location Deleted", Toast.LENGTH_SHORT);
+            toast.show();
+            navigateBack(null);
         }
+
 
         return super.onOptionsItemSelected(item);
     }
