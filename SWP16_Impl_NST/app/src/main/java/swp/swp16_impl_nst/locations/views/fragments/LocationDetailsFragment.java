@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import swp.swp16_impl_nst.R;
@@ -18,14 +19,13 @@ public class LocationDetailsFragment extends Fragment
     private final static String CURRENT_POSITION = LocationsMainActivity.CURRENT_POSITION;
     private Location location;
     private TextView name;
-    private TextView owner;
-    private TextView rating;
-    private TextView address;
-    private TextView comment;
-    private TextView mediaUrl;
-    private TextView contacts;
-    private TextView categories;
-    private TextView coordinates;
+    private TextView country;
+    private TextView address_city;
+    private TextView address_street;
+    private TextView address_number;
+    private TextView category_main_name;
+    private TextView address_postal_code;
+    private RatingBar ratingBar;
 
     public LocationDetailsFragment()
     { /** Required empty public constructor */ }
@@ -51,7 +51,6 @@ public class LocationDetailsFragment extends Fragment
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -72,32 +71,29 @@ public class LocationDetailsFragment extends Fragment
             LocationUtils.populateViews(this, getView(), location);
     }
 
+
     // setters
     public void setName(TextView name)
     { this.name = name; }
 
-    public void setOwner(TextView owner)
-    { this.owner = owner; }
+    public void setCountry(TextView country)
+    { this.country = country; }
 
-    public void setRating(TextView rating)
-    { this.rating = rating; }
+    public void setRatingBar(RatingBar ratingBar)
+    { this.ratingBar = ratingBar; }
 
-    public void setAddress(TextView address)
-    { this.address = address; }
+    public void setAddress_city(TextView address_city)
+    { this.address_city = address_city; }
 
-    public void setComment(TextView comment)
-    { this.comment = comment; }
+    public void setAddress_street(TextView address_street)
+    { this.address_street = address_street; }
 
-    public void setContacts(TextView contacts)
-    { this.contacts = contacts; }
+    public void setAddress_number(TextView address_number)
+    { this.address_number = address_number; }
 
-    public void setMediaUrl(TextView mediaUrl)
-    { this.mediaUrl = mediaUrl; }
+    public void setCategory_main_name(TextView category_main_name)
+    { this.category_main_name = category_main_name; }
 
-    public void setCategories(TextView categories)
-    { this.categories = categories; }
-
-    public void setCoordinates(TextView coordinates)
-    { this.coordinates = coordinates; }
-
+    public void setAddress_postal_code(TextView address_postal_code)
+    { this.address_postal_code = address_postal_code; }
 }

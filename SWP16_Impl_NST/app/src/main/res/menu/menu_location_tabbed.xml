@@ -13,4 +13,12 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/delete_location"
+        android:orderInCategory="100"
+        android:title="@string/delete_location"
+        android:icon="@drawable/ic_category_default"
+        app:showAsAction="ifRoom"/>
+
 </menu>

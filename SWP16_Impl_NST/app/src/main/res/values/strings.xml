@@ -30,6 +30,19 @@
     <!--location Details/Edit-->
     <string name="cancel">Abbrechen</string>
     <string name="ok">OK</string>
+    <string name="street">Street</string>
+    <string name="str_number">Str. Number</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="city">City</string>
+    <string name="country">Country</string>
+    <string name="lat">Latitude</string>
+    <string name="lng">Longitude</string>
+    <string name="get_curr_position">Get current position</string>
+    <string name="web_address">Web Address</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+
+
 
     <string name="name">Name</string>
     <string name="comment">Comment</string>

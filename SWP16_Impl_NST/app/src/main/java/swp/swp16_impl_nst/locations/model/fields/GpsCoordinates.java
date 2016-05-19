@@ -3,9 +3,18 @@ package swp.swp16_impl_nst.locations.model.fields;
 public class GpsCoordinates
 {
     private double lat;
-    private double lon;
+    private double lng;
 
-    public GpsCoordinates()
+    public GpsCoordinates(double _lat, double _lng)
     {
+        lat = _lat;
+        lng = _lng;
     }
+
+    public double getLat()
+    { return lat; }
+
+    public double getLng()
+    { return lng; }
+
 }
