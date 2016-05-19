@@ -19,10 +19,10 @@ public class Location
     private String mediaUrl;
 
     private User owner;
-    private Rating rating;
+    private float rating;
     private Contact contact;
     private Address address;
-    private GpsCoordinates coordinates;
+    private GpsCoordinates gpsCoordinates;
 
     private final long createdTimestamp = System.currentTimeMillis();
     private long  lastModifiedTimestamp = createdTimestamp;
@@ -43,7 +43,7 @@ public class Location
         mediaUrl = builder.mediaUrl;
         categories.add(builder.category);
         id = UUID.randomUUID().toString();
-        coordinates = builder.coordinates;
+        gpsCoordinates = builder.coordinates;
     }
 
 
@@ -57,7 +57,7 @@ public class Location
 
         // optional parameters
         private User owner;
-        private Rating rating;
+        private float rating;
         private String comment;
         private String mediaUrl;
         private Contact contact;
@@ -74,8 +74,8 @@ public class Location
         public Builder mediaUrl(String url)
         { mediaUrl = url; return this; }
 
-        public Builder rating(Rating rating)
-        { this.rating = rating; return this; }
+        public Builder rating(float stars)
+        { this.rating = stars; return this; }
 
         public Builder address(Address address)
         { this.address = address; return this; }
@@ -108,7 +108,7 @@ public class Location
     public String getName()
     { return this.name; }
 
-    public Rating getRating()
+    public float getRating()
     { return rating; }
 
     public String getComment()
@@ -126,7 +126,7 @@ public class Location
     public Category getCategory()
     { return this.categories.get(0); }      // TODO: return all categories
 
-    public GpsCoordinates getCoordinates()
-    { return coordinates; }
+    public GpsCoordinates getGpsCoordinates()
+    { return gpsCoordinates; }
 }
 

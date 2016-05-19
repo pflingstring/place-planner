@@ -52,7 +52,7 @@
                 android:paddingRight="10dp"/>
 
             <EditText
-                android:id="@+id/street_number"
+                android:id="@+id/address_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/str_number"/>
@@ -81,6 +81,7 @@
         </LinearLayout>
 
         <EditText
+            android:id="@+id/address_country"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/country"/>
@@ -126,7 +127,7 @@
 
         <!--rating bar-->
         <RatingBar
-            android:id="@+id/rating"
+            android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numStars="5"/>

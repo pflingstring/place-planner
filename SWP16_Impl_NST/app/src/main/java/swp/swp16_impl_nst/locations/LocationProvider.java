@@ -30,10 +30,8 @@ public class LocationProvider
                 .category(inMarburg)
                 .comment("Auf dem Berg")
                 .mediaUrl("www.schloss.de")
-                .rating(Rating.NO_RATING)
+                .rating(5)
                 .owner(new User())
-                .gpsCoordinates(new GpsCoordinates())
-                .contact(new Contact())
                 .build();
 
         Location l2 = new Location.Builder("E-Kirche")
@@ -41,10 +39,8 @@ public class LocationProvider
                 .category(inMarburg)
                 .comment("Unten in der Stadt")
                 .mediaUrl("www.schloss.de")
-                .rating(Rating.NO_RATING)
+                .rating(3)
                 .owner(new User())
-                .gpsCoordinates(new GpsCoordinates())
-                .contact(new Contact())
                 .build();
 
         locations.add(l2);
