@@ -13,7 +13,8 @@
     <item
         android:id="@+id/menu_search_location"
         android:title="@string/search_location"
-        app:showAsAction="never"/>
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_sort_location"
         android:title="@string/sort_location"
