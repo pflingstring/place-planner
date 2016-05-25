@@ -1,0 +1,129 @@
+<Project>
+  <Name>place-planner</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>place-planner</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Location</Name>
+        <Access>Public</Access>
+        <Location left="49" top="174" />
+        <Size width="162" height="366" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">address Address</Member>
+        <Member type="Field">category Category</Member>
+        <Member type="Field">contact Contact</Member>
+        <Member type="Field">gpscoordinates GpsCoordinates</Member>
+        <Member type="Field">float Rating</Member>
+        <Member type="Field">user Owner</Member>
+        <Member type="Field">String Name</Member>
+        <Member type="Field">Comment String</Member>
+        <Member type="Method">public void LocationAdd()</Member>
+        <Member type="Method">public location LocationEdit()</Member>
+        <Member type="Method">public void LocationDelete()</Member>
+        <Member type="Method">public location LocationShow()</Member>
+        <Member type="Method">public list LocationImport()</Member>
+        <Member type="Method">public void LocationExport()</Member>
+        <Member type="Method">public list LocationSearch()</Member>
+        <Member type="Method">public list LocationSort()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Address</Name>
+        <Access>Public</Access>
+        <Location left="311" top="174" />
+        <Size width="162" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">String City</Member>
+        <Member type="Field">String Number</Member>
+        <Member type="Field">String Street</Member>
+        <Member type="Field">String Country</Member>
+        <Member type="Field">String Postal_code</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Category</Name>
+        <Access>Public</Access>
+        <Location left="311" top="366" />
+        <Size width="162" height="117" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int Icon</Member>
+        <Member type="Field">String name</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Contact</Name>
+        <Access>Public</Access>
+        <Location left="311" top="517" />
+        <Size width="162" height="131" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">String WebAdress</Member>
+        <Member type="Field">String Email</Member>
+        <Member type="Field">String PhoneNumber</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>GpsCoordinates</Name>
+        <Access>Public</Access>
+        <Location left="311" top="668" />
+        <Size width="162" height="113" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Double Lat</Member>
+        <Member type="Field">Double Ing</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>User</Name>
+        <Access>Public</Access>
+        <Location left="311" top="804" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">String ID</Member>
+        <Member type="Field">String Name</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="1" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="2" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="3" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="4" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="5" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
