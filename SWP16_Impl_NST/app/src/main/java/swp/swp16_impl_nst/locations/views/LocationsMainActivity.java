@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import swp.swp16_impl_nst.R;
+import swp.swp16_impl_nst.locations.LocationGson;
 import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.LocationsAdapter;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
@@ -31,6 +32,7 @@ public class LocationsMainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locations_main);
         LocationProvider provider = new LocationProvider();
+        LocationGson gson = new LocationGson();
 
         // setup toolbar
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
@@ -73,6 +75,7 @@ public class LocationsMainActivity extends AppCompatActivity
                 }
             });
         }
+
     }
 
     @Override

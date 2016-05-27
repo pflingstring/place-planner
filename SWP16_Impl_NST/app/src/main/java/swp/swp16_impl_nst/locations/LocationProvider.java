@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import swp.swp16_impl_nst.locations.model.Location;
-import swp.swp16_impl_nst.locations.model.fields.Address;
-import swp.swp16_impl_nst.locations.model.fields.Category;
-import swp.swp16_impl_nst.locations.model.fields.Contact;
-import swp.swp16_impl_nst.locations.model.fields.GpsCoordinates;
-import swp.swp16_impl_nst.locations.model.fields.Rating;
-import swp.swp16_impl_nst.locations.model.fields.User;
+import swp.swp16_impl_nst.locations.model.Address;
+import swp.swp16_impl_nst.locations.model.Category;
+import swp.swp16_impl_nst.locations.model.Contact;
+import swp.swp16_impl_nst.locations.model.GpsCoordinates;
+import swp.swp16_impl_nst.locations.model.Rating;
+import swp.swp16_impl_nst.locations.model.User;
 
 public class LocationProvider
 {
@@ -21,6 +21,10 @@ public class LocationProvider
     // TODO: load locations from an external source, f.e. internal storage
     public static void loadLocations()
     {
+
+
+
+
         Address address1 = new Address("Giesonenweg", "10", "35037", "Marburg", null);
         Address address2 = new Address("Elisabethstr.", "1", "35037", "Marburg", "Germany");
         Category inMarburg = new Category(1, "Historical Buildings");
