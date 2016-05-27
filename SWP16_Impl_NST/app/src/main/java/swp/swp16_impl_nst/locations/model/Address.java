@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations.model.fields;
+package swp.swp16_impl_nst.locations.model;
 
 public class Address
 {

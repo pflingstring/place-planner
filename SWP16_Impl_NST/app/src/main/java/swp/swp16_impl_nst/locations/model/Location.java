@@ -4,13 +4,6 @@ import java.util.List;
 import java.util.UUID;
 import java.util.ArrayList;
 
-import swp.swp16_impl_nst.locations.model.fields.User;
-import swp.swp16_impl_nst.locations.model.fields.Rating;
-import swp.swp16_impl_nst.locations.model.fields.Contact;
-import swp.swp16_impl_nst.locations.model.fields.Address;
-import swp.swp16_impl_nst.locations.model.fields.Category;
-import swp.swp16_impl_nst.locations.model.fields.GpsCoordinates;
-
 public class Location
 {
     private String id;
