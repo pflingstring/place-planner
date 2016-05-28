@@ -94,6 +94,17 @@ public class Location
         }
     }
 
+    @Override
+    public String toString()
+    {
+        String result = "";
+        result += "name: "    + name + "\n";
+        result += "address: " + address.getStreet()      + " " + address.getNumber() + "\n"
+                + address.getPostal_code() + " " + address.getCity()   + "\n"
+                + address.getCountry();
+        return result;
+    }
+
     // Getters
     public User getOwner()
     { return owner; }

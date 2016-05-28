@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.locations.LocationGson;
 import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.LocationsAdapter;
+import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
 public class LocationsMainActivity extends AppCompatActivity
@@ -32,7 +34,14 @@ public class LocationsMainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locations_main);
         LocationProvider provider = new LocationProvider();
-        LocationGson gson = new LocationGson();
+        LocationGson gson = new LocationGson(getApplicationContext());
+
+        String allLocations = "";
+        for (Location l : LocationProvider.locations)
+                allLocations += l.toString() + "\n";
+
+        gson.writeToFile(allLocations, "all");
+        Log.i("!FILE", allLocations);
 
         // setup toolbar
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
