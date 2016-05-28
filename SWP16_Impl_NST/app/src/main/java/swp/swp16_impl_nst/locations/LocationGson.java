@@ -1,6 +1,5 @@
 package swp.swp16_impl_nst.locations;
 
-import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
 
@@ -25,18 +24,19 @@ import java.util.List;
 
 public class LocationGson
 {
-    private Context context;
-    public LocationGson(Context context)
-    {
-        this.context = context;
-    }
+    private final static File PATH_DIR = getDataSetPath(".place-planner");
 
-
-    public void writeToFile(String data, String fileName)
+    public static void writeToFile(String data, String fileName)
     {
         try
         {
-            OutputStream stream = new FileOutputStream(getJsonDir(fileName));
+            File dir = getDataSetPath(".place_planner_OK");
+            dir.mkdirs();
+            File file = new File(dir, fileName);
+
+
+            Log.i("@@@FILE@@@", file.getPath() + "<>||<> " + file.getAbsolutePath());
+            OutputStream stream = new FileOutputStream(file);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(stream);
             outputStreamWriter.write(data);
             outputStreamWriter.close();
@@ -47,30 +47,29 @@ public class LocationGson
         }
     }
 
-    public String readFromFile()
+    public static String readFromFile(String fileName)
     {
-
-        String ret = "";
+        String result = "";        Log.i("@@@FILE@@@", )
 
         try
         {
-            InputStream inputStream = new FileInputStream(getJsonDir("json"));
+            File dir = getDataSetPath(".place_planner_OK");
+            dir.mkdirs();
+            File file = new File(dir, fileName);
 
-            if (inputStream != null)
+            InputStream inputStream = new FileInputStream(file);
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String receiveString = "";
+            StringBuilder stringBuilder = new StringBuilder();
+
+            while ((receiveString = bufferedReader.readLine()) != null)
             {
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String receiveString = "";
-                StringBuilder stringBuilder = new StringBuilder();
-
-                while ((receiveString = bufferedReader.readLine()) != null)
-                {
-                    stringBuilder.append(receiveString);
-                }
-
-                inputStream.close();
-                ret = stringBuilder.toString();
+                stringBuilder.append(receiveString);
             }
+
+            inputStream.close();
+            result = stringBuilder.toString();
         }
         catch (FileNotFoundException e)
         {
@@ -81,13 +80,22 @@ public class LocationGson
             Log.e("login activity", "Can not read file: " + e.toString());
         }
 
-        return ret;
+        Log.i("!FILE_gson_readFF", result);
+        return result;
     }
 
-    public static File getJsonDir(String jsonDir)
+    public static File getDataSetPath(String path)
     {
-        return new File(Environment
-                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), jsonDir);
+        File file =  new File(Environment
+                .getExternalStoragePublicDirectory(Environment.DIRECTORY_PODCASTS), path);
+
+        if (!file.mkdirs())
+            Log.e("!FILE_ERROR", "Dir norrrr created" + file.getAbsolutePath());
+        else
+            Log.i("!FILE", "Dir maybe? created" + file.getName());
+
+
+        return file;
     }
 
     static

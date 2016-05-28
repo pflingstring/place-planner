@@ -1,6 +1,7 @@
 package swp.swp16_impl_nst.locations.views;
 
 import android.content.Intent;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +12,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+
+import java.io.File;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.locations.LocationGson;
@@ -34,14 +36,17 @@ public class LocationsMainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locations_main);
         LocationProvider provider = new LocationProvider();
-        LocationGson gson = new LocationGson(getApplicationContext());
 
-        String allLocations = "";
-        for (Location l : LocationProvider.locations)
-                allLocations += l.toString() + "\n";
 
-        gson.writeToFile(allLocations, "all");
-        Log.i("!FILE", allLocations);
+        LocationGson.writeToFile("IMA ELEPHant HA", "eleph_loc.json");
+        Log.i("@FILE",
+                "\n\n\n" +
+                        "" +
+                LocationGson.readFromFile("eleph_loc.json"));
+
+
+
+
 
         // setup toolbar
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));

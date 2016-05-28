@@ -1,14 +1,11 @@
 package swp.swp16_impl_nst.locations;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.locations.model.Address;
 import swp.swp16_impl_nst.locations.model.Category;
-import swp.swp16_impl_nst.locations.model.Contact;
-import swp.swp16_impl_nst.locations.model.GpsCoordinates;
-import swp.swp16_impl_nst.locations.model.Rating;
 import swp.swp16_impl_nst.locations.model.User;
 
 public class LocationProvider
@@ -21,7 +18,6 @@ public class LocationProvider
     // TODO: load locations from an external source, f.e. internal storage
     public static void loadLocations()
     {
-
 
 
 
