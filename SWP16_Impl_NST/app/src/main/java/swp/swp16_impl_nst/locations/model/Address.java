@@ -6,7 +6,7 @@ public class Address
     private String number;
     private String street;
     private String country;
-    private String postal_code;
+    private String zip;
 
     public Address() {}
 
@@ -17,13 +17,13 @@ public class Address
         street = _street;
         number = _number;
         country = _country;
-        postal_code = _postal_code;
+        zip = _postal_code;
     }
 
 
     // getters
-    public String getPostal_code()
-    { return postal_code; }
+    public String getZip()
+    { return zip; }
 
     public String getStreet()
     { return street; }

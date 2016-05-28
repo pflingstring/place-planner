@@ -2,23 +2,23 @@ package swp.swp16_impl_nst.locations.model;
 
 public class Contact
 {
-    private String webAddress;
+    private String web;
     private String email;
-    private String phoneNumber;
+    private String telephone;
 
     public Contact(String _webAddress, String _email, String _phoneNumber)
     {
-        webAddress = _webAddress;
+        web = _webAddress;
         email = _email;
-        phoneNumber = _phoneNumber;
+        telephone = _phoneNumber;
     }
 
-    public String getPhoneNumber()
-    { return phoneNumber; }
+    public String getTelephone()
+    { return telephone; }
 
     public String getEmail()
     { return email; }
 
-    public String getWebAddress()
-    { return webAddress; }
+    public String getWeb()
+    { return web; }
 }

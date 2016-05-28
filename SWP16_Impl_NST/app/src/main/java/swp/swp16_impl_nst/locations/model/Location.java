@@ -12,10 +12,10 @@ public class Location
     private String mediaUrl;
 
     private User owner;
-    private float rating;
-    private Contact contact;
+    private Rating rating;
+    private Contact contactDetails;
     private Address address;
-    private GpsCoordinates gpsCoordinates;
+    private GpsCoordinates coordinates;
 
     private final long createdTimestamp = System.currentTimeMillis();
     private long  lastModifiedTimestamp = createdTimestamp;
@@ -31,12 +31,12 @@ public class Location
         owner   = builder.owner;
         rating  = builder.rating;
         address = builder.address;
-        contact  = builder.contact;
+        contactDetails = builder.contact;
         comment  = builder.comment;
         mediaUrl = builder.mediaUrl;
         categories.add(builder.category);
         id = UUID.randomUUID().toString();
-        gpsCoordinates = builder.coordinates;
+        coordinates = builder.coordinates;
     }
 
 
@@ -50,7 +50,7 @@ public class Location
 
         // optional parameters
         private User owner;
-        private float rating;
+        private Rating rating;
         private String comment;
         private String mediaUrl;
         private Contact contact;
@@ -67,7 +67,7 @@ public class Location
         public Builder mediaUrl(String url)
         { mediaUrl = url; return this; }
 
-        public Builder rating(float stars)
+        public Builder rating(Rating stars)
         { this.rating = stars; return this; }
 
         public Builder address(Address address)
@@ -98,10 +98,7 @@ public class Location
     public String toString()
     {
         String result = "";
-        result += "name: "    + name + "\n";
-        result += "address: " + address.getStreet()      + " " + address.getNumber() + "\n"
-                + address.getPostal_code() + " " + address.getCity()   + "\n"
-                + address.getCountry();
+        result += this.name + this.comment;
         return result;
     }
 
@@ -112,7 +109,7 @@ public class Location
     public String getName()
     { return this.name; }
 
-    public float getRating()
+    public Rating getRating()
     { return rating; }
 
     public String getComment()
@@ -121,8 +118,8 @@ public class Location
     public String getMediaUrl()
     { return mediaUrl; }
 
-    public Contact getContact()
-    { return contact; }
+    public Contact getContactDetails()
+    { return contactDetails; }
 
     public Address getAddress()
     { return address; }
@@ -130,7 +127,7 @@ public class Location
     public Category getCategory()
     { return this.categories.get(0); }      // TODO: return all categories
 
-    public GpsCoordinates getGpsCoordinates()
-    { return gpsCoordinates; }
+    public GpsCoordinates getCoordinates()
+    { return coordinates; }
 }
 
