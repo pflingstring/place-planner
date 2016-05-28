@@ -40,17 +40,17 @@ public class LocationUtils
 
             if (location != null)
             {
-                if (location.getContact() != null)
+                if (location.getContactDetails() != null)
                 {
-                    email.setText(location.getContact().getEmail());
-                    web_address.setText(location.getContact().getWebAddress());
-                    phone_number.setText(location.getContact().getPhoneNumber());
+                    email.setText(location.getContactDetails().getEmail());
+                    web_address.setText(location.getContactDetails().getWeb());
+                    phone_number.setText(location.getContactDetails().getTelephone());
                 }
 
-                if (location.getGpsCoordinates() != null)
+                if (location.getCoordinates() != null)
                 {
-                    gpsLat.setText(String.valueOf(location.getGpsCoordinates().getLat()));
-                    gpsLong.setText(String.valueOf(location.getGpsCoordinates().getLng()));
+                    gpsLat.setText(String.valueOf(location.getCoordinates().getLon()));
+                    gpsLong.setText(String.valueOf(location.getCoordinates().getLat()));
                 }
 
                 if (location.getAddress() != null)
@@ -59,10 +59,10 @@ public class LocationUtils
                     address_street.setText(location.getAddress().getStreet());
                     address_number.setText(location.getAddress().getNumber());
                     address_country.setText(location.getAddress().getCountry());
-                    address_postal_code.setText(location.getAddress().getPostal_code());
+                    address_postal_code.setText(location.getAddress().getZip());
                 }
 
-                ratingBar.setRating(location.getRating());
+                ratingBar.setRating(2);
 
                 name.setText(location.getName());
                 comment.setText(location.getComment());
@@ -98,12 +98,12 @@ public class LocationUtils
             if (location != null)
             {
                 name.setText(location.getName());
-                ratingBar.setNumStars((int) location.getRating() + 1);
+                ratingBar.setNumStars(2);
                 address_city.setText(location.getAddress().getCity());
                 address_street.setText(location.getAddress().getStreet());
                 address_number.setText(location.getAddress().getNumber());
                 category_main_name.setText(location.getCategory().getName());
-                address_postal_code.setText(location.getAddress().getPostal_code());
+                address_postal_code.setText(location.getAddress().getZip());
 
                 String country_str = location.getAddress().getCountry();
                 if (country_str == null)

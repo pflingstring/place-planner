@@ -181,7 +181,7 @@ public class LocationEditFragment extends Fragment
                 .contact(contact)
                 .comment(comment)
                 .mediaUrl(mediaUrl)
-                .rating(ratingBarView.getRating())
+                .rating(Rating.NO_RATING)
                 .category(new Category(1, "Default Category"))     // TODO: implement category
                 .build();
 

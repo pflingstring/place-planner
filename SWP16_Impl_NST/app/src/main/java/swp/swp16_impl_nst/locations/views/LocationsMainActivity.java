@@ -13,11 +13,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.File;
+import java.lang.reflect.Type;
+import java.util.List;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.locations.LocationGson;
 import swp.swp16_impl_nst.locations.LocationProvider;
+import swp.swp16_impl_nst.locations.LocationStorage;
 import swp.swp16_impl_nst.locations.LocationsAdapter;
 import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
@@ -37,12 +47,34 @@ public class LocationsMainActivity extends AppCompatActivity
         setContentView(R.layout.activity_locations_main);
         LocationProvider provider = new LocationProvider();
 
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(LocationProvider.locations);
 
-        LocationGson.writeToFile("IMA ELEPHant HA", "eleph_loc.json");
-        Log.i("@FILE",
-                "\n\n\n" +
-                        "" +
-                LocationGson.readFromFile("eleph_loc.json"));
+        LocationStorage.writeToFile(json, "def");
+
+
+        Type type = (new TypeToken<List<Location>>(){}).getType();
+        String jsonStr = LocationStorage.readFromFile("test-locations-ms1.json");
+
+        List<Location> parsedLocations = null;
+
+        try
+        {
+            JSONObject jsonObject = new JSONObject(jsonStr);
+            String jsonArray = jsonObject.getJSONArray("locations").toString();
+            parsedLocations = gson.fromJson(jsonArray, type);
+        }
+
+        catch (JSONException e)
+        {
+            e.printStackTrace();
+            Log.e("!FILE_ERROR", e.getMessage());
+        }
+
+
+
+
+//        List<Location> parsedLocations = gson.fromJson(LocationStorage.readFromFile("test-locations-ms1.json"), type);
 
 
 
@@ -57,7 +89,7 @@ public class LocationsMainActivity extends AppCompatActivity
         recyclerView = (RecyclerView) findViewById(R.id.rview_locations);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new LocationsAdapter(LocationProvider.locations);
+        adapter = new LocationsAdapter(parsedLocations);
         recyclerView.setAdapter(adapter);
 
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
