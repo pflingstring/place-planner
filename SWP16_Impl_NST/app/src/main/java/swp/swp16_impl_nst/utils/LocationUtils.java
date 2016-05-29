@@ -98,18 +98,25 @@ public class LocationUtils
             if (location != null)
             {
                 name.setText(location.getName());
-                ratingBar.setNumStars(2);
-                address_city.setText(location.getAddress().getCity());
-                address_street.setText(location.getAddress().getStreet());
-                address_number.setText(location.getAddress().getNumber());
                 category_main_name.setText(location.getCategory().getName());
-                address_postal_code.setText(location.getAddress().getZip());
 
-                String country_str = location.getAddress().getCountry();
-                if (country_str == null)
-                    country.setVisibility(View.GONE);
-                else
-                    country.setText(country_str);
+                if (location.getRating() == null)
+                    ratingBar.setNumStars(0);
+
+                if (location.getAddress() != null)
+                {
+                    address_city.setText(location.getAddress().getCity());
+                    address_street.setText(location.getAddress().getStreet());
+                    address_number.setText(location.getAddress().getNumber());
+                    address_postal_code.setText(location.getAddress().getZip());
+
+                    String country_str = location.getAddress().getCountry();
+                    if (country_str == null)
+                        country.setVisibility(View.GONE);
+                    else
+                        country.setText(country_str);
+                }
+
             }
 
             ((LocationDetailsFragment) fragment).setName(name);

@@ -1,35 +1,19 @@
 package swp.swp16_impl_nst.locations.views;
 
 import android.content.Intent;
-import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.File;
-import java.lang.reflect.Type;
-import java.util.List;
-
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.locations.LocationGson;
 import swp.swp16_impl_nst.locations.LocationProvider;
-import swp.swp16_impl_nst.locations.LocationStorage;
 import swp.swp16_impl_nst.locations.LocationsAdapter;
-import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
 public class LocationsMainActivity extends AppCompatActivity
@@ -45,51 +29,16 @@ public class LocationsMainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locations_main);
-        LocationProvider provider = new LocationProvider();
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String json = gson.toJson(LocationProvider.locations);
-
-        LocationStorage.writeToFile(json, "def");
-
-
-        Type type = (new TypeToken<List<Location>>(){}).getType();
-        String jsonStr = LocationStorage.readFromFile("test-locations-ms1.json");
-
-        List<Location> parsedLocations = null;
-
-        try
-        {
-            JSONObject jsonObject = new JSONObject(jsonStr);
-            String jsonArray = jsonObject.getJSONArray("locations").toString();
-            parsedLocations = gson.fromJson(jsonArray, type);
-        }
-
-        catch (JSONException e)
-        {
-            e.printStackTrace();
-            Log.e("!FILE_ERROR", e.getMessage());
-        }
-
-
-
-
-//        List<Location> parsedLocations = gson.fromJson(LocationStorage.readFromFile("test-locations-ms1.json"), type);
-
-
-
-
 
         // setup toolbar
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
-
         recyclerView = (RecyclerView) findViewById(R.id.rview_locations);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new LocationsAdapter(parsedLocations);
+        adapter = new LocationsAdapter(LocationProvider.locations);
         recyclerView.setAdapter(adapter);
 
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(

@@ -1,5 +1,15 @@
 package swp.swp16_impl_nst.locations;
 
+import android.util.Log;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -59,6 +69,31 @@ public class LocationProvider
         locations.add(l1);
         locations.add(loc_orig_0);
         locations.add(loc_orig_1);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(LocationProvider.locations);
+
+        LocationStorage.writeToFile(json, "def");
+
+
+        Type type = (new TypeToken<List<Location>>(){}).getType();
+        String jsonStr = LocationStorage.readFromFile("test-locations-ms1.json");
+
+        List<Location> parsedLocations = null;
+
+        try
+        {
+            JSONObject jsonObject = new JSONObject(jsonStr);
+            String jsonArray = jsonObject.getJSONArray("locations").toString();
+            parsedLocations = gson.fromJson(jsonArray, type);
+            LocationProvider.locations.addAll(parsedLocations);
+        }
+
+        catch (JSONException e)
+        {
+            e.printStackTrace();
+            Log.e("!FILE_ERROR", e.getMessage());
+        }
     }
 
     // so that `loadLocations` only gets called once,
