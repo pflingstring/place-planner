@@ -58,12 +58,5 @@ public class LocationProvider
         String json = gson.toJson(locations, type);
         LocationStorage.writeToFile(json, fileName);
     }
-
-    // so that `loadLocations` only gets called once,
-    static
-    {
-        List<Location> defaultLocations = importLocationArray("4_loc");
-        locations.addAll(defaultLocations);
-    }
 }
 
