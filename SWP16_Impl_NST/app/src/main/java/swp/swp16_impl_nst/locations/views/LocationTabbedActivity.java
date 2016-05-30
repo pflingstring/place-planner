@@ -82,6 +82,7 @@ public class LocationTabbedActivity extends AppCompatActivity
     public void onOkButtonClicked(Location location)
     {
         LocationProvider.locations.remove(position);
+        LocationProvider.locations.add(position, location);
 
         mSectionsPagerAdapter.notifyDataSetChanged();
         mViewPager.setCurrentItem(0);

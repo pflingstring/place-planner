@@ -6,7 +6,6 @@ import android.util.Log;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,32 +48,23 @@ public class LocationStorage
     public static String readFromFile(String fileName)
     {
         String result = "";
-
         try
         {
             File file = new File(PATH_DIR, fileName);
             InputStream inputStream = new FileInputStream(file);
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            String receiveString = "";
+
+            String receiveString;
             StringBuilder stringBuilder = new StringBuilder();
-
             while ((receiveString = bufferedReader.readLine()) != null)
-            {
-                stringBuilder.append(receiveString);
-            }
-
+            { stringBuilder.append(receiveString); }
             inputStream.close();
+
             result = stringBuilder.toString();
         }
-        catch (FileNotFoundException e)
-        {
-            Log.e("login activity", "File not found: " + e.toString());
-        }
         catch (IOException e)
-        {
-            Log.e("login activity", "Can not read file: " + e.toString());
-        }
+            { e.printStackTrace(); }
 
         return result;
     }
