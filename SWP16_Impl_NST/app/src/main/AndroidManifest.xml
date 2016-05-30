@@ -54,6 +54,10 @@
                 android:value=".locations.views.LocationsMainActivity"/>
         </activity>
         <activity android:name=".locations.views.LocationFilterActivity">
+            android:parentActivityName=".locations.views.LocationsMainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".locations.views.LocationsMainActivity"/>
         </activity>
     </application>
 

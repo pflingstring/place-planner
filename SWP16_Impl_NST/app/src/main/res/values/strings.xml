@@ -66,4 +66,9 @@
 
     <!--filter search sort-->
     <string name="filter_location">Filter</string>
+    <string name="choose">Choose</string>
+    <string name="created_on">Created On</string>
+    <string name="distance">Distance</string>
+    <string name="last_edit_on">Last edit on</string>
+    <string name="words">String, substrings</string>
 </resources>
