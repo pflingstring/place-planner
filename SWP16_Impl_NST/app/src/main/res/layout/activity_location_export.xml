@@ -7,13 +7,35 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp">
 
-    <fragment
-        android:id="@+id/export_location_fragment"
-        android:name="swp.swp16_impl_nst.locations.views.fragments.LocationExportFragment"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rview_export_locations"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-    </fragment>
+        android:layout_weight="1"
+        >
+    </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/file_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/file_name"/>
+
+        <Button
+            android:onClick="export_locations"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/export"/>
+
+
+    </LinearLayout>
+
 
 
 </LinearLayout>

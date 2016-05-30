@@ -1,45 +1,53 @@
 package swp.swp16_impl_nst.locations.views;
 
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.EditText;
 
 import swp.swp16_impl_nst.R;
+import swp.swp16_impl_nst.locations.ImportAdapter;
+import swp.swp16_impl_nst.locations.LocationProvider;
+import swp.swp16_impl_nst.locations.LocationStorage;
 
-/**
- * Created by Simon on 18.05.2016.
- */
 public class LocationExportActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private ImportAdapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_export);
+
+        editText = (EditText) findViewById(R.id.file_name);
+
+        recyclerView = (RecyclerView) findViewById(R.id.rview_export_locations);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new ImportAdapter(LocationStorage.getSavedLocations());
+        recyclerView.setAdapter(adapter);
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_location_import, menu);
-        return true;
-    }
+    public void export_locations(View view)
+    {
+        if (editText != null)
+        {
+            String fileName = editText.getText().toString();
+            LocationProvider.exportCurrentLocations(fileName);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-
-            return true;
+            if (!fileName.equals(""))
+                NavUtils.navigateUpFromSameTask(LocationExportActivity.this);
+            else
+                editText.setError("Choose a file name");
         }
-
-        return super.onOptionsItemSelected(item);
     }
-
 
 }

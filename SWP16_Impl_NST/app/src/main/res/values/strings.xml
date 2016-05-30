@@ -22,6 +22,8 @@
     <string name="sort_location">Locations sortieren</string>
     <string name="import_location">Locations importieren</string>
     <string name="export_location">Locations exportieren</string>
+    <string name="export">Export</string>
+    <string name="file_name">File Name</string>
 
     <!--location Tabs-->
     <string name="details">Details</string>

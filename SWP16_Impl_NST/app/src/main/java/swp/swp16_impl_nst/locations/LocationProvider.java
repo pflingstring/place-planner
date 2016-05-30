@@ -53,6 +53,12 @@ public class LocationProvider
         return result;
     }
 
+    public static void exportCurrentLocations(String fileName)
+    {
+        String json = gson.toJson(locations, type);
+        LocationStorage.writeToFile(json, fileName);
+    }
+
     // so that `loadLocations` only gets called once,
     static
     {
