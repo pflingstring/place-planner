@@ -75,9 +75,12 @@ public class LocationStorage
         File folder = new File(PATH_DIR.getPath());
         File[] files = folder.listFiles();
 
-        for (File file : files)
-            if (file.isFile())
-                result.add(file.getName());
+        if (files != null)
+        {
+            for (File file : files)
+                if (file.isFile())
+                    result.add(file.getName());
+        }
 
         return result;
     }
