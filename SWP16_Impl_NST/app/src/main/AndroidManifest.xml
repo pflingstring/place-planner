@@ -2,7 +2,7 @@
 <manifest package="swp.swp16_impl_nst"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="false"
@@ -40,18 +40,20 @@
         <activity
             android:name=".locations.views.LocationImportActivity"
             android:label="@string/title_activity_location_import"
-            android:parentActivityName=".locations.views.LocationsMainActivity" >
+            android:parentActivityName=".locations.views.LocationsMainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".locations.views.LocationsMainActivity" />
+                android:value=".locations.views.LocationsMainActivity"/>
         </activity>
         <activity
             android:name=".locations.views.LocationExportActivity"
             android:label="@string/title_activity_location_export"
-            android:parentActivityName=".locations.views.LocationsMainActivity" >
+            android:parentActivityName=".locations.views.LocationsMainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".locations.views.LocationsMainActivity" />
+                android:value=".locations.views.LocationsMainActivity"/>
+        </activity>
+        <activity android:name=".locations.views.LocationFilterActivity">
         </activity>
     </application>
 

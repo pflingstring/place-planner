@@ -60,10 +60,10 @@ public class LocationProvider
     }
 
     // so that `loadLocations` only gets called once,
-    static
-    {
-        List<Location> defaultLocations = importLocationArray("4_loc");
-        locations.addAll(defaultLocations);
-    }
+//    static
+//    {
+//        List<Location> defaultLocations = importLocationArray("4_loc");
+//        locations.addAll(defaultLocations);
+//    }
 }
 

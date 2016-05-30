@@ -45,7 +45,6 @@
     <string name="phone_number">Phone Number</string>
 
 
-
     <string name="name">Name</string>
     <string name="comment">Comment</string>
     <string name="address">Address</string>
@@ -64,4 +63,7 @@
     <!--location Export-->
     <string name="exporttext">Name der Datei, in welche die Daten exportiert werden: </string>
     <string name="exportbutton">Exportieren</string>
+
+    <!--filter search sort-->
+    <string name="filter_location">Filter</string>
 </resources>
