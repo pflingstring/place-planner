@@ -57,10 +57,7 @@ public class LocationProvider
     static
     {
         List<Location> defaultLocations = importLocationArray("4_loc");
-        List<Location> testLocationsMS1 = importLocationFile("test-locations-ms1.json");
-
         locations.addAll(defaultLocations);
-        locations.addAll(testLocationsMS1);
     }
 }
 

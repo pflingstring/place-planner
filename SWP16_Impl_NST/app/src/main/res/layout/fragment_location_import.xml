@@ -1,39 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".locations.views.fragments.LocationImportFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        android:orientation="vertical">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/importdatei"/>
-        <Button
-            android:id="@+id/durchsuchenButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/searchbutton"/>
-        <Button
-            android:id="@+id/importButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/importbutton"/>
-        <Button
-            android:id="@+id/cancelButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/cancel"/>
-
-
-    </LinearLayout>
-
-</android.support.v4.widget.NestedScrollView>
+</LinearLayout>
