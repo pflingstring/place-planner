@@ -11,6 +11,13 @@ import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.views.fragments.LocationEditFragment;
 import swp.swp16_impl_nst.locations.model.Location;
 
+/**
+ * Created by Nicu
+ * Activity to add Locations to the list
+ *
+ * @author Nicu Zaporojan
+ * @version 1.0
+ */
 public class LocationAddActivity extends AppCompatActivity
     implements LocationEditFragment.OnClickListener
 {

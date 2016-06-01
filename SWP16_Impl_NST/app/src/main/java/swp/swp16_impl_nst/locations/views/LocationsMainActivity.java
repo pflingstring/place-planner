@@ -16,6 +16,14 @@ import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.LocationsAdapter;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
+/**
+ * Created by Nicu
+ * MainActivity is the welcome Page in the App and shows the full list of the locations
+ * There is a menu with a lot of functions
+ *
+ * @author Nicu Zaporojan, Simon Rommelspacher
+ * @version 1.0
+ */
 public class LocationsMainActivity extends AppCompatActivity
 {
     public final static String CURRENT_POSITION = "swp.current_location";

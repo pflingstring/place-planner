@@ -14,6 +14,13 @@ import swp.swp16_impl_nst.locations.views.LocationsMainActivity;
 import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.utils.LocationUtils;
 
+/**
+ * Created by Nicu
+ * Fragment for the LocationTabbedActivity to show the Details of the tabbed location
+ *
+ * @author Nicu Zaporojan, Simon Rommelspacher
+ * @version 1.0
+ */
 public class LocationDetailsFragment extends Fragment
 {
     private final static String CURRENT_POSITION = LocationsMainActivity.CURRENT_POSITION;

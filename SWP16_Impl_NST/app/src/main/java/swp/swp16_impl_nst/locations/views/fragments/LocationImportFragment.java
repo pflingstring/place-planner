@@ -7,13 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import swp.swp16_impl_nst.R;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.InputStream;
 
 /**
  * Created by Simon on 18.05.2016.
+ * Fragment for the LocationImportActivity
+ *
+ * @author Nicu Zaporojan, Simon Rommelspacher
+ * @version 1.0
  */
 public class LocationImportFragment extends Fragment{
 

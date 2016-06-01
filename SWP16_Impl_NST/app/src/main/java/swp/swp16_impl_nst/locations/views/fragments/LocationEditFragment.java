@@ -12,16 +12,22 @@ import android.widget.RatingBar;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.locations.LocationProvider;
-import swp.swp16_impl_nst.locations.views.LocationsMainActivity;
-import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.locations.model.Address;
 import swp.swp16_impl_nst.locations.model.Category;
 import swp.swp16_impl_nst.locations.model.Contact;
 import swp.swp16_impl_nst.locations.model.GpsCoordinates;
+import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.locations.model.Rating;
-import swp.swp16_impl_nst.locations.model.User;
+import swp.swp16_impl_nst.locations.views.LocationsMainActivity;
 import swp.swp16_impl_nst.utils.LocationUtils;
 
+/**
+ * Created by Nicu
+ * Fragment for the LocationTabbedActivity to Edit the tabbed location
+ *
+ * @author Nicu Zaporojan
+ * @version 1.0
+ */
 public class LocationEditFragment extends Fragment
     implements View.OnClickListener
 {

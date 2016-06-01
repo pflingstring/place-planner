@@ -12,7 +12,13 @@ import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.locations.ImportAdapter;
 import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.LocationStorage;
-
+/**
+ * Created by Simon
+ * Activity to Export a JSON-file with locations
+ *
+ * @author Simon Rommelspacher, Nicu Zaporojan
+ * @version 1.0
+ */
 public class LocationExportActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
