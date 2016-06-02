@@ -1,0 +1,89 @@
+[
+  {
+    "address": {
+      "city": "Marburg",
+      "country": "Germany",
+      "number": "1",
+      "postal_code": "35037",
+      "street": "Elisabethstr."
+    },
+    "categories": [
+      {
+        "name": "Historical Buildings",
+        "icon": 1
+      }
+    ],
+    "comment": "Unten in der Stadt",
+    "owner": {},
+    "id": "600cd06e-d3d3-42dc-a782-12fb20fa5b46",
+    "name": "E-Kirche",
+    "mediaUrl": "www.schloss.de",
+    "rating": 3.0,
+    "createdTimestamp": 1464408522859,
+    "lastModifiedTimestamp": 1464408522859
+  },
+  {
+    "address": {
+      "city": "Marburg",
+      "number": "10",
+      "postal_code": "35037",
+      "street": "Giesonenweg"
+    },
+    "categories": [
+      {
+        "name": "Historical Buildings",
+        "icon": 1
+      }
+    ],
+    "comment": "Auf dem Berg",
+    "owner": {},
+    "id": "7bcfa2ca-ff09-4383-a1a1-7383b4692ec8",
+    "name": "Schloss",
+    "mediaUrl": "www.schloss.de",
+    "rating": 5.0,
+    "createdTimestamp": 1464408522811,
+    "lastModifiedTimestamp": 1464408522811
+  },
+  {
+    "address": {
+      "city": "Marburg",
+      "country": "Germany",
+      "number": "33",
+      "postal_code": "35037",
+      "street": "Rudolphsplatz"
+    },
+    "categories": [
+      {
+        "name": "FastFood",
+        "icon": 2
+      }
+    ],
+    "comment": "JawohlJawohl",
+    "id": "dc0eebdf-6499-41cd-9b18-39a853ec9b12",
+    "name": "Mr King",
+    "rating": 0.0,
+    "createdTimestamp": 1464408522870,
+    "lastModifiedTimestamp": 1464408522870
+  },
+  {
+    "address": {
+      "city": "Marburg",
+      "country": "Germany",
+      "number": "1",
+      "postal_code": "35037",
+      "street": "Gisonenweg"
+    },
+    "categories": [
+      {
+        "name": "default_cat",
+        "icon": 1
+      }
+    ],
+    "comment": "First Student Dorm in Germany",
+    "id": "f06c64d2-0fbe-4a6a-8e13-c2e7618197f0",
+    "name": "Philippinum",
+    "rating": 0.0,
+    "createdTimestamp": 1464408522870,
+    "lastModifiedTimestamp": 1464408522870
+  }
+]

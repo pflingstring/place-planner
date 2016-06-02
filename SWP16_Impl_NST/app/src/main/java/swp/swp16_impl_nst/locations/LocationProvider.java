@@ -8,6 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -17,6 +18,9 @@ public class LocationProvider
 {
     // the list of locations on the main screen
     public static final List<Location> locations = new ArrayList<>();
+
+    public static final List<Location> getLocationsCopy()
+    { return new ArrayList<>(locations); }
 
     // `type` is for converting Json strings to java Collections
     // see https://github.com/google/gson/blob/master/UserGuide.md#TOC-Collections-Examples
@@ -58,5 +62,12 @@ public class LocationProvider
         String json = gson.toJson(locations, type);
         LocationStorage.writeToFile(json, fileName);
     }
+
+    // so that `loadLocations` only gets called once,
+//    static
+//    {
+//        List<Location> defaultLocations = importLocationArray("4_loc");
+//        locations.addAll(defaultLocations);
+//    }
 }
 

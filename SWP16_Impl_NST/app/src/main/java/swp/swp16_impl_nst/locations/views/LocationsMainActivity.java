@@ -94,14 +94,14 @@ public class LocationsMainActivity extends AppCompatActivity
         int id = item.getItemId();
         switch (item.getItemId())
         {
-            case R.id.menu_add_location:
-                startActivity(new Intent().setClass(getApplicationContext(), LocationAddActivity.class));
-                return true;
             case R.id.menu_import_location:
                 startActivity(new Intent().setClass(getApplicationContext(), LocationImportActivity.class));
                 return true;
             case R.id.menu_export_location:
                 startActivity(new Intent().setClass(getApplicationContext(), LocationExportActivity.class));
+                return true;
+            case R.id.menu_filter_location:
+                startActivity(new Intent().setClass(getApplicationContext(), LocationFilterActivity.class));
                 return true;
         }
 

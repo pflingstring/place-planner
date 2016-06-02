@@ -7,18 +7,10 @@
 
     <!--TODO: change icon-->
     <item
-        android:id="@+id/menu_add_location"
-        android:title="@string/add_location"
-        app:showAsAction="never"/>
-    <item
         android:id="@+id/menu_search_location"
         android:title="@string/search_location"
         android:icon="@android:drawable/ic_menu_search"
         app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/menu_sort_location"
-        android:title="@string/sort_location"
-        app:showAsAction="never"/>
     <item
         android:id="@+id/menu_import_location"
         android:title="@string/import_location"
@@ -27,5 +19,8 @@
         android:id="@+id/menu_export_location"
         android:title="@string/export_location"
         app:showAsAction="never"/>
-
+    <item
+        android:id="@+id/menu_filter_location"
+        android:title="@string/filter_location"
+        app:showAsAction="never"/>
 </menu>
