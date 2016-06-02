@@ -21,6 +21,15 @@ public class Location
     private long  lastModifiedTimestamp = createdTimestamp;
     private List<Category> categories = new ArrayList<>();
 
+    public boolean containsString(String str)
+    {
+        return  name.contains(str)
+                || comment.contains(str)
+                || mediaUrl.contains(str)
+                || owner.getName().contains(str)
+                || address.containsString(str);
+    }
+
     // constructor
     private Location(Builder builder)
     { edit(builder); }
@@ -93,6 +102,7 @@ public class Location
             return new Location(this);
         }
     }
+
 
     @Override
     public String toString()

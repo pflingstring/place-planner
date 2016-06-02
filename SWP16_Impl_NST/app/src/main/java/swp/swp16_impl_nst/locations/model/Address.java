@@ -20,6 +20,15 @@ public class Address
         zip = _postal_code;
     }
 
+    public boolean containsString(String str)
+    {
+        return  city.contains(str)
+                || number.contains(str)
+                || str.contains(str)
+                || country.contains(str)
+                || zip.contains(str);
+    }
+
 
     // getters
     public String getZip()
