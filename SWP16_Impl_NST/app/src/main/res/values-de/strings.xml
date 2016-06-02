@@ -6,7 +6,7 @@
     <!--Details/Edit location-->
     <string name="name">Name</string>
     <string name="comment">Kommentar</string>
-    <string name="address">Addresse</string>
+    <string name="address">Adresse</string>
     <string name="mediaUrl">MedienURL</string>
     <string name="rating">Bewertung</string>
     <string name="owner">Besitzer</string>
@@ -14,4 +14,59 @@
     <string name="contactDetails">Kontakte</string>
     <string name="categories">Kategorien</string>
 
+
+    <string name="locations">Locations</string>
+    <string name="locationDetails">LocationDetails</string>
+    <string name="title_activity_location_details">Anzeigen/Bearbeiten</string>
+    <string name="section_format">TMP2</string>
+
+    <!--activity titles-->
+    <string name="title_activity_location_import">Locations importieren</string>
+    <string name="title_activity_location_export">Locations exportieren</string>
+    <string name="title_activity_location_add">Location hinzufügen</string>
+
+    <!--menu items-->
+    <string name="delete_location">Location löschen</string>
+    <string name="add_location">Location hinzufügen</string>
+    <string name="edit_location">Location bearbeiten</string>
+    <string name="category_icon">Icon</string>
+    <string name="show_location">Alle Locations_anzeigen</string>
+    <string name="search_location">Location suchen</string>
+    <string name="sort_location">Locations sortieren</string>
+    <string name="import_location">Locations importieren</string>
+    <string name="export_location">Locations exportieren</string>
+    <string name="export">Export</string>
+    <string name="file_name">Dateiname</string>
+
+    <!--location Details/Edit-->
+    <string name="cancel">Abbrechen</string>
+    <string name="ok">OK</string>
+    <string name="street">Straße</string>
+    <string name="str_number">Hausnummer</string>
+    <string name="postal_code">PLZ</string>
+    <string name="city">Stadt</string>
+    <string name="country">Land</string>
+    <string name="lat">Breitengrad</string>
+    <string name="lng">Längengrad</string>
+    <string name="get_curr_position">Aktuelle Position</string>
+    <string name="web_address">Web Adresse</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Telefonnummer</string>
+
+    <!--location Import-->
+    <string name="importbutton">Importieren</string>
+    <string name="searchbutton">Durchsuchen</string>
+    <string name="importdatei">Hier zu importierenden Dateinamen eingeben</string>
+
+    <!--location Export-->
+    <string name="exporttext">Name der Datei, in welche die Daten exportiert werden: </string>
+    <string name="exportbutton">Exportieren</string>
+
+    <!--filter search sort-->
+    <string name="filter_location">Filter</string>
+    <string name="choose">wählen</string>
+    <string name="created_on">Erstellt am</string>
+    <string name="distance">Entfernung</string>
+    <string name="last_edit_on">Letzte Änderung</string>
+    <string name="words">Voll-/Teiltext</string>
 </resources>
