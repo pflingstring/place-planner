@@ -59,6 +59,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".locations.views.LocationsMainActivity"/>
         </activity>
+        <activity
+            android:name=".locations.views.CategoryAddActivity"
+            android:label="@string/title_activity_category_add"
+            android:parentActivityName=".locations.views.CategoryAddActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".locations.views.CategoryAddActivity" />
+        </activity>
+        <activity
+            android:name=".locations.views.CategoryShowActivity"
+            android:label="@string/title_activity_category_show"
+            android:parentActivityName=".locations.views.CategoryShowActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".locations.views.CategoryShowActivity" />
+        </activity>
     </application>
 
 </manifest>

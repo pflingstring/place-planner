@@ -37,9 +37,9 @@
       <Entity type="Class">
         <Name>Address</Name>
         <Access>Public</Access>
-        <Location left="311" top="174" />
+        <Location left="311" top="117" />
         <Size width="162" height="247" />
-        <Collapsed>True</Collapsed>
+        <Collapsed>False</Collapsed>
         <Member type="Field">String City</Member>
         <Member type="Field">String Number</Member>
         <Member type="Field">String Street</Member>
@@ -55,9 +55,9 @@
       <Entity type="Class">
         <Name>Category</Name>
         <Access>Public</Access>
-        <Location left="311" top="367" />
+        <Location left="299" top="403" />
         <Size width="162" height="128" />
-        <Collapsed>True</Collapsed>
+        <Collapsed>False</Collapsed>
         <Member type="Field">int Icon</Member>
         <Member type="Field">String name</Member>
         <Member type="Method">public String getName()</Member>
@@ -66,9 +66,9 @@
       <Entity type="Class">
         <Name>Contact</Name>
         <Access>Public</Access>
-        <Location left="311" top="513" />
+        <Location left="512" top="517" />
         <Size width="162" height="179" />
-        <Collapsed>True</Collapsed>
+        <Collapsed>False</Collapsed>
         <Member type="Field">String Web</Member>
         <Member type="Field">String Email</Member>
         <Member type="Field">String Telephone</Member>
@@ -80,9 +80,9 @@
       <Entity type="Class">
         <Name>GpsCoordinates</Name>
         <Access>Public</Access>
-        <Location left="311" top="617" />
+        <Location left="311" top="600" />
         <Size width="162" height="145" />
-        <Collapsed>True</Collapsed>
+        <Collapsed>False</Collapsed>
         <Member type="Field">Double Lat</Member>
         <Member type="Field">Double Lon</Member>
         <Member type="Method">public double getLat()</Member>
@@ -92,9 +92,9 @@
       <Entity type="Class">
         <Name>User</Name>
         <Access>Public</Access>
-        <Location left="311" top="801" />
+        <Location left="201" top="838" />
         <Size width="162" height="216" />
-        <Collapsed>True</Collapsed>
+        <Collapsed>False</Collapsed>
         <Member type="Field">String ID</Member>
         <Member type="Field">String Name</Member>
         <Modifier>None</Modifier>
@@ -102,153 +102,58 @@
       <Entity type="Class">
         <Name>Rating</Name>
         <Access>Public</Access>
-        <Location left="311" top="266" />
+        <Location left="512" top="269" />
         <Size width="162" height="216" />
-        <Collapsed>True</Collapsed>
+        <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
     <Relationships>
-      <Relationship type="Association" first="1" second="0">
+      <Relationship type="Association" first="0" second="3">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="2" second="0">
+      <Relationship type="Association" first="0" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="5">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="3" second="0">
+      <Relationship type="Association" first="0" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="4" second="0">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="5" second="0">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="6" second="0">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-    </Relationships>
-  </ProjectItem>
-  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
-    <Name>Uebung05</Name>
-    <Language>Java</Language>
-    <Entities>
-      <Entity type="Class">
-        <Name>NewsCollection</Name>
-        <Access>Public</Access>
-        <Location left="19" top="17" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>Content</Name>
-        <Access>Public</Access>
-        <Location left="126" top="321" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">public void print(NewsCollection rootCollection)</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Interface">
-        <Name>FormatingStrategy</Name>
-        <Access>Public</Access>
-        <Location left="263" top="17" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-      </Entity>
-      <Entity type="Class">
-        <Name>InformationList</Name>
-        <Access>Public</Access>
-        <Location left="364" top="321" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">public void print(NewsCollection rootCollection)</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-    </Entities>
-    <Relationships>
-      <Relationship type="Association" first="1" second="2">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="3" second="2">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
-      </Relationship>
-    </Relationships>
-  </ProjectItem>
-  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
-    <Name>2</Name>
-    <Language>Java</Language>
-    <Entities>
-      <Entity type="Class">
-        <Name>Content</Name>
-        <Access>Public</Access>
-        <Location left="279" top="46" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>AtomicContent</Name>
-        <Access>Public</Access>
-        <Location left="114" top="372" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>CompositeContent</Name>
-        <Access>Public</Access>
-        <Location left="422" top="372" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-    </Entities>
-    <Relationships>
-      <Relationship type="Association" first="2" second="0">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="1" second="0">
-        <Label>
-        </Label>
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>

@@ -23,4 +23,13 @@
         android:id="@+id/menu_filter_location"
         android:title="@string/filter_location"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_add_category"
+        android:title="@string/add_category"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_show_category"
+        android:title="@string/show_categorys"
+        app:showAsAction="never"/>
+
 </menu>

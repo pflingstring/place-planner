@@ -11,6 +11,8 @@
     <string name="title_activity_location_import">Locations importieren</string>
     <string name="title_activity_location_export">Locations exportieren</string>
     <string name="title_activity_location_add">Location hinzufügen</string>
+    <string name="title_activity_category_add">Kategorie hinzufügen</string>
+    <string name="title_activity_category_show">Kategorien</string>
 
     <!--menu items-->
     <string name="delete_location">Location löschen</string>
@@ -24,6 +26,8 @@
     <string name="export_location">Locations exportieren</string>
     <string name="export">Export</string>
     <string name="file_name">File Name</string>
+    <string name="add_category">Kategorie hinzufügen</string>
+    <string name="show_categorys">Kategorien anzeigen</string>
 
     <!--location Tabs-->
     <string name="details">Details</string>
@@ -63,6 +67,10 @@
     <!--location Export-->
     <string name="exporttext">Name der Datei, in welche die Daten exportiert werden: </string>
     <string name="exportbutton">Exportieren</string>
+
+    <!--category Add-->
+    <string name="beschreibung">Beschreibung der Kategorie</string>
+
 
     <!--filter search sort-->
     <string name="filter_location">Filter</string>
