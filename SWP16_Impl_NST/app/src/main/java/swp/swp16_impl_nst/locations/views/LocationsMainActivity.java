@@ -103,6 +103,12 @@ public class LocationsMainActivity extends AppCompatActivity
             case R.id.menu_filter_location:
                 startActivity(new Intent().setClass(getApplicationContext(), LocationFilterActivity.class));
                 return true;
+            case R.id.menu_show_category:
+                startActivity(new Intent().setClass(getApplicationContext(), CategoryShowActivity.class));
+                return true;
+            case R.id.menu_add_category:
+                startActivity(new Intent().setClass(getApplicationContext(), CategoryAddActivity.class));
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
