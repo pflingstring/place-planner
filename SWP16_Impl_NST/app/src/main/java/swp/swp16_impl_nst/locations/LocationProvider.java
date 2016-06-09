@@ -19,12 +19,14 @@ public class LocationProvider
     // the list of locations on the main screen
     public static final List<Location> locations = new ArrayList<>();
 
-    public static final List<Location> getLocationsCopy()
+    public static List<Location> getLocationsCopy()
     { return new ArrayList<>(locations); }
 
+    private final static Gson gson =  new GsonBuilder()
+            .setPrettyPrinting()
+            .create();
     // `type` is for converting Json strings to java Collections
     // see https://github.com/google/gson/blob/master/UserGuide.md#TOC-Collections-Examples
-    private final static Gson gson =  new GsonBuilder().setPrettyPrinting().create();
     private final static Type type = (new TypeToken<List<Location>>(){}).getType();
 
 

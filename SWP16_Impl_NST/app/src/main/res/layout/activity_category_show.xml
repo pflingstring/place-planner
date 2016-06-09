@@ -7,10 +7,9 @@
     tools:context=".locations.views.CategoryShowActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:layout_height="fill_parent"
+        android:id="@+id/rview_category_show"
         android:layout_width="fill_parent"
-        android:id="@+id/recyclerviewcategory"
-
-            />
+        android:layout_height="fill_parent"
+        />
 
 </RelativeLayout>

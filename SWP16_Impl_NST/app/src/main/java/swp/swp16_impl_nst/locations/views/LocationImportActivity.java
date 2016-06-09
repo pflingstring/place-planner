@@ -14,11 +14,7 @@ import swp.swp16_impl_nst.locations.LocationStorage;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
 /**
- * Created by Simon
  * Activity to Import a JSON-file with locations
- *
- * @author Simon Rommelspacher, Nicu Zaporojan
- * @version 1.0
  */
 public class LocationImportActivity extends AppCompatActivity
 {

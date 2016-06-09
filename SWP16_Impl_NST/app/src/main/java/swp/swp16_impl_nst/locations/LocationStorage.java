@@ -17,13 +17,13 @@ import java.util.List;
 
 public class LocationStorage
 {
-    // a File object pointing to the /sdcard0/Podcasts/.place-planner
-    private final static File PATH_DIR = createDir(".place-planner");
+    private final static String DIR_NAME = Environment.DIRECTORY_PODCASTS;
+    private final static File   PATH_DIR = createDir(".place-planner");
 
-    public static File createDir(String path)
+    public static File createDir(String name)
     {
-        File file =  new File(Environment
-                .getExternalStoragePublicDirectory(Environment.DIRECTORY_PODCASTS), path);
+        File folder = Environment.getExternalStoragePublicDirectory(DIR_NAME);
+        File file =  new File(folder, name);
         file.mkdirs();
 
         return file;
@@ -35,9 +35,9 @@ public class LocationStorage
         {
             File file = new File(PATH_DIR, fileName);
             OutputStream stream = new FileOutputStream(file);
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(stream);
-            outputStreamWriter.write(data);
-            outputStreamWriter.close();
+            OutputStreamWriter writer = new OutputStreamWriter(stream);
+            writer.write(data);
+            writer.close();
         }
         catch (IOException e)
         {
@@ -53,12 +53,12 @@ public class LocationStorage
             File file = new File(PATH_DIR, fileName);
             InputStream inputStream = new FileInputStream(file);
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            BufferedReader reader = new BufferedReader(inputStreamReader);
 
             String receiveString;
             StringBuilder stringBuilder = new StringBuilder();
-            while ((receiveString = bufferedReader.readLine()) != null)
-            { stringBuilder.append(receiveString); }
+            while ((receiveString = reader.readLine()) != null)
+                { stringBuilder.append(receiveString); }
             inputStream.close();
 
             result = stringBuilder.toString();
@@ -84,5 +84,4 @@ public class LocationStorage
 
         return result;
     }
-
 }

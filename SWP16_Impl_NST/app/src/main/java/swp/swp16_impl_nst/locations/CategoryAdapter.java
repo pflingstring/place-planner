@@ -7,51 +7,58 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import swp.swp16_impl_nst.R;
+import swp.swp16_impl_nst.locations.model.Category;
 import swp.swp16_impl_nst.locations.views.CategoryShowActivity;
 
-/**
- * Created by Simon on 02.06.2016.
- */
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolderKlasse> {
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder>
+{
+    private List<Category> dataSet;
 
-    public class ViewHolderKlasse extends RecyclerView.ViewHolder{
-
-        TextView itemTextView;
-        ImageView itemImageView;
-
-        public ViewHolderKlasse(View itemView) {
-            super(itemView);
-            itemTextView = (TextView) itemView.findViewById(R.id.textViewItem);
-            itemImageView = (ImageView) itemView.findViewById(R.id.imageViewItem);
-
-        }
-    }
+    public CategoryAdapter(List<Category> dataSet)
+        { this.dataSet = dataSet;}
 
 
-    @Override
-    public ViewHolderKlasse onCreateViewHolder(ViewGroup viewGroup, int i)
+    static class ViewHolder extends RecyclerView.ViewHolder
     {
+        private TextView name;
+        private ImageView icon;
 
-        View itemView1 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.rview_category_item, null);
+        public ViewHolder(View itemView)
+        {
+            super(itemView);
+            name = (TextView)  itemView.findViewById(R.id.name);
+            icon = (ImageView) itemView.findViewById(R.id.icon);
+        }
 
-        return new ViewHolderKlasse(itemView1);
+        void setName(String name)
+            { this.name.setText(name); }
+
+        void setIcon(int id)
+            { icon.setImageResource(id); }
     }
 
     @Override
-    public void onBindViewHolder(ViewHolderKlasse ViewHolderKlasse, int i) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    {
+        View view = LayoutInflater
+                .from(parent.getContext())
+                .inflate(R.layout.rview_category_item, parent, false);
 
-        ViewHolderKlasse.itemTextView.setText(CategoryShowActivity.itemListe.get(i));
-        ViewHolderKlasse.itemImageView.setImageResource(CategoryShowActivity.itemIconId.get(i));
-
-
-
+        return new ViewHolder(view);
     }
 
     @Override
-    public int getItemCount() {
-
-
-        return CategoryShowActivity.itemListe.size();
+    public void onBindViewHolder(ViewHolder viewHolder, int position)
+    {
+        Category category = dataSet.get(position);
+        viewHolder.setName(category.getName());
+        viewHolder.setIcon(category.getIconId());
     }
+
+    @Override
+    public int getItemCount()
+        { return dataSet.size(); }
 }

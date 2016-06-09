@@ -15,11 +15,7 @@ import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.utils.LocationUtils;
 
 /**
- * Created by Nicu
- * Fragment for the LocationTabbedActivity to show the Details of the tabbed location
- *
- * @author Nicu Zaporojan, Simon Rommelspacher
- * @version 1.0
+ * Displays the details of a Location
  */
 public class LocationDetailsFragment extends Fragment
 {
@@ -56,15 +52,13 @@ public class LocationDetailsFragment extends Fragment
 
     @Override
     public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-    }
+        { super.onCreate(savedInstanceState); }
 
     @Override
     public View onCreateView (LayoutInflater inflater,
                               ViewGroup      container,
                               Bundle savedInstanceState)
-    { return inflater.inflate(R.layout.fragment_location_details, container, false); }
+        { return inflater.inflate(R.layout.fragment_location_details, container, false); }
 
     @Override
     public void onStart()

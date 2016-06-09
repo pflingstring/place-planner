@@ -26,12 +26,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:text="@string/beschreibung"/>
+        android:text="@string/category_details"/>
     <EditText
         android:id="@+id/beschreibung"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/beschreibung"/>
+        android:hint="@string/category_details"/>
 
     <!--Buttons-->
     <LinearLayout
@@ -48,8 +48,6 @@
             android:layout_weight="1"
             android:onClick="navigateBack"
             android:text="@string/cancel"/>
-
-
 
         <Button
             android:id="@+id/okButton"

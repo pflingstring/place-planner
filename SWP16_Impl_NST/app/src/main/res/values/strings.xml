@@ -69,7 +69,7 @@
     <string name="exportbutton">Exportieren</string>
 
     <!--category Add-->
-    <string name="beschreibung">Beschreibung der Kategorie</string>
+    <string name="category_details">Beschreibung der Kategorie</string>
 
 
     <!--filter search sort-->

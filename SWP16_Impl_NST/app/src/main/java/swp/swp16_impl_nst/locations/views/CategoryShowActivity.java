@@ -8,41 +8,36 @@ import android.view.Menu;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.locations.CategoryAdapter;
+import swp.swp16_impl_nst.locations.model.Category;
 
-/**
- * Created by Simon on 02.06.2016.
- */
-public class CategoryShowActivity extends AppCompatActivity{
+public class CategoryShowActivity extends AppCompatActivity
+{
 
-    RecyclerView categoryRecyclerView;
-    RecyclerView.Adapter categoryAdapter;
-    RecyclerView.LayoutManager categoryLayoutManager;
+    RecyclerView recyclerView;
+    CategoryAdapter adapter;
+    RecyclerView.LayoutManager layoutManager;
 
-    public static ArrayList<String> itemListe;
-    public static ArrayList<Integer> itemIconId;
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_category_show);
 
+        recyclerView = (RecyclerView) findViewById(R.id.rview_category_show);
+        layoutManager = new LinearLayoutManager(this);
 
-    protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_category_show);
+        List<Category> categories = new ArrayList<>();
+        categories.add(new Category(0, "Restaurant"));
+        categories.add(new Category(R.drawable.ic_category_default, "Park"));
+        categories.add(new Category(R.drawable.ic_category_default, "Bus station"));
+        adapter = new CategoryAdapter(categories);
 
-        itemListe = new ArrayList<>();
-        itemIconId = new ArrayList<>();
-
-        itemListe.addAll(Arrays.asList("Restaurant"));
-        itemIconId.addAll(Arrays.asList(
-           R.drawable.ic_category_default
-        ));
-
-        categoryRecyclerView = (RecyclerView) findViewById(R.id.recyclerviewcategory);
-        categoryLayoutManager = new LinearLayoutManager(this);
-        categoryRecyclerView.setLayoutManager(categoryLayoutManager);
-        categoryAdapter = new CategoryAdapter();
-        categoryRecyclerView.setAdapter(categoryAdapter);
-}
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(layoutManager);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)

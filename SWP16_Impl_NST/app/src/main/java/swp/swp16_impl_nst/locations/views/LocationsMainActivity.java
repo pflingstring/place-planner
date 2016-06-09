@@ -17,12 +17,8 @@ import swp.swp16_impl_nst.locations.LocationsAdapter;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
 /**
- * Created by Nicu
- * MainActivity is the welcome Page in the App and shows the full list of the locations
- * There is a menu with a lot of functions
- *
- * @author Nicu Zaporojan, Simon Rommelspacher
- * @version 1.0
+ * This is the welcome Page in the App
+ * It displays the list of currently loaded Locations
  */
 public class LocationsMainActivity extends AppCompatActivity
 {

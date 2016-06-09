@@ -10,25 +10,14 @@ import android.widget.EditText;
 
 import swp.swp16_impl_nst.R;
 
-/**
- * Created by Simon on 01.06.2016.
- */
-public class CategoryAddActivity extends AppCompatActivity {
+public class CategoryAddActivity extends AppCompatActivity
+{
 
-
-    Button addCategory;
-    EditText editText;
-
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_add);
-
-
     }
-
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -37,8 +26,6 @@ public class CategoryAddActivity extends AppCompatActivity {
         return true;
     }
 
-
-
     public void navigateBack(View view)
-    { NavUtils.navigateUpFromSameTask(this); }
+        { NavUtils.navigateUpFromSameTask(this); }
 }

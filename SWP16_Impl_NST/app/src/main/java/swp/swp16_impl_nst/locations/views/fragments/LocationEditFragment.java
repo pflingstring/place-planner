@@ -22,11 +22,7 @@ import swp.swp16_impl_nst.locations.views.LocationsMainActivity;
 import swp.swp16_impl_nst.utils.LocationUtils;
 
 /**
- * Created by Nicu
- * Fragment for the LocationTabbedActivity to Edit the tabbed location
- *
- * @author Nicu Zaporojan
- * @version 1.0
+ * Allows to edit the properties of a Location
  */
 public class LocationEditFragment extends Fragment
     implements View.OnClickListener

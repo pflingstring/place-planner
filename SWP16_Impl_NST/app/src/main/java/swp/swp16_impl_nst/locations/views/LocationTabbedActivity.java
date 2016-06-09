@@ -22,11 +22,10 @@ import swp.swp16_impl_nst.locations.views.fragments.LocationEditFragment;
 import swp.swp16_impl_nst.locations.model.Location;
 
 /**
- * Creates by Nicu
- * Activity for the tabbed Location, include the functions 'show details', edit and delete
- *
- * @author Nicu Zaporojan
- * @version 1.0
+ * Tabbed Activity
+ * Includes the the tabs:
+ *   - show details
+ *   - edit details
  */
 public class LocationTabbedActivity extends AppCompatActivity
     implements LocationEditFragment.OnClickListener

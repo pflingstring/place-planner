@@ -8,17 +8,11 @@ import android.view.ViewGroup;
 
 import swp.swp16_impl_nst.R;
 
-/**
- * Created by Simon on 02.06.2016.
- */
-public class CategoryShowFragment extends Fragment{
-    public CategoryShowFragment (){
-    }
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_category_show, container, false);
+public class CategoryShowFragment extends Fragment
+{
+    public CategoryShowFragment() {}
 
-        return rootView;
-    }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        { return inflater.inflate(R.layout.fragment_category_show, container, false); }
 }

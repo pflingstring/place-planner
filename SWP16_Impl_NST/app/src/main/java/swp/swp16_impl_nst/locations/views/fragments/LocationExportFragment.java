@@ -9,11 +9,7 @@ import android.view.ViewGroup;
 import swp.swp16_impl_nst.R;
 
 /**
- * Created by Simon on 18.05.2016.
- * Fragment for the LocationExportActivity
  *
- * @author Nicu Zaporojan, Simon Rommelspacher
- * @version 1.0
  */
 public class LocationExportFragment extends Fragment {
 

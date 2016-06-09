@@ -12,16 +12,12 @@ import swp.swp16_impl_nst.R;
 
 public class ImportAdapter extends RecyclerView.Adapter<ImportAdapter.ViewHolder>
 {
-    private List<String> dataSet;
+    private final List<String> dataSet;
 
     public ImportAdapter(List<String> data)
-    { this.dataSet = data;}
+        { this.dataSet = data;}
 
-    public List<String> getDataSet()
-    { return dataSet; }
-
-
-    public static class ViewHolder extends RecyclerView.ViewHolder
+    static class ViewHolder extends RecyclerView.ViewHolder
     {
         public TextView fileName;
 
@@ -32,7 +28,7 @@ public class ImportAdapter extends RecyclerView.Adapter<ImportAdapter.ViewHolder
         }
 
         public void setFileName(String name)
-        { fileName.setText(name); }
+            { fileName.setText(name); }
     }
 
     @Override
@@ -47,10 +43,9 @@ public class ImportAdapter extends RecyclerView.Adapter<ImportAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position)
-    { holder.setFileName(dataSet.get(position)); }
+        { holder.setFileName(dataSet.get(position)); }
 
     @Override
     public int getItemCount()
-    { return dataSet.size(); }
-
+        { return dataSet.size(); }
 }
