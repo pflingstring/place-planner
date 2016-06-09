@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations.views;
+package swp.swp16_impl_nst.locations.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;

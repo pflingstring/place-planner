@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations.views;
+package swp.swp16_impl_nst.categories.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,12 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.locations.CategoryAdapter;
-import swp.swp16_impl_nst.locations.model.Category;
+import swp.swp16_impl_nst.categories.CategoryAdapter;
+import swp.swp16_impl_nst.categories.model.Category;
 
 public class CategoryShowActivity extends AppCompatActivity
 {

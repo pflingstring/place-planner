@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations.views;
+package swp.swp16_impl_nst.locations.activities;
 
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.locations.LocationProvider;
-import swp.swp16_impl_nst.locations.views.fragments.LocationEditFragment;
+import swp.swp16_impl_nst.locations.activities.fragments.LocationEditFragment;
 import swp.swp16_impl_nst.locations.model.Location;
 
 /**

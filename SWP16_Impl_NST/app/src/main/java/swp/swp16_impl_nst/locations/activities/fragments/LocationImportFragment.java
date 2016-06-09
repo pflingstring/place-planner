@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations.views.fragments;
+package swp.swp16_impl_nst.locations.activities.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,16 +11,24 @@ import swp.swp16_impl_nst.R;
 /**
  *
  */
-public class LocationExportFragment extends Fragment {
+public class LocationImportFragment extends Fragment{
 
-    public LocationExportFragment() {
+    public LocationImportFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_location_export, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_location_import, container, false);
 
         return rootView;
     }
+
+
+ //   public JSONObject parseJSONData() {
+ //       String data = null;
+ //       JSONObject JSONObject = null;
+
+ //   }
+
 }

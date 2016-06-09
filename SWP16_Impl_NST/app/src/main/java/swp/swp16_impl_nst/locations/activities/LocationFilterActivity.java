@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations.views;
+package swp.swp16_impl_nst.locations.activities;
 
 import android.content.DialogInterface;
 import android.support.v7.app.ActionBar;

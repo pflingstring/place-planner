@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations;
+package swp.swp16_impl_nst.categories;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,8 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.locations.model.Category;
-import swp.swp16_impl_nst.locations.views.CategoryShowActivity;
+import swp.swp16_impl_nst.categories.model.Category;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder>
 {

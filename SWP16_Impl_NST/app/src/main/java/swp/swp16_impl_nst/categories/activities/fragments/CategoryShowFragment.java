@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations.views.fragments;
+package swp.swp16_impl_nst.categories.activities.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;

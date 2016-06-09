@@ -8,8 +8,8 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.locations.views.fragments.LocationDetailsFragment;
-import swp.swp16_impl_nst.locations.views.fragments.LocationEditFragment;
+import swp.swp16_impl_nst.locations.activities.fragments.LocationDetailsFragment;
+import swp.swp16_impl_nst.locations.activities.fragments.LocationEditFragment;
 import swp.swp16_impl_nst.locations.model.Location;
 
 public class LocationUtils

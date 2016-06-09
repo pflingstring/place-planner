@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations.views;
+package swp.swp16_impl_nst.locations.activities;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import swp.swp16_impl_nst.R;
+import swp.swp16_impl_nst.categories.activities.CategoryAddActivity;
+import swp.swp16_impl_nst.categories.activities.CategoryShowActivity;
 import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.LocationsAdapter;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;

@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations.model;
+package swp.swp16_impl_nst.categories.model;
 
 public class Category
 {

@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations.views.fragments;
+package swp.swp16_impl_nst.locations.activities.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,12 +13,12 @@ import android.widget.RatingBar;
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.model.Address;
-import swp.swp16_impl_nst.locations.model.Category;
+import swp.swp16_impl_nst.categories.model.Category;
 import swp.swp16_impl_nst.locations.model.Contact;
 import swp.swp16_impl_nst.locations.model.GpsCoordinates;
 import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.locations.model.Rating;
-import swp.swp16_impl_nst.locations.views.LocationsMainActivity;
+import swp.swp16_impl_nst.locations.activities.LocationsMainActivity;
 import swp.swp16_impl_nst.utils.LocationUtils;
 
 /**

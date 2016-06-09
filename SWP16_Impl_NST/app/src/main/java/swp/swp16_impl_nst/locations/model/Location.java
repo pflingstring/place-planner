@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.UUID;
 import java.util.ArrayList;
 
+import swp.swp16_impl_nst.categories.model.Category;
+
 public class Location
 {
     private String id;
