@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".locations.views.CategoryTabbedActivity">
+
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/delete_category"
+        android:orderInCategory="100"
+        android:title="@string/delete_category"
+        android:icon="@drawable/ic_category_default"
+        app:showAsAction="ifRoom"/>
+
+</menu>
