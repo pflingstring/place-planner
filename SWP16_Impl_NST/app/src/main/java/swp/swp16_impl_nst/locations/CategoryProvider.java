@@ -65,11 +65,6 @@ public class CategoryProvider {
         CategoryStorage.writeToFile(json, fileName);
     }
 
-    // so that `loadLocations` only gets called once,
-//    static
-//    {
-//        List<Location> defaultLocations = importLocationArray("4_loc");
-//        locations.addAll(defaultLocations);
-//    }
+
 
 }

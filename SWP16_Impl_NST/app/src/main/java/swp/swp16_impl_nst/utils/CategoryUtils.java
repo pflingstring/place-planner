@@ -10,11 +10,8 @@ import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.locations.model.Category;
 import swp.swp16_impl_nst.locations.views.fragments.CategoryDetailsFragment;
 import swp.swp16_impl_nst.locations.views.fragments.CategoryEditFragment;
-import swp.swp16_impl_nst.locations.views.fragments.LocationDetailsFragment;
 
-/**
- * Created by Simon on 10.06.2016.
- */
+
 public class CategoryUtils {
     public static void populateViews(
             @NonNull Fragment fragment,
@@ -46,7 +43,7 @@ public class CategoryUtils {
             ((CategoryEditFragment) fragment).setIconId(icon);
 
         }
-        else // is instance of LocationDetailsFragment
+        else // is instance of CategoryDetailsFragment
         {
 
             TextView name    = (TextView) view.findViewById(R.id.category_name);
@@ -57,8 +54,9 @@ public class CategoryUtils {
             if (category != null)
             {
                 name.setText(category.getName());
-                icon.setText(category.getIconId());
                 description.setText(category.getDescription());
+                icon.setText(category.getIconId());
+
 
 
 

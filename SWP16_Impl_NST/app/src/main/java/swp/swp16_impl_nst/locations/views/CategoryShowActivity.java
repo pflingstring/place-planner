@@ -33,10 +33,10 @@ public class CategoryShowActivity extends AppCompatActivity
         layoutManager = new LinearLayoutManager(this);
 
         List<Category> categories = new ArrayList<>();
-        categories.add(new Category(0, "Restaurant"));
-        categories.add(new Category(R.drawable.ic_category_default, "Park"));
-        categories.add(new Category(R.drawable.ic_category_default, "Bus station"));
-        categories.add(new Category(0, "Kino"));
+        categories.add(new Category(0, "Restaurant", "Alle Restaurants"));
+        categories.add(new Category(R.drawable.ic_category_default, "Park", "Gut zum entspannen"));
+        categories.add(new Category(R.drawable.ic_category_default, "Bus station",""));
+        categories.add(new Category(0, "Kino", ""));
         adapter = new CategoryAdapter(categories);
 
         recyclerView.setAdapter(adapter);
