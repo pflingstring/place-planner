@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations.views;
+package swp.swp16_impl_nst.categories.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -15,10 +15,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.locations.CategoryProvider;
-import swp.swp16_impl_nst.locations.model.Category;
-import swp.swp16_impl_nst.locations.views.fragments.CategoryDetailsFragment;
-import swp.swp16_impl_nst.locations.views.fragments.CategoryEditFragment;
+import swp.swp16_impl_nst.categories.CategoryProvider;
+import swp.swp16_impl_nst.categories.model.Category;
+import swp.swp16_impl_nst.categories.activities.fragments.CategoryDetailsFragment;
+import swp.swp16_impl_nst.categories.activities.fragments.CategoryEditFragment;
 
 /**
  * Tabbed Activity

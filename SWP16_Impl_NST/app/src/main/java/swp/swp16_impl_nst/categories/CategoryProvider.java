@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations;
+package swp.swp16_impl_nst.categories;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -11,7 +11,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import swp.swp16_impl_nst.locations.model.Category;
+import swp.swp16_impl_nst.categories.model.Category;
 import swp.swp16_impl_nst.locations.model.Location;
 
 /**

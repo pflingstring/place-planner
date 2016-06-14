@@ -7,9 +7,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.locations.model.Category;
-import swp.swp16_impl_nst.locations.views.fragments.CategoryDetailsFragment;
-import swp.swp16_impl_nst.locations.views.fragments.CategoryEditFragment;
+import swp.swp16_impl_nst.categories.model.Category;
+import swp.swp16_impl_nst.categories.activities.fragments.CategoryDetailsFragment;
+import swp.swp16_impl_nst.categories.activities.fragments.CategoryEditFragment;
 
 
 public class CategoryUtils {

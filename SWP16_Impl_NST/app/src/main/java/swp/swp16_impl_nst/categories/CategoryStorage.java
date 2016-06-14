@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations;
+package swp.swp16_impl_nst.categories;
 
 import android.os.Environment;
 import android.util.Log;

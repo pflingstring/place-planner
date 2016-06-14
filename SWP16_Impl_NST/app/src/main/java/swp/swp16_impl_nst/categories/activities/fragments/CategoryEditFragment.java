@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations.views.fragments;
+package swp.swp16_impl_nst.categories.activities.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,9 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.locations.CategoryProvider;
-import swp.swp16_impl_nst.locations.model.Category;
-import swp.swp16_impl_nst.locations.views.CategoryShowActivity;
+import swp.swp16_impl_nst.categories.CategoryProvider;
+import swp.swp16_impl_nst.categories.activities.CategoryShowActivity;
+import swp.swp16_impl_nst.categories.model.Category;
 import swp.swp16_impl_nst.utils.CategoryUtils;
 
 /**
