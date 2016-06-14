@@ -6,6 +6,12 @@ public class Category
     private String name;
     private String description;
 
+    public Category(int icon, String name)
+    {
+        this.iconId = icon;
+        this.name = name;
+    }
+
     public Category(int icon, String name, String description)
     {
         this.iconId = icon;

@@ -1,6 +1,6 @@
 package swp.swp16_impl_nst.locations.views.fragments;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,8 +62,11 @@ public class CategoryDetailsFragment extends Fragment
         int categoryPosition = getArguments().getInt(CURRENT_POSITION);
         category = CategoryProvider.categorys.get(categoryPosition);
 
-        if (getView() != null)
-            CategoryUtils.populateViews(this, getView(), category);
+//        if (getView() != null)
+//            CategoryUtils.populateViews(this, getView(), category);
+
+        CategoryUtils.populateViews(this, getView(), category);
+
     }
 
 

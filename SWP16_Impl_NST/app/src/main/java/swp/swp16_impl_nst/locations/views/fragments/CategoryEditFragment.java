@@ -113,7 +113,6 @@ public class CategoryEditFragment extends Fragment
 
 
         Category category = new Category.Builder(name)
-                .name(name)
                 .description(description)
                 .build();
 

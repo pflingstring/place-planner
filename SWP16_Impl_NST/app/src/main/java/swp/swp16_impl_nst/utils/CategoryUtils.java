@@ -32,41 +32,28 @@ public class CategoryUtils {
                     description.setText(category.getDescription());
                     icon.setText(category.getIconId());
                 }
-
-
-
-
             }
 
             ((CategoryEditFragment) fragment).setName(name);
             ((CategoryEditFragment) fragment).setDescription(description);
             ((CategoryEditFragment) fragment).setIconId(icon);
-
         }
         else // is instance of CategoryDetailsFragment
         {
-
             TextView name    = (TextView) view.findViewById(R.id.category_name);
             TextView description = (TextView) view.findViewById(R.id.description);
             TextView icon = (TextView) view.findViewById(R.id.icon);
-
 
             if (category != null)
             {
                 name.setText(category.getName());
                 description.setText(category.getDescription());
                 icon.setText(category.getIconId());
-
-
-
-
-
-
             }
 
             ((CategoryDetailsFragment) fragment).setName(name);
             ((CategoryDetailsFragment) fragment).setDescription(description);
-            ((CategoryDetailsFragment) fragment).setIconId(icon);
+//            ((CategoryDetailsFragment) fragment).setIconId(icon);
         }
     }
 }
