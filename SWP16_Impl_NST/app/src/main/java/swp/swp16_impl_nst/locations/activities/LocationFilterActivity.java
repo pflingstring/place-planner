@@ -1,5 +1,7 @@
 package swp.swp16_impl_nst.locations.activities;
 
+import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -8,7 +10,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,65 +59,96 @@ public class LocationFilterActivity extends AppCompatActivity
         predicateList = new LinkedList<>();
     }
 
+
     // filter buttons
-//    public void distance_button(View view)
-//    {
-//    }
+    public void distance_button(View view)
+    {
+    }
+
+    public void categories_button(View view)
+    {
+    }
+
+    public void rating_button(View view)
+    {
+    }
+
+    public void lastEditOn_button(View view)
+    {
+        EditText from = new EditText(this);
+        Button until = new Button(this);
+        LinearLayout linearLayout = new LinearLayout(this);
+        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+        linearLayout.addView(from);
+        linearLayout.addView(until);
+
+        final Context context = this.getApplicationContext();
+        from.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                DatePickerDialog datePicker = new DatePickerDialog(LocationFilterActivity.this, null, 2016, 5, 1);
+                datePicker.show();
+            }
+        });
+
+        until.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                DatePickerDialog datePicker = new DatePickerDialog(LocationFilterActivity.this, null, 2016, 5, 1);
+                datePicker.show();
+            }
+        });
+
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setView(linearLayout);
+        alert.show();
+
+    }
+
+    public void createdOn_button(View view)
+    {
+    }
 
     public void string_button(View view)
     {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-
         final EditText editText = new EditText(this);
-        alert.setTitle("String Filter");
-        alert.setView(editText);
-
-        alert.setPositiveButton("OK", new DialogInterface.OnClickListener()
+        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
         {
-            public void onClick(DialogInterface dialog, int whichButton)
+            @Override
+            public void onClick(DialogInterface dialog, int which)
             {
-                List<Location> result = new ArrayList<Location>();
+                List<Location> result = new ArrayList<>();
                 String string = editText.getText().toString();
-                for (Location loc : locations)
-                {
-                    if (new StringFilter().invoke(loc, string))
-                        result.add(loc);
-                }
+                for (Location location : locations)
+                    if (new StringFilter().invoke(location, string))
+                        result.add(location);
+
                 locations.clear();
                 locations.addAll(result);
                 adapter.notifyDataSetChanged();
-            }
-        });
+        }};
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this)
+                .setTitle("String Filter")
+                .setView(editText)
+                .setPositiveButton("OK", okListener);
 
         alert.show();
     }
 
-//    public void rating_button(View view)
-//    {
-//
-//    }
-
-//    public void lastEditOn_button(View view)
-//    {
-//
-//    }
-
-//    public void createdOn_button(View view)
-//    {
-//
-//    }
 
     public void city_button(View view)
     {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-
         final EditText editText = new EditText(this);
-        alert.setTitle("City Filter");
-        alert.setView(editText);
-
-        alert.setPositiveButton("OK", new DialogInterface.OnClickListener()
+        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
         {
-            public void onClick(DialogInterface dialog, int whichButton)
+            @Override
+            public void onClick(DialogInterface dialog, int which)
             {
                 List<Location> result = new ArrayList<Location>();
                 String city = editText.getText().toString();
@@ -125,23 +160,23 @@ public class LocationFilterActivity extends AppCompatActivity
                 locations.clear();
                 locations.addAll(result);
                 adapter.notifyDataSetChanged();
-            }
-        });
+        }};
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this)
+                .setTitle("City filter")
+                .setView(editText)
+                .setPositiveButton("OK", okListener);
 
         alert.show();
     }
 
     public void country_button(View view)
     {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-
         final EditText editText = new EditText(this);
-        alert.setTitle("Country Filter");
-        alert.setView(editText);
-
-        alert.setPositiveButton("OK", new DialogInterface.OnClickListener()
+        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
         {
-            public void onClick(DialogInterface dialog, int whichButton)
+            @Override
+            public void onClick(DialogInterface dialog, int which)
             {
                 List<Location> result = new ArrayList<Location>();
                 String country = editText.getText().toString();
@@ -153,28 +188,24 @@ public class LocationFilterActivity extends AppCompatActivity
                 locations.clear();
                 locations.addAll(result);
                 adapter.notifyDataSetChanged();
-            }
-        });
+            }};
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this)
+                .setTitle("City filter")
+                .setView(editText)
+                .setPositiveButton("OK", okListener);
 
         alert.show();
     }
 
-//    public void categories_button(View view)
-//    {
-//
-//    }
 
     public void owner_button(View view)
     {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-
         final EditText editText = new EditText(this);
-        alert.setTitle("Owner Filter");
-        alert.setView(editText);
-
-        alert.setPositiveButton("OK", new DialogInterface.OnClickListener()
+        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
         {
-            public void onClick(DialogInterface dialog, int whichButton)
+            @Override
+            public void onClick(DialogInterface dialog, int which)
             {
                 List<Location> result = new ArrayList<Location>();
                 String owner = editText.getText().toString();
@@ -186,8 +217,12 @@ public class LocationFilterActivity extends AppCompatActivity
                 locations.clear();
                 locations.addAll(result);
                 adapter.notifyDataSetChanged();
-            }
-        });
+        }};
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this)
+                .setTitle("Owner Filter")
+                .setView(editText)
+                .setPositiveButton("OK", okListener);
 
         alert.show();
     }
