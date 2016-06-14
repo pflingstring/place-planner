@@ -13,6 +13,7 @@
     <string name="title_activity_location_add">Location hinzufügen</string>
     <string name="title_activity_category_add">Kategorie hinzufügen</string>
     <string name="title_activity_category_show">Kategorien</string>
+    <string name="title_activity_category_tabbed">View/Edit</string>
 
     <!--menu items-->
     <string name="delete_location">Location löschen</string>
@@ -28,6 +29,7 @@
     <string name="file_name">File Name</string>
     <string name="add_category">Kategorie hinzufügen</string>
     <string name="show_categorys">Kategorien anzeigen</string>
+    <string name="delete_category">Kategorie löschen</string>
 
     <!--location Tabs-->
     <string name="details">Details</string>
@@ -48,6 +50,9 @@
     <string name="email">Email</string>
     <string name="phone_number">Phone Number</string>
 
+    <!--category Details/Edit-->
+    <string name="discription">Beschreibung</string>
+    <string name="categoryName">Name</string>
 
     <string name="name">Name</string>
     <string name="comment">Comment</string>

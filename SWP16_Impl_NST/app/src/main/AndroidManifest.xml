@@ -75,6 +75,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".categories.activities.CategoryShowActivity" />
         </activity>
+        <activity
+            android:name=".locations.views.CategoryTabbedActivity"
+            android:label="@string/title_activity_category_tabbed"
+            android:parentActivityName=".locations.views.CategoryTabbedActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".locations.views.CategoryTabbedActivity" />
+        </activity>
     </application>
 
 </manifest>

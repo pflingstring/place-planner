@@ -1,25 +1,24 @@
-package swp.swp16_impl_nst.locations.activities;
+package swp.swp16_impl_nst.locations.views;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.locations.LocationProvider;
-import swp.swp16_impl_nst.locations.activities.fragments.LocationDetailsFragment;
-import swp.swp16_impl_nst.locations.activities.fragments.LocationEditFragment;
-import swp.swp16_impl_nst.locations.model.Location;
+import swp.swp16_impl_nst.locations.CategoryProvider;
+import swp.swp16_impl_nst.locations.model.Category;
+import swp.swp16_impl_nst.locations.views.fragments.CategoryDetailsFragment;
+import swp.swp16_impl_nst.locations.views.fragments.CategoryEditFragment;
 
 /**
  * Tabbed Activity
@@ -27,9 +26,9 @@ import swp.swp16_impl_nst.locations.model.Location;
  *   - show details
  *   - edit details
  */
-public class LocationTabbedActivity extends AppCompatActivity
-    implements LocationEditFragment.OnClickListener
-{
+public class CategoryTabbedActivity extends AppCompatActivity
+        implements CategoryEditFragment.OnClickListener{
+
     private static int position;
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -38,7 +37,7 @@ public class LocationTabbedActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_location_tabbed);
+        setContentView(R.layout.activity_category_tabbed);
 
         // setup toolbar
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
@@ -57,13 +56,13 @@ public class LocationTabbedActivity extends AppCompatActivity
         if (tabLayout != null)
             tabLayout.setupWithViewPager(mViewPager);
 
-        position = getIntent().getIntExtra(LocationsMainActivity.CURRENT_POSITION, -1);
+        position = getIntent().getIntExtra(CategoryShowActivity.CURRENT_POSITION, -1);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.menu_location_tabbed, menu);
+        getMenuInflater().inflate(R.menu.menu_category_tabbed, menu);
         return true;
     }
 
@@ -71,10 +70,10 @@ public class LocationTabbedActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
-        if (id == R.id.delete_location)
+        if (id == R.id.delete_category)
         {
-            LocationProvider.locations.remove(position);
-            Toast toast = Toast.makeText(this, "Location Deleted", Toast.LENGTH_SHORT);
+            CategoryProvider.categorys.remove(position);
+            Toast toast = Toast.makeText(this, "Kategorie gelöscht", Toast.LENGTH_SHORT);
             toast.show();
             navigateBack(null);
         }
@@ -83,17 +82,17 @@ public class LocationTabbedActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    // edits the location at this.position
+    // edits the category at this.position
     @Override
-    public void onOkButtonClicked(Location location)
+    public void onOkButtonClicked(Category category)
     {
-        LocationProvider.locations.remove(position);
-        LocationProvider.locations.add(position, location);
+        CategoryProvider.categorys.remove(position);
+        CategoryProvider.categorys.add(position, category);
 
         mSectionsPagerAdapter.notifyDataSetChanged();
         mViewPager.setCurrentItem(0);
 
-        Toast toast = Toast.makeText(this, "Location edited", Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, "Kategorie bearbeitet", Toast.LENGTH_SHORT);
         toast.show();
     }
 
@@ -112,9 +111,9 @@ public class LocationTabbedActivity extends AppCompatActivity
         public Fragment getItem(int tabPosition)
         {
             if (tabPosition == 0)
-                return LocationDetailsFragment.newInstance(LocationTabbedActivity.position);
+                return CategoryDetailsFragment.newInstance(CategoryTabbedActivity.position);
             else
-                return LocationEditFragment.newInstance(LocationTabbedActivity.position);
+                return CategoryEditFragment.newInstance(CategoryTabbedActivity.position);
         }
 
         @Override
