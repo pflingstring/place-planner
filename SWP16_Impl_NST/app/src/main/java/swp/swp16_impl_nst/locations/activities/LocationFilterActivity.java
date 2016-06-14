@@ -1,5 +1,7 @@
 package swp.swp16_impl_nst.locations.activities;
 
+import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -8,7 +10,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +75,39 @@ public class LocationFilterActivity extends AppCompatActivity
 
     public void lastEditOn_button(View view)
     {
+        EditText from = new EditText(this);
+        Button until = new Button(this);
+        LinearLayout linearLayout = new LinearLayout(this);
+        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+        linearLayout.addView(from);
+        linearLayout.addView(until);
+
+        final Context context = this.getApplicationContext();
+        from.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                DatePickerDialog datePicker = new DatePickerDialog(LocationFilterActivity.this, null, 2016, 5, 1);
+                datePicker.show();
+            }
+        });
+
+        until.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                DatePickerDialog datePicker = new DatePickerDialog(LocationFilterActivity.this, null, 2016, 5, 1);
+                datePicker.show();
+            }
+        });
+
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setView(linearLayout);
+        alert.show();
+
     }
 
     public void createdOn_button(View view)
