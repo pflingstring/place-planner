@@ -73,6 +73,7 @@
 
 
     <!--filter search sort-->
+    <string name="filter">Filter</string>
     <string name="filter_location">Filter</string>
     <string name="choose">Choose</string>
     <string name="created_on">Created On</string>
