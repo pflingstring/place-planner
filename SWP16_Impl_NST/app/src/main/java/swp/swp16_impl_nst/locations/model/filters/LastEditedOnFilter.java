@@ -2,11 +2,11 @@ package swp.swp16_impl_nst.locations.model.filters;
 
 import swp.swp16_impl_nst.locations.model.Location;
 
-public class LastEditedOnFilter implements Predicate
+public class LastEditedOnFilter
 {
-    @Override
-    public boolean invoke(Location location)
+    public boolean invoke(Location location, long from, long until)
     {
-        return false;
+        long lastEditedOn = location.getLastModifiedTimestamp();
+        return from < lastEditedOn && until > lastEditedOn;
     }
 }

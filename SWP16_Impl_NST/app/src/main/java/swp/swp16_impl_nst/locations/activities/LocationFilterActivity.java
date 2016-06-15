@@ -22,6 +22,7 @@ import swp.swp16_impl_nst.locations.LocationsAdapter;
 import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.locations.model.filters.CityFilter;
 import swp.swp16_impl_nst.locations.model.filters.CountryFilter;
+import swp.swp16_impl_nst.locations.model.filters.LastEditedOnFilter;
 import swp.swp16_impl_nst.locations.model.filters.OwnerFilter;
 import swp.swp16_impl_nst.locations.model.filters.StringFilter;
 import swp.swp16_impl_nst.locations.model.filters.utils.DateUtils;
@@ -71,6 +72,8 @@ public class LocationFilterActivity extends AppCompatActivity
     public void lastEditOn_button(View view)
     {
         Context context = LocationFilterActivity.this;
+        final Calendar fromDate  = Calendar.getInstance();
+        final Calendar untilDate = Calendar.getInstance();
 
         View alertView = getLayoutInflater().inflate(R.layout.dialog_date_picker, null);
         final EditText from  = (EditText) alertView.findViewById(R.id.fromDate);
@@ -83,15 +86,35 @@ public class LocationFilterActivity extends AppCompatActivity
         from.setOnClickListener(DateUtils.showDatePickerDialog(
                 context
                 , from
-                , Calendar.getInstance()));
+                , fromDate));
 
         until.setOnClickListener(DateUtils.showDatePickerDialog(
                 context
                 , until
-                , Calendar.getInstance()));
+                , untilDate));
+
+        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                long from  = fromDate.getTimeInMillis();
+                long until = untilDate.getTimeInMillis();
+
+                List<Location> result = new ArrayList<>();
+                for (Location location : locations)
+                    if (new LastEditedOnFilter().invoke(location, from, until))
+                        result.add(location);
+
+                locations.clear();
+                locations.addAll(result);
+                adapter.notifyDataSetChanged();
+            }
+        };
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this)
-                .setView(alertView);
+                .setView(alertView)
+                .setPositiveButton("OK", okListener);
 
         alert.show();
     }

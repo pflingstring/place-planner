@@ -20,6 +20,8 @@ public class Location
     private GpsCoordinates coordinates;
 
     private final long createdTimestamp = System.currentTimeMillis();
+
+
     private long  lastModifiedTimestamp = createdTimestamp;
     private List<Category> categories = new ArrayList<>();
 
@@ -132,5 +134,8 @@ public class Location
 
     public GpsCoordinates getCoordinates()
     { return coordinates; }
+
+    public long getLastModifiedTimestamp()
+    { return lastModifiedTimestamp; }
 }
 
