@@ -121,6 +121,52 @@ public class LocationFilterActivity extends AppCompatActivity
 
     public void createdOn_button(View view)
     {
+        Context context = LocationFilterActivity.this;
+        final Calendar fromDate  = Calendar.getInstance();
+        final Calendar untilDate = Calendar.getInstance();
+
+        View alertView = getLayoutInflater().inflate(R.layout.dialog_date_picker, null);
+        final EditText from  = (EditText) alertView.findViewById(R.id.fromDate);
+        final EditText until = (EditText) alertView.findViewById(R.id.untilDate);
+
+        // so that the keyboard does not popup
+        from.setInputType(InputType.TYPE_NULL);
+        until.setInputType(InputType.TYPE_NULL);
+
+        from.setOnClickListener(DateUtils.showDatePickerDialog(
+                context
+                , from
+                , fromDate));
+
+        until.setOnClickListener(DateUtils.showDatePickerDialog(
+                context
+                , until
+                , untilDate));
+
+        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                long from  = fromDate.getTimeInMillis();
+                long until = untilDate.getTimeInMillis();
+
+                List<Location> result = new ArrayList<>();
+                for (Location location : locations)
+                    if (new LastEditedOnFilter().invoke(location, from, until))
+                        result.add(location);
+
+                locations.clear();
+                locations.addAll(result);
+                adapter.notifyDataSetChanged();
+            }
+        };
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this)
+                .setView(alertView)
+                .setPositiveButton("OK", okListener);
+
+        alert.show();
     }
 
     public void string_button(View view)
@@ -149,7 +195,6 @@ public class LocationFilterActivity extends AppCompatActivity
 
         alert.show();
     }
-
 
     public void city_button(View view)
     {
@@ -206,7 +251,6 @@ public class LocationFilterActivity extends AppCompatActivity
 
         alert.show();
     }
-
 
     public void owner_button(View view)
     {
