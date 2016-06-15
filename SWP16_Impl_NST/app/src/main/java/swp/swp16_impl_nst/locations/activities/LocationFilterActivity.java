@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
@@ -81,23 +82,14 @@ public class LocationFilterActivity extends AppCompatActivity
 
     public void lastEditOn_button(View view)
     {
-        TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 0.5f);
-        final EditText from = new EditText(this);
-        EditText until = new EditText(this);
-        from.setInputType(InputType.TYPE_NULL);
-        from.setText("From");
-        from.setLayoutParams(layoutParams);
-        until.setInputType(InputType.TYPE_NULL);
-        until.setLayoutParams(layoutParams);
-        until.setText("Until");
-
-        LinearLayout linearLayout = new LinearLayout(this);
-        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-        linearLayout.addView(from);
-        linearLayout.addView(until);
-
         final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
 
+        LayoutInflater inflater = getLayoutInflater();
+        View parrent = inflater.inflate(R.layout.dialog_date_picker, null);
+        final EditText from  = (EditText) parrent.findViewById(R.id.fromDate);
+        final EditText until = (EditText) parrent.findViewById(R.id.untilDate);
+
+        from.setInputType(InputType.TYPE_NULL);
         from.setOnClickListener(new View.OnClickListener()
         {
             Calendar fromDate = Calendar.getInstance();
@@ -124,6 +116,7 @@ public class LocationFilterActivity extends AppCompatActivity
             }
         });
 
+        until.setInputType(InputType.TYPE_NULL);
         until.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -136,9 +129,8 @@ public class LocationFilterActivity extends AppCompatActivity
 
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setView(linearLayout);
+        alert.setView(parrent);
         alert.show();
-
     }
 
     public void createdOn_button(View view)
