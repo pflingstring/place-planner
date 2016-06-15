@@ -58,7 +58,7 @@ public class CategoryEditFragment extends Fragment
         if (getArguments() != null)
         {
             int categoryPosition = getArguments().getInt(CURRENT_POSITION);
-            category = CategoryProvider.categorys.get(categoryPosition);
+            category = CategoryProvider.categories.get(categoryPosition);
         }
     }
 
@@ -110,12 +110,7 @@ public class CategoryEditFragment extends Fragment
         String name = nameView.getText().toString();
         String description = descriptionView.getText().toString();
 
-
-
-        Category category = new Category.Builder(name)
-                .description(description)
-                .build();
-
+        Category category = new Category(0, name, description);
 
         clickListener.onOkButtonClicked(category);
     }

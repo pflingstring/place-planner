@@ -22,7 +22,6 @@ public class CategoryUtils {
         {
             EditText name  = (EditText) view.findViewById(R.id.name);
             EditText description = (EditText) view.findViewById(R.id.description);
-            EditText icon  = (EditText) view.findViewById(R.id.icon);
 
             if (category != null)
             {
@@ -30,13 +29,11 @@ public class CategoryUtils {
                 {
                     name.setText(category.getName());
                     description.setText(category.getDescription());
-                    icon.setText(category.getIconId());
                 }
             }
 
             ((CategoryEditFragment) fragment).setName(name);
             ((CategoryEditFragment) fragment).setDescription(description);
-            ((CategoryEditFragment) fragment).setIconId(icon);
         }
         else // is instance of CategoryDetailsFragment
         {
@@ -46,8 +43,10 @@ public class CategoryUtils {
 
             if (category != null)
             {
+                if (description != null)
+                    description.setText(category.getDescription());
+
                 name.setText(category.getName());
-                description.setText(category.getDescription());
                 icon.setText(category.getIconId());
             }
 

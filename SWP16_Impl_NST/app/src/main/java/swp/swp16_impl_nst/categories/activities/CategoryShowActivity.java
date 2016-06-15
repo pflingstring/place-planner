@@ -13,7 +13,9 @@ import java.util.List;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.categories.CategoryAdapter;
+import swp.swp16_impl_nst.categories.CategoryProvider;
 import swp.swp16_impl_nst.categories.model.Category;
+import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
 public class CategoryShowActivity extends AppCompatActivity
@@ -32,12 +34,11 @@ public class CategoryShowActivity extends AppCompatActivity
         recyclerView = (RecyclerView) findViewById(R.id.rview_category_show);
         layoutManager = new LinearLayoutManager(this);
 
-        List<Category> categories = new ArrayList<>();
-        categories.add(new Category(0, "Restaurant", "Alle Restaurants"));
-        categories.add(new Category(R.drawable.ic_category_default, "Park", "Gut zum entspannen"));
-        categories.add(new Category(R.drawable.ic_category_default, "Bus station",""));
-        categories.add(new Category(0, "Kino", ""));
-        adapter = new CategoryAdapter(categories);
+        CategoryProvider.add(new Category(0, "Restaurant", "Alle Restaurants"));
+        CategoryProvider.add(new Category(R.drawable.ic_category_default, "Park", "Gut zum entspannen"));
+        CategoryProvider.add(new Category(R.drawable.ic_category_default, "Bus station",""));
+        CategoryProvider.add(new Category(0, "Kino", ""));
+        adapter = new CategoryAdapter(CategoryProvider.categories);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);

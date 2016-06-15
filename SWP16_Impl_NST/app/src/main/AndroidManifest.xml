@@ -85,6 +85,16 @@
             android:parentActivityName=".categories.activities.CategoryShowActivity"
         </activity>
 
+        <activity
+            android:name=".categories.activities.CategoryTabbedActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_category_tabbed">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".categories.activities.CategoryShowActivity" />
+            android:parentActivityName=".categories.activities.CategoryShowActivity"
+        </activity>
+
     </application>
 
 </manifest>

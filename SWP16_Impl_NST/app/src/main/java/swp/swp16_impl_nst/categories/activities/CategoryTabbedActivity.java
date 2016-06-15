@@ -72,7 +72,7 @@ public class CategoryTabbedActivity extends AppCompatActivity
         int id = item.getItemId();
         if (id == R.id.delete_category)
         {
-            CategoryProvider.categorys.remove(position);
+            CategoryProvider.categories.remove(position);
             Toast toast = Toast.makeText(this, "Kategorie gelöscht", Toast.LENGTH_SHORT);
             toast.show();
             navigateBack(null);
@@ -86,8 +86,8 @@ public class CategoryTabbedActivity extends AppCompatActivity
     @Override
     public void onOkButtonClicked(Category category)
     {
-        CategoryProvider.categorys.remove(position);
-        CategoryProvider.categorys.add(position, category);
+        CategoryProvider.categories.remove(position);
+        CategoryProvider.categories.add(position, category);
 
         mSectionsPagerAdapter.notifyDataSetChanged();
         mViewPager.setCurrentItem(0);

@@ -60,7 +60,7 @@ public class CategoryDetailsFragment extends Fragment
         super.onStart();
 
         int categoryPosition = getArguments().getInt(CURRENT_POSITION);
-        category = CategoryProvider.categorys.get(categoryPosition);
+        category = CategoryProvider.categories.get(categoryPosition);
 
         if (getView() != null)
             CategoryUtils.populateViews(this, getView(), category);
