@@ -1,6 +1,5 @@
 package swp.swp16_impl_nst.locations.activities;
 
-import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.ActionBar;
@@ -10,20 +9,12 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TableRow;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.LinkedList;
-import java.util.Locale;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.locations.LocationProvider;
@@ -32,8 +23,8 @@ import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.locations.model.filters.CityFilter;
 import swp.swp16_impl_nst.locations.model.filters.CountryFilter;
 import swp.swp16_impl_nst.locations.model.filters.OwnerFilter;
-import swp.swp16_impl_nst.locations.model.filters.Predicate;
 import swp.swp16_impl_nst.locations.model.filters.StringFilter;
+import swp.swp16_impl_nst.locations.model.filters.utils.DateUtils;
 
 public class LocationFilterActivity extends AppCompatActivity
 {
@@ -41,7 +32,6 @@ public class LocationFilterActivity extends AppCompatActivity
     private RecyclerView recyclerView;
     private LocationsAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private List<Predicate> predicateList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -62,8 +52,6 @@ public class LocationFilterActivity extends AppCompatActivity
         recyclerView.setLayoutManager(layoutManager);
         adapter = new LocationsAdapter(locations);
         recyclerView.setAdapter(adapter);
-
-        predicateList = new LinkedList<>();
     }
 
 
@@ -82,54 +70,29 @@ public class LocationFilterActivity extends AppCompatActivity
 
     public void lastEditOn_button(View view)
     {
-        final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+        Context context = LocationFilterActivity.this;
 
-        LayoutInflater inflater = getLayoutInflater();
-        View parrent = inflater.inflate(R.layout.dialog_date_picker, null);
-        final EditText from  = (EditText) parrent.findViewById(R.id.fromDate);
-        final EditText until = (EditText) parrent.findViewById(R.id.untilDate);
+        View alertView = getLayoutInflater().inflate(R.layout.dialog_date_picker, null);
+        final EditText from  = (EditText) alertView.findViewById(R.id.fromDate);
+        final EditText until = (EditText) alertView.findViewById(R.id.untilDate);
 
+        // so that the keyboard does not popup
         from.setInputType(InputType.TYPE_NULL);
-        from.setOnClickListener(new View.OnClickListener()
-        {
-            Calendar fromDate = Calendar.getInstance();
-
-            @Override
-            public void onClick(View v)
-            {
-                DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener()
-                {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
-                    {
-                        fromDate.set(year, monthOfYear, dayOfMonth);
-                        from.setText(dateFormat.format(fromDate.getTime()));
-                    }
-                };
-
-                int year1 = fromDate.get(Calendar.YEAR);
-                int month = fromDate.get(Calendar.MONTH);
-                int day = fromDate.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog datePicker = new DatePickerDialog(LocationFilterActivity.this, onDateSetListener, year1, month, day);
-                datePicker.show();
-            }
-        });
-
         until.setInputType(InputType.TYPE_NULL);
-        until.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                DatePickerDialog datePicker = new DatePickerDialog(LocationFilterActivity.this, null, 2016, 5, 1);
-                datePicker.show();
-            }
-        });
 
+        from.setOnClickListener(DateUtils.showDatePickerDialog(
+                context
+                , from
+                , Calendar.getInstance()));
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setView(parrent);
+        until.setOnClickListener(DateUtils.showDatePickerDialog(
+                context
+                , until
+                , Calendar.getInstance()));
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this)
+                .setView(alertView);
+
         alert.show();
     }
 
