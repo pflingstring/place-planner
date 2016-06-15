@@ -39,7 +39,6 @@ public class CategoryUtils {
         {
             TextView name    = (TextView) view.findViewById(R.id.category_name);
             TextView description = (TextView) view.findViewById(R.id.description);
-            TextView icon = (TextView) view.findViewById(R.id.icon);
 
             if (category != null)
             {
@@ -47,12 +46,10 @@ public class CategoryUtils {
                     description.setText(category.getDescription());
 
                 name.setText(category.getName());
-                icon.setText(category.getIconId());
             }
 
             ((CategoryDetailsFragment) fragment).setName(name);
             ((CategoryDetailsFragment) fragment).setDescription(description);
-//            ((CategoryDetailsFragment) fragment).setIconId(icon);
         }
     }
 }
