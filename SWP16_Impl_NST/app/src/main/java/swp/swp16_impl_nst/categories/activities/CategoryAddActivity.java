@@ -5,13 +5,19 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import swp.swp16_impl_nst.R;
+import swp.swp16_impl_nst.categories.CategoryProvider;
+import swp.swp16_impl_nst.categories.model.Category;
 
 public class CategoryAddActivity extends AppCompatActivity
 {
+    private Category category;
+    private EditText name;
+    private EditText description;
+    private EditText icon;
 
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -24,6 +30,21 @@ public class CategoryAddActivity extends AppCompatActivity
     {
         getMenuInflater().inflate(R.menu.menu_category_add, menu);
         return true;
+    }
+
+    public void addCategory(View button){
+
+        View view = button.getRootView();
+
+        EditText nameView  = (EditText) view.findViewById(R.id.name);
+        EditText descriptionView = (EditText) view.findViewById(R.id.description);
+
+        String name = nameView.getText().toString();
+        String description = descriptionView.getText().toString();
+
+        CategoryProvider.add(new Category(0, name, description));
+        Toast toast = Toast.makeText(this, "Kategorie wurde hinzugefügt", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     public void navigateBack(View view)
