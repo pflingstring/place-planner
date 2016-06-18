@@ -6,16 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.categories.CategoryAdapter;
 import swp.swp16_impl_nst.categories.CategoryProvider;
-import swp.swp16_impl_nst.categories.model.Category;
-import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
 public class CategoryShowActivity extends AppCompatActivity
@@ -34,10 +30,7 @@ public class CategoryShowActivity extends AppCompatActivity
         recyclerView = (RecyclerView) findViewById(R.id.rview_category_show);
         layoutManager = new LinearLayoutManager(this);
 
-        CategoryProvider.add(new Category(0, "Restaurant", "Alle Restaurants"));
-        CategoryProvider.add(new Category(R.drawable.ic_category_default, "Park", "Gut zum entspannen"));
-        CategoryProvider.add(new Category(R.drawable.ic_category_default, "Bus station",""));
-        CategoryProvider.add(new Category(0, "Kino", ""));
+
         adapter = new CategoryAdapter(CategoryProvider.categories);
 
         recyclerView.setAdapter(adapter);
@@ -67,5 +60,17 @@ public class CategoryShowActivity extends AppCompatActivity
     {
         getMenuInflater().inflate(R.menu.menu_category_show, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (item.getItemId()) {
+
+            case R.id.action_add_category:
+                startActivity(new Intent().setClass(getApplicationContext(), CategoryAddActivity.class));
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

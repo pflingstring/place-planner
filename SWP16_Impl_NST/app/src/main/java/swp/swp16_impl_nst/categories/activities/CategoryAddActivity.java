@@ -14,10 +14,6 @@ import swp.swp16_impl_nst.categories.model.Category;
 
 public class CategoryAddActivity extends AppCompatActivity
 {
-    private Category category;
-    private EditText name;
-    private EditText description;
-    private EditText icon;
 
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -42,9 +38,18 @@ public class CategoryAddActivity extends AppCompatActivity
         String name = nameView.getText().toString();
         String description = descriptionView.getText().toString();
 
-        CategoryProvider.add(new Category(0, name, description));
-        Toast toast = Toast.makeText(this, "Kategorie wurde hinzugefügt", Toast.LENGTH_SHORT);
-        toast.show();
+        //TODO: funktionsfähig machen
+        if (name == null) {
+            Toast toast = Toast.makeText(this, "Die Kategorie muss einen Namen besitzen", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
+        else {
+            CategoryProvider.add(new Category(0, name, description));
+            Toast toast = Toast.makeText(this, "Kategorie wurde hinzugefügt", Toast.LENGTH_SHORT);
+            toast.show();
+            navigateBack(null);
+        }
     }
 
     public void navigateBack(View view)
