@@ -8,5 +8,5 @@
 /build
 /captures
 .idea/encodings.xml
+app.iml
 app/libs/
-app/src/main/res/drawable/
