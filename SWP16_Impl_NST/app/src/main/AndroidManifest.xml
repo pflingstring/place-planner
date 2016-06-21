@@ -3,6 +3,10 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="false"
@@ -11,16 +15,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_api_key"/>
+
         <activity
             android:name=".locations.activities.LocationsMainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".locations.activities.LocationTabbedActivity"
             android:label="@string/title_activity_location_details"
@@ -30,7 +38,6 @@
                 android:value=".locations.activities.LocationsMainActivity"/>
             android:parentActivityName=".locations.activities.LocationsMainActivity"
         </activity>
-
         <activity
             android:name=".locations.activities.LocationAddActivity"
             android:label="@string/title_activity_location_add">
@@ -39,7 +46,6 @@
                 android:value=".locations.activities.LocationsMainActivity"/>
             android:parentActivityName=".locations.activities.LocationsMainActivity"
         </activity>
-
         <activity
             android:name=".locations.activities.LocationImportActivity"
             android:label="@string/title_activity_location_import">
@@ -48,7 +54,6 @@
                 android:value=".locations.activities.LocationsMainActivity"/>
             android:parentActivityName=".locations.activities.LocationsMainActivity"
         </activity>
-
         <activity
             android:name=".locations.activities.LocationExportActivity"
             android:label="@string/title_activity_location_export">
@@ -57,44 +62,40 @@
                 android:value=".locations.activities.LocationsMainActivity"/>
             android:parentActivityName=".locations.activities.LocationsMainActivity"
         </activity>
-
-        <activity
-            android:name=".locations.activities.LocationFilterActivity">
+        <activity android:name=".locations.activities.LocationFilterActivity">
             android:label="@string/filter">
             android:parentActivityName=".locations.views.LocationsMainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".locations.activities.LocationsMainActivity"/>
         </activity>
-
         <activity
             android:name=".categories.activities.CategoryAddActivity"
             android:label="@string/title_activity_category_add">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".categories.activities.CategoryAddActivity" />
+                android:value=".categories.activities.CategoryAddActivity"/>
             android:parentActivityName=".categories.activities.CategoryAddActivity"
         </activity>
-
         <activity
             android:name=".categories.activities.CategoryShowActivity"
             android:label="@string/title_activity_category_show">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".categories.activities.CategoryShowActivity" />
+                android:value=".categories.activities.CategoryShowActivity"/>
             android:parentActivityName=".categories.activities.CategoryShowActivity"
         </activity>
-
         <activity
             android:name=".categories.activities.CategoryTabbedActivity"
             android:theme="@style/AppTheme.NoActionBar">
             android:label="@string/title_activity_category_tabbed">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".categories.activities.CategoryShowActivity" />
+                android:value=".categories.activities.CategoryShowActivity"/>
             android:parentActivityName=".categories.activities.CategoryShowActivity"
         </activity>
-
+        <activity android:name=".map.MapActivity">
+        </activity>
     </application>
 
 </manifest>

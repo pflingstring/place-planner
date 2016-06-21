@@ -16,6 +16,7 @@ import swp.swp16_impl_nst.categories.activities.CategoryAddActivity;
 import swp.swp16_impl_nst.categories.activities.CategoryShowActivity;
 import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.LocationsAdapter;
+import swp.swp16_impl_nst.map.MapActivity;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
 /**
@@ -106,6 +107,9 @@ public class LocationsMainActivity extends AppCompatActivity
                 return true;
             case R.id.menu_add_category:
                 startActivity(new Intent().setClass(getApplicationContext(), CategoryAddActivity.class));
+                return true;
+            case R.id.menu_shop_map:
+                startActivity(new Intent().setClass(getApplicationContext(), MapActivity.class));
                 return true;
         }
 
