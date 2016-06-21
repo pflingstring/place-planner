@@ -33,7 +33,7 @@ public class Location
     {
         name    = builder.name;
         owner   = builder.owner;
-        rating  = builder.rating;
+        rating  = setRating(builder.rating);
         address = builder.address;
         contactDetails = builder.contact;
         comment  = builder.comment;
@@ -54,7 +54,7 @@ public class Location
 
         // optional parameters
         private User owner;
-        private Rating rating;
+        private float rating;
         private String comment;
         private String mediaUrl;
         private Contact contact;
@@ -71,7 +71,7 @@ public class Location
         public Builder mediaUrl(String url)
         { mediaUrl = url; return this; }
 
-        public Builder rating(Rating stars)
+        public Builder rating(float stars)
         { this.rating = stars; return this; }
 
         public Builder address(Address address)
@@ -137,5 +137,21 @@ public class Location
 
     public long getLastModifiedTimestamp()
     { return lastModifiedTimestamp; }
+
+
+    // Setters
+    public Rating setRating(float num)
+    {
+        int stars = (int) num;
+        switch (stars)
+        {
+            case 1 : rating = Rating.RATING_1; return rating;
+            case 2 : rating = Rating.RATING_2; return rating;
+            case 3 : rating = Rating.RATING_3; return rating;
+            case 4 : rating = Rating.RATING_4; return rating;
+            case 5 : rating = Rating.RATING_5; return rating;
+            default: return Rating.NO_RATING;
+        }
+    }
 }
 

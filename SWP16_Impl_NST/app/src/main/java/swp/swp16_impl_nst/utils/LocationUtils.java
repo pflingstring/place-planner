@@ -2,6 +2,7 @@ package swp.swp16_impl_nst.utils;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
@@ -62,7 +63,10 @@ public class LocationUtils
                     address_postal_code.setText(location.getAddress().getZip());
                 }
 
-                ratingBar.setRating(2);
+                if (location.getRating() != null)
+                {
+                    ratingBar.setRating(location.getRating().ordinal());
+                }
 
                 name.setText(location.getName());
                 comment.setText(location.getComment());
@@ -100,8 +104,10 @@ public class LocationUtils
                 name.setText(location.getName());
                 category_main_name.setText(location.getCategory().getName());
 
-                if (location.getRating() == null)
-                    ratingBar.setNumStars(0);
+                if (location.getRating() != null)
+                {
+                    ratingBar.setRating(location.getRating().ordinal());
+                }
 
                 if (location.getAddress() != null)
                 {

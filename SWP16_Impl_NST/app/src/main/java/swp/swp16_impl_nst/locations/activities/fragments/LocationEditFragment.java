@@ -176,6 +176,7 @@ public class LocationEditFragment extends Fragment
 
         String comment = commentView.getText().toString();
         String mediaUrl = mediaUrlView.getText().toString();
+        float rating = ratingBarView.getRating();
 
         Location location = new Location.Builder(name)
                 .address(address)
@@ -183,7 +184,7 @@ public class LocationEditFragment extends Fragment
                 .contact(contact)
                 .comment(comment)
                 .mediaUrl(mediaUrl)
-                .rating(Rating.NO_RATING)
+                .rating(rating)
                 .category(new Category(1, "Default Category"))     // TODO: implement category
                 .build();
 
