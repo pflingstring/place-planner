@@ -38,8 +38,7 @@ public class CategoryAddActivity extends AppCompatActivity
         String name = nameView.getText().toString();
         String description = descriptionView.getText().toString();
 
-        //TODO: funktionsfähig machen
-        if (name == null) {
+        if (name.length() == 0) {
             Toast toast = Toast.makeText(this, "Die Kategorie muss einen Namen besitzen", Toast.LENGTH_SHORT);
             toast.show();
         }

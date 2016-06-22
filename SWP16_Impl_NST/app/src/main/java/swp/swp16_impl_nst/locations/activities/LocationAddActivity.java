@@ -1,8 +1,8 @@
 package swp.swp16_impl_nst.locations.activities;
 
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
@@ -28,10 +28,19 @@ public class LocationAddActivity extends AppCompatActivity
     @Override
     public void onOkButtonClicked(Location location)
     {
-        LocationProvider.locations.add(location);
-        Toast toast = Toast.makeText(this, "Location added", Toast.LENGTH_SHORT);
-        toast.show();
-        navigateBack(null);
+
+
+        if (location.getName().length()==0){
+            Toast toast = Toast.makeText(this, "Die Location muss einen Namen besitzen", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
+        else {
+            LocationProvider.locations.add(location);
+            Toast toast = Toast.makeText(this, "Location added", Toast.LENGTH_SHORT);
+            toast.show();
+            navigateBack(null);
+        }
     }
 
     public void navigateBack(View view)
