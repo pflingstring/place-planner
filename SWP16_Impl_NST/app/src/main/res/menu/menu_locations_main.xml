@@ -31,5 +31,9 @@
         android:id="@+id/menu_show_category"
         android:title="@string/show_categorys"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_shop_map"
+        android:title="@string/show_map"
+        app:showAsAction="never"/>
 
 </menu>
