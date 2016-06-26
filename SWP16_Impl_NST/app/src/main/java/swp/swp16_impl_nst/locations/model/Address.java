@@ -8,8 +8,6 @@ public class Address
     private String country;
     private String zip;
 
-    public Address() {}
-
     public Address(String _street, String _number, String _postal_code,
                    String _city,   String _country)
     {
@@ -28,6 +26,11 @@ public class Address
                 || country.contains(str)
                 || zip.contains(str);
     }
+
+//    public GpsCoordinates getGpsCoordinates()
+//    {
+//
+//    }
 
 
     // getters
