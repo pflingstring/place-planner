@@ -1,7 +1,11 @@
 package swp.swp16_impl_nst.locations.activities;
 
+import android.content.Intent;
+import android.os.Handler;
+import android.os.ResultReceiver;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -13,6 +17,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import swp.swp16_impl_nst.R;
@@ -20,6 +25,7 @@ import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.activities.fragments.LocationDetailsFragment;
 import swp.swp16_impl_nst.locations.activities.fragments.LocationEditFragment;
 import swp.swp16_impl_nst.locations.model.Location;
+import swp.swp16_impl_nst.map.GetLatLngIntentService;
 
 /**
  * Tabbed Activity
@@ -85,13 +91,45 @@ public class LocationTabbedActivity extends AppCompatActivity
 
     // edits the location at this.position
     @Override
-    public void onOkButtonClicked(Location location)
+    public void onOkButtonClicked(final Location location)
     {
         LocationProvider.locations.remove(position);
         LocationProvider.locations.add(position, location);
 
         mSectionsPagerAdapter.notifyDataSetChanged();
         mViewPager.setCurrentItem(0);
+
+        if (location.getCoordinates().isEmpty())
+        {
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                    .setTitle("Getting gps coordinates")
+                    .setView(new ProgressBar(this));
+
+            final AlertDialog alertDialog = builder.show();
+
+            final Intent intent = new Intent(this, GetLatLngIntentService.class);
+            String locAddr = location.getAddress().toString();
+            intent.putExtra(GetLatLngIntentService.ADDRESS, locAddr);
+            intent.putExtra(GetLatLngIntentService.RECEIVER,
+                new ResultReceiver(new Handler())
+                {
+                    @Override
+                    protected void onReceiveResult(int resultCode, Bundle data)
+                    {
+                        String[] res = data.getStringArray(GetLatLngIntentService.RECEIVER);
+
+                        if (resultCode == GetLatLngIntentService.SUCCESS_RESULT)
+                        {
+                            double lat = Double.parseDouble(res[0]);
+                            double lon = Double.parseDouble(res[1]);
+                            location.setGpsCoordinates(lat, lon);
+                        }
+                        alertDialog.dismiss();
+                    }
+                }
+            );
+            startService(intent);
+        }
 
         Toast toast = Toast.makeText(this, "Location edited", Toast.LENGTH_SHORT);
         toast.show();

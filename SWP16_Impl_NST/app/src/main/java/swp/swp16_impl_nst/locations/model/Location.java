@@ -40,7 +40,11 @@ public class Location
         mediaUrl = builder.mediaUrl;
         categories.add(builder.category);
         id = UUID.randomUUID().toString();
-        coordinates = builder.coordinates;
+
+        if (builder.coordinates != null)
+            coordinates = builder.coordinates;
+        else
+            coordinates = new GpsCoordinates();
     }
 
 
@@ -96,6 +100,12 @@ public class Location
 
             return new Location(this);
         }
+    }
+
+    public void setGpsCoordinates(double lat, double lon)
+    {
+        coordinates.setLat(lat);
+        coordinates.setLon(lon);
     }
 
 

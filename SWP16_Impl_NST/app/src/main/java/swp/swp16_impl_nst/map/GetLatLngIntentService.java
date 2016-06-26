@@ -14,10 +14,12 @@ import java.util.Locale;
 public class GetLatLngIntentService
     extends IntentService
 {
-    public static final String TAG = "swp.impl.map.Geocoding";
-    private static final int SUCCESS_RESULT = 0;
-    private static final int FAILURE_RESULT = 1;
+    public static final String RECEIVER = "swp.impl.map.Geocoding";
+    public static final String ADDRESS  = "swp.impl.map.Address";
+    public static final int SUCCESS_RESULT = 0;
+    public static final int FAILURE_RESULT = 1;
     protected ResultReceiver resultReceiver;
+    private String searchAddr;
 
     public GetLatLngIntentService()
     { super(GetLatLngIntentService.class.getName()); }
@@ -28,10 +30,14 @@ public class GetLatLngIntentService
         String errorMessage = "";
         List<Address> addressList = null;
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
-        resultReceiver = intent.getParcelableExtra(TAG);
+        resultReceiver = intent.getParcelableExtra(RECEIVER);
+        searchAddr = intent.getStringExtra(ADDRESS);
 
         try
-        { addressList = geocoder.getFromLocationName("35037 marburg biegenstr 10", 1); }
+        {
+            if (searchAddr != null)
+                addressList = geocoder.getFromLocationName(searchAddr, 1);
+        }
         catch (IOException e)
         { e.printStackTrace(); }
 
@@ -54,7 +60,7 @@ public class GetLatLngIntentService
     private void deliverResultToReceiver(int result, String[] message)
     {
         Bundle bundle = new Bundle();
-        bundle.putStringArray(TAG, message);
+        bundle.putStringArray(RECEIVER, message);
         resultReceiver.send(result, bundle);
     }
 }

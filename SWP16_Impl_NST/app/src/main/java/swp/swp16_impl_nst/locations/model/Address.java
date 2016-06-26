@@ -27,10 +27,18 @@ public class Address
                 || zip.contains(str);
     }
 
-//    public GpsCoordinates getGpsCoordinates()
-//    {
-//
-//    }
+    @Override
+    public String toString()
+    {
+        String result = "";
+        if (zip  != null) result += zip + " ";
+        if (city != null) result += city + " ";
+        if (street  != null) result += street + " ";
+        if (number  != null) result += number + " ";
+        if (country != null) result += country + " ";
+
+        return result;
+    }
 
 
     // getters

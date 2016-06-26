@@ -50,13 +50,13 @@ public class MapActivity
     protected void startIntentService()
     {
         Intent intent = new Intent(this, GetLatLngIntentService.class);
-        intent.putExtra(GetLatLngIntentService.TAG,
+        intent.putExtra(GetLatLngIntentService.RECEIVER,
             new ResultReceiver(new Handler())
             {
                 @Override
                 protected void onReceiveResult(int result, Bundle data)
                 {
-                    String[] res = data.getStringArray(GetLatLngIntentService.TAG);
+                    String[] res = data.getStringArray(GetLatLngIntentService.RECEIVER);
                     Log.d("GEOC", res[0] + " | " + res[1]);
                     latlng.setText(res[0] + " | " + res[1]);
                 }
