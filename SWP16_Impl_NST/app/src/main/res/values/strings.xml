@@ -16,6 +16,8 @@
     <string name="title_activity_category_add">Kategorie hinzufügen</string>
     <string name="title_activity_category_show">Kategorien</string>
     <string name="title_activity_category_tabbed">View/Edit</string>
+    <string name="title_activity_friend_add">Freund hinzufügen</string>
+    <string name="title_activity_friend_show">Kontaktliste</string>
 
     <!--menu items-->
     <string name="delete_location">Location löschen</string>
@@ -33,6 +35,8 @@
     <string name="show_categorys">Kategorien anzeigen</string>
     <string name="delete_category">Kategorie löschen</string>
     <string name="show_map">Karte anzeigen</string>
+    <string name="add_friend">Freund hinzufügen</string>
+    <string name="show_friend">Kontaktliste</string>
 
     <!--location Tabs-->
     <string name="details">Details</string>
@@ -41,17 +45,17 @@
     <!--location Details/Edit-->
     <string name="cancel">Abbrechen</string>
     <string name="ok">OK</string>
-    <string name="street">Street</string>
-    <string name="str_number">Str. Number</string>
-    <string name="postal_code">Postal Code</string>
-    <string name="city">City</string>
-    <string name="country">Country</string>
+    <string name="street">Straße</string>
+    <string name="str_number">Hausnummer</string>
+    <string name="postal_code">Postleitzahl</string>
+    <string name="city">Stadt</string>
+    <string name="country">Land</string>
     <string name="lat">Latitude</string>
     <string name="lng">Longitude</string>
     <string name="get_curr_position">Get current position</string>
     <string name="web_address">Web Address</string>
-    <string name="email">Email</string>
-    <string name="phone_number">Phone Number</string>
+    <string name="email">E-mail Adresse</string>
+    <string name="phone_number">Telefonnummer</string>
 
     <!--category Details/Edit-->
     <string name="discription">Beschreibung</string>
@@ -79,6 +83,9 @@
     <!--category Add-->
     <string name="category_details">Beschreibung der Kategorie</string>
 
+    <!--category Add-->
+    <string name="friend_zip">Postleitzahl</string>
+    <string name="friend_telephone">Telefonnummer</string>
 
     <!--filter search sort-->
     <string name="filter">Filter</string>

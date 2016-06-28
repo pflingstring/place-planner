@@ -1,9 +1,9 @@
 package swp.swp16_impl_nst.locations.activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -14,6 +14,8 @@ import android.view.View;
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.categories.activities.CategoryAddActivity;
 import swp.swp16_impl_nst.categories.activities.CategoryShowActivity;
+import swp.swp16_impl_nst.friends.activities.FriendAddActivity;
+import swp.swp16_impl_nst.friends.activities.FriendShowActivity;
 import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.LocationsAdapter;
 import swp.swp16_impl_nst.map.MapActivity;
@@ -110,6 +112,12 @@ public class LocationsMainActivity extends AppCompatActivity
                 return true;
             case R.id.menu_shop_map:
                 startActivity(new Intent().setClass(getApplicationContext(), MapActivity.class));
+                return true;
+            case R.id.menu_show_friend:
+                startActivity(new Intent().setClass(getApplicationContext(), FriendShowActivity.class));
+                return true;
+            case R.id.menu_add_friend:
+                startActivity(new Intent().setClass(getApplicationContext(), FriendAddActivity.class));
                 return true;
         }
 

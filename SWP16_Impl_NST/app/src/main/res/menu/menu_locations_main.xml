@@ -35,5 +35,13 @@
         android:id="@+id/menu_shop_map"
         android:title="@string/show_map"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_show_friend"
+        android:title="@string/show_friend"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_add_friend"
+        android:title="@string/add_friend"
+        app:showAsAction="never"/>
 
 </menu>

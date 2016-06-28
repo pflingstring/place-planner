@@ -94,6 +94,7 @@ public class CategoryTabbedActivity extends AppCompatActivity
 
         Toast toast = Toast.makeText(this, "Kategorie bearbeitet", Toast.LENGTH_SHORT);
         toast.show();
+        navigateBack(null);
     }
 
     // `Cancel` button from EditFragment

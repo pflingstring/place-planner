@@ -101,6 +101,24 @@
         </activity>
         <activity android:name=".map.MapActivity">
         </activity>
+
+        <activity
+            android:name=".friends.activities.FriendAddActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_friend_add">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".friends.activities.FriendAddActivity" />
+            android:parentActivityName=".friends.activities.FriendAddActivity"
+        </activity>
+        <activity
+            android:name=".friends.activities.FriendShowActivity"
+            android:label="@string/title_activity_friend_show">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".friends.activities.FriendShowActivity" />
+            android:parentActivityName=".friends.activities.FriendShowActivity"
+        </activity>
     </application>
 
 </manifest>
