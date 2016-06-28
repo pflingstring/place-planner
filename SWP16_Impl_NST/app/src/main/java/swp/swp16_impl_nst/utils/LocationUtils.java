@@ -2,7 +2,6 @@ package swp.swp16_impl_nst.utils;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
@@ -50,7 +49,7 @@ public class LocationUtils
 
                 if (location.getCoordinates() != null)
                 {
-                    gpsLat.setText(String.valueOf(location.getCoordinates().getLon()));
+                    gpsLat.setText(String.valueOf(location.getCoordinates().getLng()));
                     gpsLong.setText(String.valueOf(location.getCoordinates().getLat()));
                 }
 

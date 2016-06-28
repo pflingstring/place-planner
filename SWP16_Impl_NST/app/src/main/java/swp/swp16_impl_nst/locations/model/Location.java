@@ -1,5 +1,7 @@
 package swp.swp16_impl_nst.locations.model;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.List;
 import java.util.UUID;
 import java.util.ArrayList;
@@ -105,7 +107,12 @@ public class Location
     public void setGpsCoordinates(double lat, double lon)
     {
         coordinates.setLat(lat);
-        coordinates.setLon(lon);
+        coordinates.setLng(lon);
+    }
+
+    public LatLng getLatLng()
+    {
+        return new LatLng(coordinates.getLat(), coordinates.getLng());
     }
 
 
