@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+
+    <!--friend name-->
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/name"/>
+    <EditText
+        android:id="@+id/friend_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/name"/>
+
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/street"/>
+    <EditText
+        android:id="@+id/friend_street"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/street"/>
+
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/str_number"/>
+    <EditText
+        android:id="@+id/friend_street_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/str_number"/>
+
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/friend_zip"/>
+    <EditText
+        android:id="@+id/friend_zip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/friend_zip"/>
+
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/city"/>
+    <EditText
+        android:id="@+id/friend_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/city"/>
+
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/country"/>
+    <EditText
+        android:id="@+id/friend_country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/country"/>
+
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/friend_telephone"/>
+    <EditText
+        android:id="@+id/friend_telephone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/friend_telephone"/>
+
+    <TextView
+        style="@style/SmallAndItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/email"/>
+    <EditText
+        android:id="@+id/friend_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/email"/>
+
+    <!--Buttons-->
+    <LinearLayout
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cancelButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="navigateBack"
+            android:text="@string/cancel"/>
+
+        <Button
+            android:id="@+id/okButton"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="addFriend"
+            android:text="@string/ok"/>
+    </LinearLayout>
+
+
+</LinearLayout>
