@@ -14,6 +14,7 @@ import java.util.List;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.adapters.LocationAdapter;
+import swp.swp16_impl_nst.locations.activities.LocationFilterActivity;
 import swp.swp16_impl_nst.utils.Constants;
 import swp.swp16_impl_nst.utils.LocationUtils;
 
@@ -51,6 +52,9 @@ public class LocationListFragment extends Fragment
             List<Integer> positions = args.getIntegerArrayList(LOCATION_TAG);
             adapter = new LocationAdapter(LocationUtils.positionsToLocations(positions));
             layoutManager = new LinearLayoutManager(getActivity());
+
+            LocationFilterActivity activity = (LocationFilterActivity) getActivity();
+            activity.mapFragment.getMapAsync(activity);
         }
     }
 

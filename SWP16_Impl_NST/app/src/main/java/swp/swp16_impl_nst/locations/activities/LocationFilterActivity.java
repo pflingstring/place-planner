@@ -15,7 +15,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -32,14 +37,16 @@ import swp.swp16_impl_nst.locations.model.filters.LastEditedOnFilter;
 import swp.swp16_impl_nst.locations.model.filters.OwnerFilter;
 import swp.swp16_impl_nst.locations.model.filters.StringFilter;
 import swp.swp16_impl_nst.locations.model.filters.utils.DateUtils;
+import swp.swp16_impl_nst.map.utils.MapUtils;
 
 public class LocationFilterActivity extends AppCompatActivity
-    implements LocationListFragment.LocationListView
+    implements LocationListFragment.LocationListView, OnMapReadyCallback
 {
     public static List<Location> locations = LocationProvider.getLocationsCopy();
 
     private LocationListFragment locationListFragment;
-    private MapFragment mapFragment;
+    public MapFragment mapFragment;
+    private GoogleMap map;
     private Menu menu;
     
     private android.app.FragmentManager mapManager;
@@ -71,6 +78,29 @@ public class LocationFilterActivity extends AppCompatActivity
         showListFragment();
     }
 
+    @Override
+    public void onMapReady(GoogleMap googleMap)
+    {
+        final List<Location> locations = locationListFragment.getAdapter().getDataSet();
+        map = googleMap;
+
+        for (Location location : locations)
+            map.addMarker(new MarkerOptions()
+                    .position(location.getLatLng())
+                    .title(location.getName()));
+
+        map.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener()
+        {
+            @Override
+            public void onCameraChange(CameraPosition cameraPosition)
+            {
+                map.moveCamera(CameraUpdateFactory.newLatLngBounds(
+                        MapUtils.getLatLngBounds(locations), 35));
+                map.setOnCameraChangeListener(null);
+            }
+        });
+    }
+
     private void showMapFragment()
     {
         android.support.v4.app.FragmentTransaction filterTransaction = filterManager.beginTransaction();
@@ -81,6 +111,8 @@ public class LocationFilterActivity extends AppCompatActivity
         mapTransaction.commit();
     }
 
+    // TODO: fix bug when switching back from map
+    //       location list is not consistent
     private void showListFragment()
     {
         FragmentTransaction mapTransaction = mapManager.beginTransaction();
@@ -241,6 +273,7 @@ public class LocationFilterActivity extends AppCompatActivity
 
                 adapter.changeDataSet(result);
                 adapter.notifyDataSetChanged();
+                MapUtils.updateLocationsOnMap(result, map);
             }
         };
 
@@ -270,6 +303,8 @@ public class LocationFilterActivity extends AppCompatActivity
 
                 adapter.changeDataSet(result);
                 adapter.notifyDataSetChanged();
+                MapUtils.updateLocationsOnMap(result, map);
+
             }};
 
         AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
@@ -301,6 +336,7 @@ public class LocationFilterActivity extends AppCompatActivity
 
                 adapter.changeDataSet(result);
                 adapter.notifyDataSetChanged();
+                MapUtils.updateLocationsOnMap(result, map);
             }};
 
         AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
@@ -332,6 +368,7 @@ public class LocationFilterActivity extends AppCompatActivity
 
                 adapter.changeDataSet(result);
                 adapter.notifyDataSetChanged();
+                MapUtils.updateLocationsOnMap(result, map);
             }};
 
         AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
@@ -363,6 +400,7 @@ public class LocationFilterActivity extends AppCompatActivity
 
                 adapter.changeDataSet(result);
                 adapter.notifyDataSetChanged();
+                MapUtils.updateLocationsOnMap(result, map);
             }};
 
         AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
