@@ -83,6 +83,7 @@
 
     <!--category Add-->
     <string name="category_details">Categorie details</string>
+    <string name="open_map">Pick from map</string>
 
     <!--category Add-->
     <string name="friend_zip">Postal code</string>
