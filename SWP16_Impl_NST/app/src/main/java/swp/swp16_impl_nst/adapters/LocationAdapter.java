@@ -22,7 +22,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
     public List<Location> getDataSet()
     { return dataSet; }
 
-    public void changeDataSet(List<Location> positions)
+    public void replaceDataSet(List<Location> positions)
     {
         dataSet.clear();
         dataSet.addAll(positions);
