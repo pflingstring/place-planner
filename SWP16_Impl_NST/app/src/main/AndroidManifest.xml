@@ -119,6 +119,15 @@
                 android:value=".friends.activities.FriendShowActivity" />
             android:parentActivityName=".friends.activities.FriendShowActivity"
         </activity>
+        <activity
+            android:name=".friends.activities.FriendTabbedActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_friend_tabbed">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".friends.activities.FriendShowActivity"/>
+            android:parentActivityName=".friends.activities.FriendShowActivity"
+        </activity>
     </application>
 
 </manifest>

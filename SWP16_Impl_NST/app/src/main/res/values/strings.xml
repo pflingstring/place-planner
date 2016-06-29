@@ -17,49 +17,51 @@
     <string name="title_activity_category_add">Add categorie</string>
     <string name="title_activity_category_show">Categories</string>
     <string name="title_activity_category_tabbed">View/Edit</string>
-    <string name="title_activity_friend_add">Add friend</string>
-    <string name="title_activity_friend_show">Contactlist</string>
+    <string name="title_activity_friend_add">Freund hinzufügen</string>
+    <string name="title_activity_friend_show">Kontaktliste</string>
+    <string name="title_activity_friend_tabbed">View/Edit</string>
 
     <!--menu items-->
-    <string name="delete_location">Delete location</string>
-    <string name="add_location">Add location</string>
-    <string name="edit_location">Edit location</string>
+    <string name="delete_location">Location löschen</string>
+    <string name="add_location">Location hinzufügen</string>
+    <string name="edit_location">Location bearbeiten</string>
     <string name="category_icon">Icon</string>
-    <string name="show_location">Show all locations</string>
-    <string name="search_location">Search locations</string>
-    <string name="sort_location">Sort locations</string>
-    <string name="import_location">Import locations</string>
-    <string name="export_location">Export locations</string>
+    <string name="show_location">Alle Locations_anzeigen</string>
+    <string name="search_location">Location suchen</string>
+    <string name="sort_location">Locations sortieren</string>
+    <string name="import_location">Locations importieren</string>
+    <string name="export_location">Locations exportieren</string>
     <string name="export">Export</string>
-    <string name="file_name">Filename</string>
-    <string name="add_category">Add categorie</string>
-    <string name="show_categorys">Show categorie</string>
-    <string name="delete_category">Delete categorie</string>
-    <string name="show_map">Show map</string>
-    <string name="add_friend">Add friend</string>
-    <string name="show_friend">Contactlist</string>
+    <string name="file_name">File Name</string>
+    <string name="add_category">Kategorie hinzufügen</string>
+    <string name="show_categorys">Kategorien anzeigen</string>
+    <string name="delete_category">Kategorie löschen</string>
+    <string name="show_map">Karte anzeigen</string>
+    <string name="add_friend">Freund hinzufügen</string>
+    <string name="show_friend">Kontaktliste</string>
+    <string name="delete_friend">Freund löschen</string>
 
     <!--location Tabs-->
     <string name="details">Details</string>
     <string name="edit">Edit</string>
 
     <!--location Details/Edit-->
-    <string name="cancel">Cancel</string>
+    <string name="cancel">Abbrechen</string>
     <string name="ok">OK</string>
-    <string name="street">Street</string>
-    <string name="str_number">House number</string>
-    <string name="postal_code">Postal code</string>
-    <string name="city">City</string>
-    <string name="country">Country</string>
+    <string name="street">Straße</string>
+    <string name="str_number">Hausnummer</string>
+    <string name="postal_code">Postleitzahl</string>
+    <string name="city">Stadt</string>
+    <string name="country">Land</string>
     <string name="lat">Latitude</string>
     <string name="lng">Longitude</string>
     <string name="get_curr_position">Get current position</string>
     <string name="web_address">Web Address</string>
     <string name="email">E-mail Adresse</string>
-    <string name="phone_number">Phone number</string>
+    <string name="phone_number">Telefonnummer</string>
 
     <!--category Details/Edit-->
-    <string name="discription">Description</string>
+    <string name="discription">Beschreibung</string>
     <string name="categoryName">Name</string>
 
     <string name="name">Name</string>
@@ -73,20 +75,20 @@
     <string name="categories">Categories</string>
 
     <!--location Import-->
-    <string name="importbutton">Import</string>
-    <string name="searchbutton">Search</string>
-    <string name="importdatei">Enter filename for import</string>
+    <string name="importbutton">Importieren</string>
+    <string name="searchbutton">Durchsuchen</string>
+    <string name="importdatei">Hier zu importierenden Dateinamen eingeben</string>
 
     <!--location Export-->
-    <string name="exporttext">Export to File: </string>
-    <string name="exportbutton">Export</string>
+    <string name="exporttext">Name der Datei, in welche die Daten exportiert werden: </string>
+    <string name="exportbutton">Exportieren</string>
 
     <!--category Add-->
-    <string name="category_details">Categorie details</string>
+    <string name="category_details">Beschreibung der Kategorie</string>
 
     <!--category Add-->
-    <string name="friend_zip">Postal code</string>
-    <string name="friend_telephone">Telephone number</string>
+    <string name="friend_zip">Postleitzahl</string>
+    <string name="friend_telephone">Telefonnummer</string>
 
     <!--filter search sort-->
     <string name="filter">Filter</string>

@@ -47,8 +47,8 @@ public class FriendShowActivity extends AppCompatActivity
             {
                 Intent intent = new Intent();
                 intent.putExtra(CURRENT_POSITION, position);
-           //     intent.setClass(getApplicationContext(), CategoryTabbedActivity.class);
-           //     startActivity(intent);
+                intent.setClass(getApplicationContext(), FriendTabbedActivity.class);
+                startActivity(intent);
             }
 
             @Override
