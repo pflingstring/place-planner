@@ -1,0 +1,87 @@
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".friends.activities.fragments.FriendEditFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/friend_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textSize="18sp"
+            />
+
+        <View style="@style/Divider"/>
+
+        <TextView
+            android:id="@+id/friend_street"
+            style="@style/SmallAndItalic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/street"/>
+
+        <View style="@style/Divider"/>
+
+        <TextView
+            android:id="@+id/friend_street_number"
+            style="@style/SmallAndItalic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_number"/>
+
+        <View style="@style/Divider"/>
+
+        <TextView
+            android:id="@+id/friend_zip"
+            style="@style/SmallAndItalic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/friend_zip"/>
+
+        <View style="@style/Divider"/>
+
+        <TextView
+            android:id="@+id/friend_city"
+            style="@style/SmallAndItalic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/city"/>
+
+        <View style="@style/Divider"/>
+
+        <TextView
+            android:id="@+id/friend_country"
+            style="@style/SmallAndItalic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/country"/>
+
+        <TextView
+            android:id="@+id/friend_telephone"
+            style="@style/SmallAndItalic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/friend_telephone"/>
+
+        <View style="@style/Divider"/>
+
+        <TextView
+            android:id="@+id/friend_email"
+            style="@style/SmallAndItalic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"/>
+
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
