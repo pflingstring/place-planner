@@ -12,10 +12,12 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.adapters.LocationAdapter;
+import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.activities.fragments.LocationDetailsFragment;
 import swp.swp16_impl_nst.locations.activities.fragments.LocationEditFragment;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener.OnItemClickListener;
@@ -50,6 +52,14 @@ public class LocationUtils
             }
     };}
 
+    public static List<Location> positionsToLocations(List<Integer> positions)
+    {
+        List<Location> result = new ArrayList<>();
+        for (int i : positions)
+            result.add(LocationProvider.locations.get(i));
+
+        return result;
+    }
 
     public static void setupRecyclerView(
             RecyclerView recyclerView,

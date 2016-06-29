@@ -17,8 +17,17 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
     private List<Location> dataSet;
 
     public LocationAdapter(List<Location> data)
-        { dataSet = data; }
+    { dataSet = data; }
 
+    public List<Location> getDataSet()
+    { return dataSet; }
+
+    public void changeDataSet(List<Location> positions)
+    {
+        dataSet.clear();
+        dataSet.addAll(positions);
+        notifyDataSetChanged();
+    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder
     {

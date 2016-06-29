@@ -22,6 +22,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import swp.swp16_impl_nst.R;
+import swp.swp16_impl_nst.adapters.LocationAdapter;
 import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.activities.fragments.LocationListFragment;
 import swp.swp16_impl_nst.locations.model.Location;
@@ -134,227 +135,242 @@ public class LocationFilterActivity extends AppCompatActivity
 
 
     // filter buttons
-    public void distance_button(View view)
+//    public void distance_button(View view)
+//    {
+//    }
+//
+//    public void categories_button(View view)
+//    {
+//    }
+//
+//    public void rating_button(View view)
+//    {
+//    }
+
+    public void lastEditOn_button(View view)
     {
+        Context context = LocationFilterActivity.this;
+        final Calendar fromDate  = Calendar.getInstance();
+        final Calendar untilDate = Calendar.getInstance();
+
+        View alertView = LocationFilterActivity.this.getLayoutInflater().inflate(R.layout.dialog_date_picker, null);
+        final EditText from  = (EditText) alertView.findViewById(R.id.fromDate);
+        final EditText until = (EditText) alertView.findViewById(R.id.untilDate);
+
+        // so that the keyboard does not popup
+        from.setInputType(InputType.TYPE_NULL);
+        until.setInputType(InputType.TYPE_NULL);
+
+        from.setOnClickListener(DateUtils.showDatePickerDialog(
+                context
+                , from
+                , fromDate));
+
+        until.setOnClickListener(DateUtils.showDatePickerDialog(
+                context
+                , until
+                , untilDate));
+
+        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                long from  = fromDate.getTimeInMillis();
+                long until = untilDate.getTimeInMillis();
+
+                LocationAdapter adapter = locationListFragment.getAdapter();
+                List<Location> locations = new ArrayList<>(adapter.getDataSet());
+
+                List<Location> result = new ArrayList<>();
+                for (Location location : locations)
+                    if (new LastEditedOnFilter().invoke(location, from, until))
+                        result.add(location);
+
+                adapter.changeDataSet(result);
+                adapter.notifyDataSetChanged();
+            }
+        };
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
+                .setView(alertView)
+                .setPositiveButton("OK", okListener);
+
+        alert.show();
     }
 
-    public void categories_button(View view)
+    public void createdOn_button(View view)
     {
+        Context context = LocationFilterActivity.this;
+        final Calendar fromDate  = Calendar.getInstance();
+        final Calendar untilDate = Calendar.getInstance();
+
+        View alertView = LocationFilterActivity.this.getLayoutInflater().inflate(R.layout.dialog_date_picker, null);
+        final EditText from  = (EditText) alertView.findViewById(R.id.fromDate);
+        final EditText until = (EditText) alertView.findViewById(R.id.untilDate);
+
+        // so that the keyboard does not popup
+        from.setInputType(InputType.TYPE_NULL);
+        until.setInputType(InputType.TYPE_NULL);
+
+        from.setOnClickListener(DateUtils.showDatePickerDialog(
+                context
+                , from
+                , fromDate));
+
+        until.setOnClickListener(DateUtils.showDatePickerDialog(
+                context
+                , until
+                , untilDate));
+
+        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                long from  = fromDate.getTimeInMillis();
+                long until = untilDate.getTimeInMillis();
+
+                LocationAdapter adapter = locationListFragment.getAdapter();
+                List<Location> locations = new ArrayList<>(adapter.getDataSet());
+
+                List<Location> result = new ArrayList<>();
+                for (Location location : locations)
+                    if (new LastEditedOnFilter().invoke(location, from, until))
+                        result.add(location);
+
+                adapter.changeDataSet(result);
+                adapter.notifyDataSetChanged();
+            }
+        };
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
+                .setView(alertView)
+                .setPositiveButton("OK", okListener);
+
+        alert.show();
     }
 
-    public void rating_button(View view)
+    public void string_button(View view)
     {
+        final EditText editText = new EditText(LocationFilterActivity.this);
+        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                LocationAdapter adapter = locationListFragment.getAdapter();
+                List<Location> locations = new ArrayList<>(adapter.getDataSet());
+
+                List<Location> result = new ArrayList<>();
+                String string = editText.getText().toString();
+                for (Location location : locations)
+                    if (new StringFilter().invoke(location, string))
+                        result.add(location);
+
+                adapter.changeDataSet(result);
+                adapter.notifyDataSetChanged();
+            }};
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
+                .setTitle("String Filter")
+                .setView(editText)
+                .setPositiveButton("OK", okListener);
+
+        alert.show();
     }
 
-//    public void lastEditOn_button(View view)
-//    {
-//        Context context = LocationFilterActivity.this;
-//        final Calendar fromDate  = Calendar.getInstance();
-//        final Calendar untilDate = Calendar.getInstance();
-//
-//        View alertView = LocationFilterActivity.this.getLayoutInflater().inflate(R.layout.dialog_date_picker, null);
-//        final EditText from  = (EditText) alertView.findViewById(R.id.fromDate);
-//        final EditText until = (EditText) alertView.findViewById(R.id.untilDate);
-//
-//        // so that the keyboard does not popup
-//        from.setInputType(InputType.TYPE_NULL);
-//        until.setInputType(InputType.TYPE_NULL);
-//
-//        from.setOnClickListener(DateUtils.showDatePickerDialog(
-//                context
-//                , from
-//                , fromDate));
-//
-//        until.setOnClickListener(DateUtils.showDatePickerDialog(
-//                context
-//                , until
-//                , untilDate));
-//
-//        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which)
-//            {
-//                long from  = fromDate.getTimeInMillis();
-//                long until = untilDate.getTimeInMillis();
-//
-//                List<Location> result = new ArrayList<>();
-//                for (Location location : locations)
-//                    if (new LastEditedOnFilter().invoke(location, from, until))
-//                        result.add(location);
-//
-//                locations.clear();
-//                locations.addAll(result);
-//                adapter.notifyDataSetChanged();
-//            }
-//        };
-//
-//        AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
-//                .setView(alertView)
-//                .setPositiveButton("OK", okListener);
-//
-//        alert.show();
-//    }
-//
-//    public void createdOn_button(View view)
-//    {
-//        Context context = LocationFilterActivity.this;
-//        final Calendar fromDate  = Calendar.getInstance();
-//        final Calendar untilDate = Calendar.getInstance();
-//
-//        View alertView = LocationFilterActivity.this.getLayoutInflater().inflate(R.layout.dialog_date_picker, null);
-//        final EditText from  = (EditText) alertView.findViewById(R.id.fromDate);
-//        final EditText until = (EditText) alertView.findViewById(R.id.untilDate);
-//
-//        // so that the keyboard does not popup
-//        from.setInputType(InputType.TYPE_NULL);
-//        until.setInputType(InputType.TYPE_NULL);
-//
-//        from.setOnClickListener(DateUtils.showDatePickerDialog(
-//                context
-//                , from
-//                , fromDate));
-//
-//        until.setOnClickListener(DateUtils.showDatePickerDialog(
-//                context
-//                , until
-//                , untilDate));
-//
-//        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which)
-//            {
-//                long from  = fromDate.getTimeInMillis();
-//                long until = untilDate.getTimeInMillis();
-//
-//                List<Location> result = new ArrayList<>();
-//                for (Location location : locations)
-//                    if (new LastEditedOnFilter().invoke(location, from, until))
-//                        result.add(location);
-//
-//                locations.clear();
-//                locations.addAll(result);
-//                adapter.notifyDataSetChanged();
-//            }
-//        };
-//
-//        AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
-//                .setView(alertView)
-//                .setPositiveButton("OK", okListener);
-//
-//        alert.show();
-//    }
-//
-//    public void string_button(View view)
-//    {
-//        final EditText editText = new EditText(LocationFilterActivity.this);
-//        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which)
-//            {
-//                List<Location> result = new ArrayList<>();
-//                String string = editText.getText().toString();
-//                for (Location location : locations)
-//                    if (new StringFilter().invoke(location, string))
-//                        result.add(location);
-//
-//                locations.clear();
-//                locations.addAll(result);
-//                adapter.notifyDataSetChanged();
-//            }};
-//
-//        AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
-//                .setTitle("String Filter")
-//                .setView(editText)
-//                .setPositiveButton("OK", okListener);
-//
-//        alert.show();
-//    }
-//
-//    public void city_button(View view)
-//    {
-//        final EditText editText = new EditText(LocationFilterActivity.this);
-//        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which)
-//            {
-//                List<Location> result = new ArrayList<Location>();
-//                String city = editText.getText().toString();
-//                for (Location loc : locations)
-//                {
-//                    if (new CityFilter().invoke(loc, city))
-//                        result.add(loc);
-//                }
-//                locations.clear();
-//                locations.addAll(result);
-//                adapter.notifyDataSetChanged();
-//            }};
-//
-//        AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
-//                .setTitle("City filter")
-//                .setView(editText)
-//                .setPositiveButton("OK", okListener);
-//
-//        alert.show();
-//    }
-//
-//    public void country_button(View view)
-//    {
-//        final EditText editText = new EditText(LocationFilterActivity.this);
-//        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which)
-//            {
-//                List<Location> result = new ArrayList<Location>();
-//                String country = editText.getText().toString();
-//                for (Location loc : locations)
-//                {
-//                    if (new CountryFilter().invoke(loc, country))
-//                        result.add(loc);
-//                }
-//                locations.clear();
-//                locations.addAll(result);
-//                adapter.notifyDataSetChanged();
-//            }};
-//
-//        AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
-//                .setTitle("City filter")
-//                .setView(editText)
-//                .setPositiveButton("OK", okListener);
-//
-//        alert.show();
-//    }
-//
-//    public void owner_button(View view)
-//    {
-//        final EditText editText = new EditText(LocationFilterActivity.this);
-//        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which)
-//            {
-//                List<Location> result = new ArrayList<Location>();
-//                String owner = editText.getText().toString();
-//                for (Location loc : locations)
-//                {
-//                    if (new OwnerFilter().invoke(loc, owner))
-//                        result.add(loc);
-//                }
-//                locations.clear();
-//                locations.addAll(result);
-//                adapter.notifyDataSetChanged();
-//            }};
-//
-//        AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
-//                .setTitle("Owner Filter")
-//                .setView(editText)
-//                .setPositiveButton("OK", okListener);
-//
-//        alert.show();
-//    }
+    public void city_button(View view)
+    {
+        final EditText editText = new EditText(LocationFilterActivity.this);
+        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                LocationAdapter adapter = locationListFragment.getAdapter();
+                List<Location> locations = new ArrayList<>(adapter.getDataSet());
+
+                List<Location> result = new ArrayList<>();
+                String city = editText.getText().toString();
+                for (Location location : locations)
+                {
+                    if (new CityFilter().invoke(location, city))
+                        result.add(location);
+                }
+
+                adapter.changeDataSet(result);
+                adapter.notifyDataSetChanged();
+            }};
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
+                .setTitle("City filter")
+                .setView(editText)
+                .setPositiveButton("OK", okListener);
+
+        alert.show();
+    }
+
+    public void country_button(View view)
+    {
+        final EditText editText = new EditText(LocationFilterActivity.this);
+        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                LocationAdapter adapter = locationListFragment.getAdapter();
+                List<Location> locations = new ArrayList<>(adapter.getDataSet());
+
+                List<Location> result = new ArrayList<>();
+                String country = editText.getText().toString();
+                for (Location location : locations)
+                {
+                    if (new CountryFilter().invoke(location, country))
+                        result.add(location);
+                }
+
+                adapter.changeDataSet(result);
+                adapter.notifyDataSetChanged();
+            }};
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
+                .setTitle("City filter")
+                .setView(editText)
+                .setPositiveButton("OK", okListener);
+
+        alert.show();
+    }
+
+    public void owner_button(View view)
+    {
+        final EditText editText = new EditText(LocationFilterActivity.this);
+        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                LocationAdapter adapter = locationListFragment.getAdapter();
+                List<Location> locations = new ArrayList<>(adapter.getDataSet());
+
+                List<Location> result = new ArrayList<>();
+                String owner = editText.getText().toString();
+                for (Location location : locations)
+                {
+                    if (new OwnerFilter().invoke(location, owner))
+                        result.add(location);
+                }
+
+                adapter.changeDataSet(result);
+                adapter.notifyDataSetChanged();
+            }};
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(LocationFilterActivity.this)
+                .setTitle("Owner Filter")
+                .setView(editText)
+                .setPositiveButton("OK", okListener);
+
+        alert.show();
+    }
     
 }

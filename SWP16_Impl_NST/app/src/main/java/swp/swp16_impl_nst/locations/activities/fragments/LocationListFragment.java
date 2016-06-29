@@ -14,11 +14,8 @@ import java.util.List;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.adapters.LocationAdapter;
-import swp.swp16_impl_nst.locations.LocationProvider;
-import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.utils.Constants;
 import swp.swp16_impl_nst.utils.LocationUtils;
-import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
 public class LocationListFragment extends Fragment
 {
@@ -29,8 +26,8 @@ public class LocationListFragment extends Fragment
 
     // private fields
     private LocationAdapter adapter;
-    private List<Location> locations;
     private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
 
     public static LocationListFragment newInstance(final List<Integer> locations)
     {
@@ -51,12 +48,9 @@ public class LocationListFragment extends Fragment
         Bundle args = getArguments();
         if (args != null)
         {
-            List<Integer> positions = getArguments().getIntegerArrayList(LOCATION_TAG);
-            if ((positions != null) && (!positions.isEmpty()))
-            {
-                for (int i = 0; i< positions.size(); i++)
-                    locations.add(LocationProvider.locations.get(i));
-            }
+            List<Integer> positions = args.getIntegerArrayList(LOCATION_TAG);
+            adapter = new LocationAdapter(LocationUtils.positionsToLocations(positions));
+            layoutManager = new LinearLayoutManager(getActivity());
         }
     }
 
@@ -67,6 +61,8 @@ public class LocationListFragment extends Fragment
     {
         View result = inflater.inflate(R.layout.recycler_view, container, false);
         recyclerView = (RecyclerView) result.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
 
         return result;
     }
@@ -84,5 +80,8 @@ public class LocationListFragment extends Fragment
 
     public LocationListFragment()
     { /** Required empty public constructor */ }
+
+    public LocationAdapter getAdapter()
+    { return adapter; }
 
 }

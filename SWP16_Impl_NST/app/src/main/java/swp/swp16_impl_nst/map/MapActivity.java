@@ -37,14 +37,15 @@ public class MapActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        ((SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map))
-                .getMapAsync(this);
-
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, 0 /* clientId */, this)
                 .addApi(Places.GEO_DATA_API)
                 .build();
+
+        ((SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map))
+                .getMapAsync(this);
+
     }
 
     /**
@@ -72,11 +73,9 @@ public class MapActivity
         map = googleMap;
 
         for (Location location : locations)
-        {
             map.addMarker(new MarkerOptions()
-                    .position(location.getLatLng())
-                    .title(location.getName()));
-        }
+                .position(location.getLatLng())
+                .title(location.getName()));
 
         map.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener()
         {
