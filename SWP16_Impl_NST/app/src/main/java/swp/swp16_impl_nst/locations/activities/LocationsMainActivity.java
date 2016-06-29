@@ -17,7 +17,7 @@ import swp.swp16_impl_nst.categories.activities.CategoryShowActivity;
 import swp.swp16_impl_nst.friends.activities.FriendAddActivity;
 import swp.swp16_impl_nst.friends.activities.FriendShowActivity;
 import swp.swp16_impl_nst.locations.LocationProvider;
-import swp.swp16_impl_nst.locations.LocationsAdapter;
+import swp.swp16_impl_nst.adapters.LocationAdapter;
 import swp.swp16_impl_nst.map.MapActivity;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
@@ -30,7 +30,7 @@ public class LocationsMainActivity extends AppCompatActivity
     public final static String CURRENT_POSITION = "swp.current_location";
 
     private RecyclerView recyclerView;
-    private LocationsAdapter adapter;
+    private LocationAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
     @Override
@@ -47,7 +47,7 @@ public class LocationsMainActivity extends AppCompatActivity
         recyclerView = (RecyclerView) findViewById(R.id.rview_locations);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new LocationsAdapter(LocationProvider.locations);
+        adapter = new LocationAdapter(LocationProvider.locations);
         recyclerView.setAdapter(adapter);
 
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(

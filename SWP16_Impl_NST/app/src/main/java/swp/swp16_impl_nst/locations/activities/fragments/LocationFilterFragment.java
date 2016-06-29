@@ -1,33 +1,13 @@
 package swp.swp16_impl_nst.locations.activities.fragments;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.locations.LocationProvider;
-import swp.swp16_impl_nst.locations.LocationsAdapter;
-import swp.swp16_impl_nst.locations.activities.LocationFilterActivity;
-import swp.swp16_impl_nst.locations.model.Location;
-import swp.swp16_impl_nst.locations.model.filters.CityFilter;
-import swp.swp16_impl_nst.locations.model.filters.CountryFilter;
-import swp.swp16_impl_nst.locations.model.filters.LastEditedOnFilter;
-import swp.swp16_impl_nst.locations.model.filters.OwnerFilter;
-import swp.swp16_impl_nst.locations.model.filters.StringFilter;
-import swp.swp16_impl_nst.locations.model.filters.utils.DateUtils;
 
 public class LocationFilterFragment extends Fragment
 {

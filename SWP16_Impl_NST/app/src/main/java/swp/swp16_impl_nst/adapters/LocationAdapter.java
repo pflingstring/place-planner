@@ -1,4 +1,4 @@
-package swp.swp16_impl_nst.locations;
+package swp.swp16_impl_nst.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,21 +12,19 @@ import java.util.List;
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.locations.model.Location;
 
-public class LocationsAdapter extends RecyclerView.Adapter<LocationsAdapter.ViewHolder>
+public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHolder>
 {
     private List<Location> dataSet;
 
-    public List<Location> getDataSet()
-    { return dataSet; }
+    public LocationAdapter(List<Location> data)
+        { dataSet = data; }
 
-    public LocationsAdapter(List<Location> data)
-    { dataSet = data; }
 
     public static class ViewHolder extends RecyclerView.ViewHolder
     {
         public ImageView icon;
-        public TextView locationName;
-        public TextView locationComment;
+        public TextView  locationName;
+        public TextView  locationComment;
 
         public ViewHolder(View view)
         {
@@ -46,17 +44,15 @@ public class LocationsAdapter extends RecyclerView.Adapter<LocationsAdapter.View
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
-        View v = LayoutInflater
-                .from(parent.getContext())
-                .inflate(R.layout.rview_location_item, parent, false);
-
-        return new ViewHolder(v);
+        return new ViewHolder(LayoutInflater
+                    .from(parent.getContext())
+                    .inflate(R.layout.view_location, parent, false));
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position)
     {
-        Location location = dataSet.get(position);
+        final Location location = dataSet.get(position);
         holder.setLocationName(location.getName());
         holder.setLocationComment(location.getComment());
     }
