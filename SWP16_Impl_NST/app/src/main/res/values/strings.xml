@@ -95,4 +95,7 @@
     <string name="distance">Distance</string>
     <string name="last_edit_on">Last edit on</string>
     <string name="words">String, substrings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
