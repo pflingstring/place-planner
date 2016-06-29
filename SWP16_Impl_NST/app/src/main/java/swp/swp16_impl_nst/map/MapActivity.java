@@ -12,12 +12,15 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.List;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.model.Location;
+import swp.swp16_impl_nst.map.utils.MapUtils;
 
 public class MapActivity
     extends AppCompatActivity
@@ -34,15 +37,14 @@ public class MapActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        ((SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map))
+                .getMapAsync(this);
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, 0 /* clientId */, this)
                 .addApi(Places.GEO_DATA_API)
                 .build();
-
     }
 
     /**
@@ -66,24 +68,26 @@ public class MapActivity
     @Override
     public void onMapReady(GoogleMap googleMap)
     {
+        final List<Location> locations = LocationProvider.getLocationsCopy();
         map = googleMap;
 
-        for (Location location : LocationProvider.getLocationsCopy())
+        for (Location location : locations)
         {
             map.addMarker(new MarkerOptions()
-                .position(location.getLatLng())
-                .title(location.getName()));
+                    .position(location.getLatLng())
+                    .title(location.getName()));
         }
 
-        map.setOnMapClickListener(new GoogleMap.OnMapClickListener()
+        map.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener()
         {
             @Override
-            public void onMapClick(LatLng latLng)
+            public void onCameraChange(CameraPosition cameraPosition)
             {
-                map.addMarker(new MarkerOptions().position(latLng).title("JUST CLICKED HERE"));
+                map.moveCamera(CameraUpdateFactory.newLatLngBounds(
+                        MapUtils.getLatLngBounds(locations), 35));
+                map.setOnCameraChangeListener(null);
             }
         });
-
     }
 
 }
