@@ -72,6 +72,7 @@ public class MapActivity
         final List<Location> locations = LocationProvider.getLocationsCopy();
         map = googleMap;
 
+
         for (Location location : locations)
             map.addMarker(new MarkerOptions()
                 .position(location.getLatLng())

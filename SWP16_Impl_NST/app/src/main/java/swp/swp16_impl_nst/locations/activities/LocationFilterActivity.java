@@ -1,7 +1,5 @@
 package swp.swp16_impl_nst.locations.activities;
 
-import android.support.v4.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.ActionBar;
@@ -42,16 +40,13 @@ import swp.swp16_impl_nst.map.utils.MapUtils;
 public class LocationFilterActivity extends AppCompatActivity
     implements LocationListFragment.LocationListView, OnMapReadyCallback
 {
-    public static List<Location> locations = LocationProvider.getLocationsCopy();
+    public static List<Location> locations;
 
-    private LocationListFragment locationListFragment;
+    private LocationListFragment locationsFragment;
     public MapFragment mapFragment;
     private GoogleMap map;
     private Menu menu;
     
-    private android.app.FragmentManager mapManager;
-    private FragmentManager filterManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -66,22 +61,78 @@ public class LocationFilterActivity extends AppCompatActivity
             actionBar.setTitle("Filter");
         }
 
+        locations = LocationProvider.getLocationsCopy();
         List<Integer> positions = new ArrayList<>();
         for (int i=0; i<locations.size(); i++)
             positions.add(i);
-        
-        locationListFragment = LocationListFragment.newInstance(positions);
-        filterManager  = getSupportFragmentManager();
+
+
+        // fragments initialization
         mapFragment = MapFragment.newInstance();
-        mapManager  = getFragmentManager();
+        locationsFragment = LocationListFragment.newInstance(positions);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragment_container, locationsFragment)
+                .commit();
+
+        // TODO: run in a background thread
+        getFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragment_container, mapFragment)
+                .commit();
 
         showListFragment();
+    }
+
+    private void showMapFragment()
+    {
+        hideList();
+        showMap();
+    }
+
+    private void showListFragment()
+    {
+        hideMap();
+        showList();
+    }
+
+    private void hideMap()
+    {
+        getFragmentManager()
+            .beginTransaction()
+            .hide(mapFragment)
+            .commit();
+    }
+
+    private void showMap()
+    {
+        getFragmentManager()
+            .beginTransaction()
+            .show(mapFragment)
+            .commit();
+    }
+
+    private void hideList()
+    {
+        getSupportFragmentManager()
+            .beginTransaction()
+            .hide(locationsFragment)
+            .commit();
+    }
+
+    private void showList()
+    {
+        getSupportFragmentManager()
+            .beginTransaction()
+            .show(locationsFragment)
+            .commit();
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap)
     {
-        final List<Location> locations = locationListFragment.getAdapter().getDataSet();
+        final List<Location> locations = locationsFragment.getAdapter().getDataSet();
         map = googleMap;
 
         for (Location location : locations)
@@ -99,29 +150,6 @@ public class LocationFilterActivity extends AppCompatActivity
                 map.setOnCameraChangeListener(null);
             }
         });
-    }
-
-    private void showMapFragment()
-    {
-        android.support.v4.app.FragmentTransaction filterTransaction = filterManager.beginTransaction();
-        filterTransaction.remove(locationListFragment).commit();
-
-        FragmentTransaction mapTransaction = mapManager.beginTransaction();
-        mapTransaction.add(R.id.fragment_container, mapFragment);
-        mapTransaction.commit();
-    }
-
-    // TODO: fix bug when switching back from map
-    //       location list is not consistent
-    private void showListFragment()
-    {
-        FragmentTransaction mapTransaction = mapManager.beginTransaction();
-        mapTransaction.remove(mapFragment);
-        mapTransaction.commit();
-
-        android.support.v4.app.FragmentTransaction filterTransaction = filterManager.beginTransaction();
-        filterTransaction.add(R.id.fragment_container, locationListFragment);
-        filterTransaction.commit();
     }
 
     private void hideMenuOption(int id)
@@ -211,7 +239,7 @@ public class LocationFilterActivity extends AppCompatActivity
                 long from  = fromDate.getTimeInMillis();
                 long until = untilDate.getTimeInMillis();
 
-                LocationAdapter adapter = locationListFragment.getAdapter();
+                LocationAdapter adapter = locationsFragment.getAdapter();
                 List<Location> locations = new ArrayList<>(adapter.getDataSet());
 
                 List<Location> result = new ArrayList<>();
@@ -219,7 +247,7 @@ public class LocationFilterActivity extends AppCompatActivity
                     if (new LastEditedOnFilter().invoke(location, from, until))
                         result.add(location);
 
-                adapter.changeDataSet(result);
+                adapter.replaceDataSet(result);
                 adapter.notifyDataSetChanged();
             }
         };
@@ -263,7 +291,7 @@ public class LocationFilterActivity extends AppCompatActivity
                 long from  = fromDate.getTimeInMillis();
                 long until = untilDate.getTimeInMillis();
 
-                LocationAdapter adapter = locationListFragment.getAdapter();
+                LocationAdapter adapter = locationsFragment.getAdapter();
                 List<Location> locations = new ArrayList<>(adapter.getDataSet());
 
                 List<Location> result = new ArrayList<>();
@@ -271,7 +299,7 @@ public class LocationFilterActivity extends AppCompatActivity
                     if (new LastEditedOnFilter().invoke(location, from, until))
                         result.add(location);
 
-                adapter.changeDataSet(result);
+                adapter.replaceDataSet(result);
                 adapter.notifyDataSetChanged();
                 MapUtils.updateLocationsOnMap(result, map);
             }
@@ -292,7 +320,7 @@ public class LocationFilterActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
-                LocationAdapter adapter = locationListFragment.getAdapter();
+                LocationAdapter adapter = locationsFragment.getAdapter();
                 List<Location> locations = new ArrayList<>(adapter.getDataSet());
 
                 List<Location> result = new ArrayList<>();
@@ -301,7 +329,7 @@ public class LocationFilterActivity extends AppCompatActivity
                     if (new StringFilter().invoke(location, string))
                         result.add(location);
 
-                adapter.changeDataSet(result);
+                adapter.replaceDataSet(result);
                 adapter.notifyDataSetChanged();
                 MapUtils.updateLocationsOnMap(result, map);
 
@@ -323,7 +351,7 @@ public class LocationFilterActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
-                LocationAdapter adapter = locationListFragment.getAdapter();
+                LocationAdapter adapter = locationsFragment.getAdapter();
                 List<Location> locations = new ArrayList<>(adapter.getDataSet());
 
                 List<Location> result = new ArrayList<>();
@@ -334,7 +362,7 @@ public class LocationFilterActivity extends AppCompatActivity
                         result.add(location);
                 }
 
-                adapter.changeDataSet(result);
+                adapter.replaceDataSet(result);
                 adapter.notifyDataSetChanged();
                 MapUtils.updateLocationsOnMap(result, map);
             }};
@@ -355,7 +383,7 @@ public class LocationFilterActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
-                LocationAdapter adapter = locationListFragment.getAdapter();
+                LocationAdapter adapter = locationsFragment.getAdapter();
                 List<Location> locations = new ArrayList<>(adapter.getDataSet());
 
                 List<Location> result = new ArrayList<>();
@@ -366,7 +394,7 @@ public class LocationFilterActivity extends AppCompatActivity
                         result.add(location);
                 }
 
-                adapter.changeDataSet(result);
+                adapter.replaceDataSet(result);
                 adapter.notifyDataSetChanged();
                 MapUtils.updateLocationsOnMap(result, map);
             }};
@@ -387,7 +415,7 @@ public class LocationFilterActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
-                LocationAdapter adapter = locationListFragment.getAdapter();
+                LocationAdapter adapter = locationsFragment.getAdapter();
                 List<Location> locations = new ArrayList<>(adapter.getDataSet());
 
                 List<Location> result = new ArrayList<>();
@@ -398,7 +426,7 @@ public class LocationFilterActivity extends AppCompatActivity
                         result.add(location);
                 }
 
-                adapter.changeDataSet(result);
+                adapter.replaceDataSet(result);
                 adapter.notifyDataSetChanged();
                 MapUtils.updateLocationsOnMap(result, map);
             }};
