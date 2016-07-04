@@ -38,6 +38,7 @@
     <string name="show_map">Show map</string>
     <string name="add_friend">Add friend</string>
     <string name="show_friend">Contactlist</string>
+    <string name="delete_friend">Delete friend</string>
 
     <!--location Tabs-->
     <string name="details">Details</string>
