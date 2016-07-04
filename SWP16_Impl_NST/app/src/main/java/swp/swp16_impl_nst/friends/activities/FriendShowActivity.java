@@ -12,6 +12,7 @@ import android.view.View;
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.friends.FriendAdapter;
 import swp.swp16_impl_nst.friends.FriendProvider;
+import swp.swp16_impl_nst.groups.activities.GroupAddActivity;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
 /**
@@ -72,6 +73,9 @@ public class FriendShowActivity extends AppCompatActivity
 
             case R.id.action_add_friend:
                 startActivity(new Intent().setClass(getApplicationContext(), FriendAddActivity.class));
+                return true;
+            case R.id.action_add_group:
+                startActivity(new Intent().setClass(getApplicationContext(), GroupAddActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);

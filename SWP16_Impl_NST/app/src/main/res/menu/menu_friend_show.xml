@@ -10,6 +10,15 @@
         android:title="@string/add_friend"
         app:showAsAction="never"/>
 
+    <item
+        android:id="@+id/action_add_group"
+        android:title="@string/add_group"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_show_group"
+        android:title="@string/show_group"
+        app:showAsAction="never"/>
 
     <item
         android:id="@+id/action_settings"
