@@ -1,5 +1,6 @@
 package swp.swp16_impl_nst.locations.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +11,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.categories.activities.CategoryAddActivity;
@@ -27,7 +37,8 @@ import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
  */
 public class LocationsMainActivity extends AppCompatActivity
 {
-    public final static String CURRENT_POSITION = "swp.current_location";
+    public  final static String CURRENT_POSITION = "swp.current_location";
+    private final static String SAVED_LOCATION_FILENAME = ".current_locations";
 
     private RecyclerView recyclerView;
     private LocationAdapter adapter;
@@ -80,6 +91,55 @@ public class LocationsMainActivity extends AppCompatActivity
             });
         }
 
+        // load locations from internal storage
+        try
+        {
+            FileInputStream inputStream = openFileInput(SAVED_LOCATION_FILENAME);
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+            BufferedReader reader = new BufferedReader(inputStreamReader);
+
+            StringBuilder builder = new StringBuilder();
+
+            String line;
+            while ((line = reader.readLine()) != null)
+                builder.append(line);
+
+            reader.close();
+
+            String result = builder.toString();
+            if (!result.isEmpty())
+                LocationProvider.locations.addAll(
+                        new ArrayList<>(LocationProvider.fromStringToLocationList(result)));
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+
+        // save locations to internal storage
+        try
+        {
+            FileOutputStream outputStream = openFileOutput(SAVED_LOCATION_FILENAME, Context.MODE_PRIVATE);
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream, "UTF-8");
+            BufferedWriter writer = new BufferedWriter(outputStreamWriter);
+
+            writer.write(LocationProvider.currentLocationsToString());
+
+            writer.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        LocationProvider.locations.clear();
     }
 
     @Override
@@ -92,7 +152,6 @@ public class LocationsMainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        int id = item.getItemId();
         switch (item.getItemId())
         {
             case R.id.menu_import_location:
