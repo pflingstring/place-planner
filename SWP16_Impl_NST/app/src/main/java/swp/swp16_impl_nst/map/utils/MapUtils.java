@@ -20,7 +20,7 @@ public class MapUtils
         {
             GpsCoordinates coordinates = locations.get(0).getCoordinates();
             double latMin = coordinates.getLat();
-            double lngMin = coordinates.getLng();
+            double lngMin = coordinates.getLon();
             double latMax = latMin;
             double lngMax = lngMin;
 
@@ -28,7 +28,7 @@ public class MapUtils
             {
                 GpsCoordinates latLng = location.getCoordinates();
                 double latitude  = latLng.getLat();
-                double longitude = latLng.getLng();
+                double longitude = latLng.getLon();
 
                 latMin = (latitude  < latMin) ? latitude  : latMin;
                 lngMax = (longitude > lngMax) ? longitude : lngMax;

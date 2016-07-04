@@ -112,7 +112,7 @@ public class LocationUtils
 
                 if (location.getCoordinates() != null)
                 {
-                    gpsLat.setText(String.valueOf(location.getCoordinates().getLng()));
+                    gpsLat.setText(String.valueOf(location.getCoordinates().getLon()));
                     gpsLong.setText(String.valueOf(location.getCoordinates().getLat()));
                 }
 
