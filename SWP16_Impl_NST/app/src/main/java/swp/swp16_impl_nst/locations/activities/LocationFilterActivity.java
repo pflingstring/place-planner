@@ -135,21 +135,24 @@ public class LocationFilterActivity extends AppCompatActivity
         final List<Location> locations = locationsFragment.getAdapter().getDataSet();
         map = googleMap;
 
-        for (Location location : locations)
-            map.addMarker(new MarkerOptions()
-                    .position(location.getLatLng())
-                    .title(location.getName()));
-
-        map.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener()
+        if (locations != null && !locations.isEmpty())
         {
-            @Override
-            public void onCameraChange(CameraPosition cameraPosition)
+            for (Location location : locations)
+                map.addMarker(new MarkerOptions()
+                        .position(location.getLatLng())
+                        .title(location.getName()));
+
+            map.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener()
             {
-                map.moveCamera(CameraUpdateFactory.newLatLngBounds(
-                        MapUtils.getLatLngBounds(locations), 35));
-                map.setOnCameraChangeListener(null);
-            }
-        });
+                @Override
+                public void onCameraChange(CameraPosition cameraPosition)
+                {
+                    map.moveCamera(CameraUpdateFactory.newLatLngBounds(
+                            MapUtils.getLatLngBounds(locations), 35));
+                    map.setOnCameraChangeListener(null);
+                }
+            });
+        }
     }
 
     private void hideMenuOption(int id)
