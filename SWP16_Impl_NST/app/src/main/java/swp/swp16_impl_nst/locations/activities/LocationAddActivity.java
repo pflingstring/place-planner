@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +14,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.locations.LocationProvider;
@@ -26,8 +26,8 @@ import swp.swp16_impl_nst.locations.model.Location;
  */
 public class LocationAddActivity extends AppCompatActivity
     implements
-        LocationEditFragment.OnClickListener,
-        OnMapReadyCallback
+        LocationEditFragment.OnClickListener
+        , OnMapReadyCallback
 {
     private LatLng latLng;
     private GoogleMap map;
@@ -38,19 +38,19 @@ public class LocationAddActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_add);
-
-
     }
 
     @Override
     public void onOkButtonClicked(Location location)
     {
-        if (location.getName().length()==0){
+        if (location.getName().isEmpty())
+        {
+            // TODO: replace with string resource
             Toast toast = Toast.makeText(this, "Die Location muss einen Namen besitzen", Toast.LENGTH_SHORT);
             toast.show();
         }
-
-        else {
+        else
+        {
             LocationProvider.locations.add(location);
             Toast toast = Toast.makeText(this, "Location added", Toast.LENGTH_SHORT);
             toast.show();
@@ -59,22 +59,51 @@ public class LocationAddActivity extends AppCompatActivity
     }
 
     @Override
-    public void onMapReady(GoogleMap map)
+    public void onMapReady(GoogleMap googleMap)
     {
-
-        this.map = map;
-
-        Log.d("DEB", map.toString());
+        map = googleMap;
 
         map.setOnMapClickListener(new GoogleMap.OnMapClickListener()
         {
             @Override
             public void onMapClick(LatLng coordinates)
             {
+                map.clear();
                 latLng = coordinates;
-                Log.d("DEB", latLng.toString());
+                map.addMarker(new MarkerOptions().position(latLng));
             }
         });
+    }
+
+    private void showDialogMap()
+    {
+        View mapView = getLayoutInflater().inflate(R.layout.fragment_map, null);
+
+        if (mapFragment == null)
+        {
+            mapFragment = (MapFragment) getFragmentManager()
+                    .findFragmentById(mapView.findViewById(R.id.map).getId());
+            mapFragment.getMapAsync(LocationAddActivity.this);
+        }
+
+        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                LocationEditFragment fragment = (LocationEditFragment)
+                    getSupportFragmentManager().findFragmentById(R.id.add_location_fragment);
+
+                fragment.setLatText(latLng.latitude);
+                fragment.setLonText(latLng.longitude);
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+            .setPositiveButton("OK", okListener)
+            .setView(mapView);
+
+        builder.show();
     }
 
     public void navigateBack(View view)
@@ -99,25 +128,4 @@ public class LocationAddActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
-
-    private void showDialogMap()
-    {
-        final AlertDialog.Builder dialog = new AlertDialog.Builder(LocationAddActivity.this);
-
-        DialogInterface.OnClickListener okListener = new DialogInterface.OnClickListener()
-        {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
-                Toast.makeText(getApplicationContext(), latLng.toString(), Toast.LENGTH_SHORT).show();
-            }
-        };
-
-
-
-
-        dialog.show();
-    }
-
-
 }

@@ -112,8 +112,8 @@ public class LocationUtils
 
                 if (location.getCoordinates() != null)
                 {
-                    gpsLat.setText(String.valueOf(location.getCoordinates().getLon()));
-                    gpsLong.setText(String.valueOf(location.getCoordinates().getLat()));
+                    gpsLat.setText(String.valueOf(location.getCoordinates().getLat()));
+                    gpsLong.setText(String.valueOf(location.getCoordinates().getLon()));
                 }
 
                 if (location.getAddress() != null)

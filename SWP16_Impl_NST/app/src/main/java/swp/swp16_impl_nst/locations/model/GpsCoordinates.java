@@ -2,14 +2,14 @@ package swp.swp16_impl_nst.locations.model;
 
 public class GpsCoordinates
 {
-    private double lon;
     private double lat;
+    private double lon;
 
     public GpsCoordinates() {}
-    public GpsCoordinates(double _lat, double _lng)
+    public GpsCoordinates(double latitude, double longitude)
     {
-        lon = _lat;
-        lat = _lng;
+        lat = latitude;
+        lon = longitude;
     }
 
     // TODO: find better condition check
