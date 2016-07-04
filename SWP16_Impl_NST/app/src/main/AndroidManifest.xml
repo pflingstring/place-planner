@@ -128,6 +128,15 @@
                 android:value=".friends.activities.FriendShowActivity"/>
             android:parentActivityName=".friends.activities.FriendShowActivity"
         </activity>
+        <activity
+            android:name=".groups.activities.GroupAddActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_group_add">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".groups.activities.GroupAddActivity" />
+            android:parentActivityName=".groups.activities.GroupAddActivity"
+        </activity>
     </application>
 
 </manifest>

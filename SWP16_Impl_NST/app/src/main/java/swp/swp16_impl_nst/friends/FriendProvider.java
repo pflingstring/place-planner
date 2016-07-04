@@ -8,7 +8,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import swp.swp16_impl_nst.categories.model.Category;
 import swp.swp16_impl_nst.friends.model.Friend;
 
 /**
@@ -19,7 +18,7 @@ public class FriendProvider {
     public static final List<Friend> friends = new ArrayList<>();
 
     private final static Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    private final static Type type = (new TypeToken<List<Category>>(){}).getType();
+    private final static Type type = (new TypeToken<List<Friend>>(){}).getType();
 
     public static void add(Friend friend)
     {
