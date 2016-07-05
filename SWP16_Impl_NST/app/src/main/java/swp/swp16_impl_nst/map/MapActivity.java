@@ -72,22 +72,24 @@ public class MapActivity
         final List<Location> locations = LocationProvider.getLocationsCopy();
         map = googleMap;
 
-
-        for (Location location : locations)
-            map.addMarker(new MarkerOptions()
-                .position(location.getLatLng())
-                .title(location.getName()));
-
-        map.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener()
+        if (!locations.isEmpty())
         {
-            @Override
-            public void onCameraChange(CameraPosition cameraPosition)
+            for (Location location : locations)
+                map.addMarker(new MarkerOptions()
+                        .position(location.getLatLng())
+                        .title(location.getName()));
+
+            map.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener()
             {
-                map.moveCamera(CameraUpdateFactory.newLatLngBounds(
-                        MapUtils.getLatLngBounds(locations), 35));
-                map.setOnCameraChangeListener(null);
-            }
-        });
+                @Override
+                public void onCameraChange(CameraPosition cameraPosition)
+                {
+                    map.moveCamera(CameraUpdateFactory.newLatLngBounds(
+                            MapUtils.getLatLngBounds(locations), 35));
+                    map.setOnCameraChangeListener(null);
+                }
+            });
+        }
     }
 
 }

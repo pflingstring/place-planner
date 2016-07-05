@@ -239,4 +239,10 @@ public class LocationEditFragment extends Fragment
 
     public void setAddress_postal_code(EditText address_postal_code)
     { this.address_postal_code = address_postal_code; }
+
+    public void setLatText(double latitude)
+    { gps_lat.setText("" + latitude); }
+
+    public void setLonText(double longitude)
+    { gps_long.setText("" + longitude); }
 }

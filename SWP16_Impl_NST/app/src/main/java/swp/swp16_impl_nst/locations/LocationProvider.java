@@ -37,7 +37,7 @@ public class LocationProvider
     public static List<Location> importLocationArray(String fileName)
     {
         String fileInput = LocationStorage.readFromFile(fileName);
-        return gson.fromJson(fileInput, type);
+        return fromStringToLocationList(fileInput);
     }
 
     // file looks like: { "locations": ["key":value, ...] }
@@ -51,7 +51,8 @@ public class LocationProvider
             String jsonArray = (new JSONObject(fileInput))
                     .getJSONArray("locations")
                     .toString();
-            result = gson.fromJson(jsonArray, type);
+
+            result = fromStringToLocationList(jsonArray);
         }
         catch (JSONException e)
             { e.printStackTrace(); }
@@ -61,15 +62,17 @@ public class LocationProvider
 
     public static void exportCurrentLocations(String fileName)
     {
-        String json = gson.toJson(locations, type);
+        String json = currentLocationsToString();
         LocationStorage.writeToFile(json, fileName);
     }
 
-    // so that `loadLocations` only gets called once,
-//    static
-//    {
-//        List<Location> defaultLocations = importLocationArray("4_loc");
-//        locations.addAll(defaultLocations);
-//    }
-}
+    public static List<Location> fromStringToLocationList(String locationString)
+    {
+        return gson.fromJson(locationString, type);
+    }
 
+    public static String currentLocationsToString()
+    {
+        return gson.toJson(locations, type);
+    }
+}
