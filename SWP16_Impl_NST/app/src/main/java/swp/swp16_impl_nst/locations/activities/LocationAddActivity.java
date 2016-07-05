@@ -98,8 +98,11 @@ public class LocationAddActivity extends AppCompatActivity
                 LocationEditFragment fragment = (LocationEditFragment)
                     getSupportFragmentManager().findFragmentById(R.id.add_location_fragment);
 
-                fragment.setLatText(latLng.latitude);
-                fragment.setLonText(latLng.longitude);
+                if (latLng != null)
+                {
+                    fragment.setLatText(latLng.latitude);
+                    fragment.setLonText(latLng.longitude);
+                }
             }
         };
 
