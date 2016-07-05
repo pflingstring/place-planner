@@ -1,4 +1,5 @@
-package swp.swp16_impl_nst.categories.activities;
+package swp.swp16_impl_nst.groups.activities;
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,28 +11,27 @@ import android.view.MenuItem;
 import android.view.View;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.categories.CategoryAdapter;
-import swp.swp16_impl_nst.categories.CategoryProvider;
+import swp.swp16_impl_nst.groups.GroupAdapter;
+import swp.swp16_impl_nst.groups.GroupProvider;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
-public class CategoryShowActivity extends AppCompatActivity
-{
-    public final static String CURRENT_POSITION = "swp.current_category";
+public class GroupShowActivity extends AppCompatActivity{
+    public final static String CURRENT_POSITION = "swp.current_group";
 
     RecyclerView recyclerView;
-    CategoryAdapter adapter;
+    GroupAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
 
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category_show);
+        setContentView(R.layout.activity_group_show);
 
-        recyclerView = (RecyclerView) findViewById(R.id.rview_category_show);
+        recyclerView = (RecyclerView) findViewById(R.id.rview_group_show);
         layoutManager = new LinearLayoutManager(this);
 
 
-        adapter = new CategoryAdapter(CategoryProvider.categories);
+        adapter = new GroupAdapter(GroupProvider.groups);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
@@ -44,8 +44,8 @@ public class CategoryShowActivity extends AppCompatActivity
             {
                 Intent intent = new Intent();
                 intent.putExtra(CURRENT_POSITION, position);
-                intent.setClass(getApplicationContext(), CategoryTabbedActivity.class);
-                startActivity(intent);
+                //intent.setClass(getApplicationContext(), GroupTabbedActivity.class);
+                //startActivity(intent);
             }
 
             @Override
@@ -58,7 +58,7 @@ public class CategoryShowActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.menu_category_show, menu);
+        getMenuInflater().inflate(R.menu.menu_group_show, menu);
         return true;
     }
 
@@ -66,8 +66,8 @@ public class CategoryShowActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.action_add_category:
-                startActivity(new Intent().setClass(getApplicationContext(), CategoryAddActivity.class));
+            case R.id.action_add_group:
+                startActivity(new Intent().setClass(getApplicationContext(), GroupAddActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);

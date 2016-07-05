@@ -21,6 +21,8 @@
     <string name="title_activity_friend_show">Kontaktliste</string>
     <string name="title_activity_friend_tabbed">View/Edit</string>
     <string name="title_activity_group_add">Gruppe hinzufügen</string>
+    <string name="title_activity_group_show">Gruppen</string>
+
 
     <!--menu items-->
     <string name="delete_location">Location löschen</string>

@@ -137,6 +137,15 @@
                 android:value=".groups.activities.GroupAddActivity" />
             android:parentActivityName=".groups.activities.GroupAddActivity"
         </activity>
+        <activity
+            android:name=".groups.activities.GroupShowActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_group_show">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".groups.activities.GroupShowActivity" />
+            android:parentActivityName=".groups.activities.GroupShowActivity"
+        </activity>
     </application>
 
 </manifest>

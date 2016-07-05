@@ -13,11 +13,10 @@ import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.friends.FriendAdapter;
 import swp.swp16_impl_nst.friends.FriendProvider;
 import swp.swp16_impl_nst.groups.activities.GroupAddActivity;
+import swp.swp16_impl_nst.groups.activities.GroupShowActivity;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
-/**
- * Created by Simon on 24.06.2016.
- */
+
 public class FriendShowActivity extends AppCompatActivity
 {
     public final static String CURRENT_POSITION = "swp.current_category";
@@ -77,6 +76,8 @@ public class FriendShowActivity extends AppCompatActivity
             case R.id.action_add_group:
                 startActivity(new Intent().setClass(getApplicationContext(), GroupAddActivity.class));
                 return true;
+            case R.id.action_show_group:
+                startActivity(new Intent().setClass(getApplicationContext(), GroupShowActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

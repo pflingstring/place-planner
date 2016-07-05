@@ -28,7 +28,7 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.ViewHolder>{
         public ViewHolder(View itemView)
         {
             super(itemView);
-            name = (TextView)  itemView.findViewById(R.id.friend_name);
+            name = (TextView)  itemView.findViewById(R.id.group_name);
         }
 
         void setName(String name)
