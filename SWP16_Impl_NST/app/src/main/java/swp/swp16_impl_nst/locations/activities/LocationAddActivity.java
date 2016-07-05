@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -29,6 +30,7 @@ public class LocationAddActivity extends AppCompatActivity
         LocationEditFragment.OnClickListener
         , OnMapReadyCallback
 {
+    View mapView;
     private LatLng latLng;
     private GoogleMap map;
     private MapFragment mapFragment;
@@ -77,7 +79,9 @@ public class LocationAddActivity extends AppCompatActivity
 
     private void showDialogMap()
     {
-        View mapView = getLayoutInflater().inflate(R.layout.fragment_map, null);
+        if (mapView == null)
+            mapView = getLayoutInflater().inflate(R.layout.fragment_map, null);
+
 
         if (mapFragment == null)
         {
@@ -102,6 +106,10 @@ public class LocationAddActivity extends AppCompatActivity
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
             .setPositiveButton("OK", okListener)
             .setView(mapView);
+
+        ViewGroup parent = (ViewGroup) mapView.getParent();
+        if (parent != null)
+            parent.removeView(mapView);
 
         builder.show();
     }
