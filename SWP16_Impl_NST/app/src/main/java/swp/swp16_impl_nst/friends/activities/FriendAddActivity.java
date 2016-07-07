@@ -12,14 +12,13 @@ import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.friends.FriendProvider;
 import swp.swp16_impl_nst.friends.model.Friend;
 
-/**
- * Created by Simon on 24.06.2016.
- */
+
 public class FriendAddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend_add);
+
     }
 
     @Override
@@ -27,6 +26,8 @@ public class FriendAddActivity extends AppCompatActivity {
     {
         getMenuInflater().inflate(R.menu.menu_friend_add, menu);
         return true;
+
+
     }
 
     public void addFriend(View button){

@@ -104,7 +104,6 @@
 
         <activity
             android:name=".friends.activities.FriendAddActivity"
-            android:theme="@style/AppTheme.NoActionBar">
             android:label="@string/title_activity_friend_add">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -130,7 +129,6 @@
         </activity>
         <activity
             android:name=".groups.activities.GroupAddActivity"
-            android:theme="@style/AppTheme.NoActionBar">
             android:label="@string/title_activity_group_add">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -139,7 +137,6 @@
         </activity>
         <activity
             android:name=".groups.activities.GroupShowActivity"
-            android:theme="@style/AppTheme.NoActionBar">
             android:label="@string/title_activity_group_show">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
