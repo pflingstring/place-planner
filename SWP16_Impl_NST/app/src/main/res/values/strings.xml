@@ -22,6 +22,8 @@
     <string name="title_activity_friend_tabbed">View/Edit</string>
     <string name="title_activity_group_add">Gruppe hinzufügen</string>
     <string name="title_activity_group_show">Gruppen</string>
+    <string name="title_activity_group_tabbed">Gruppendetails</string>
+
 
 
     <!--menu items-->
@@ -45,6 +47,7 @@
     <string name="delete_friend">Freund löschen</string>
     <string name="add_group">Gruppe erstellen</string>
     <string name="show_group">Gruppen anzeigen</string>
+    <string name="delete_group">Gruppe löschen</string>
 
     <!--location Tabs-->
     <string name="details">Details</string>

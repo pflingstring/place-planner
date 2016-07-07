@@ -44,8 +44,8 @@ public class GroupShowActivity extends AppCompatActivity{
             {
                 Intent intent = new Intent();
                 intent.putExtra(CURRENT_POSITION, position);
-                //intent.setClass(getApplicationContext(), GroupTabbedActivity.class);
-                //startActivity(intent);
+                intent.setClass(getApplicationContext(), GroupTabbedActivity.class);
+                startActivity(intent);
             }
 
             @Override

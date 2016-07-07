@@ -143,6 +143,15 @@
                 android:value=".groups.activities.GroupShowActivity" />
             android:parentActivityName=".groups.activities.GroupShowActivity"
         </activity>
+        <activity
+            android:name=".groups.activities.GroupTabbedActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_group_tabbed">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".groups.activities.GroupShowActivity"/>
+            android:parentActivityName=".groups.activities.GroupShowActivity"
+        </activity>
     </application>
 
 </manifest>
