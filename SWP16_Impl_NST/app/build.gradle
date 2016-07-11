@@ -19,22 +19,25 @@ android {
     }
 }
 
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-
     testCompile 'junit:junit:4.12'
-    compile 'com.google.android.gms:play-services-maps:9.2.0'
-    compile 'com.google.android.gms:play-services-places:9.2.0'
-    compile 'com.google.android.gms:play-services-location:9.2.0'
     compile 'junit:junit:4.12'
+    /* Anmerkung zu Android Virtual Devices (AVD):
+     * System Target "6.0 (Google API)" enthält nur play-services 9.0.2 !
+     * play-services 9.2.0 noch nicht in Android N system image integriert.
+     */
+    compile 'com.google.android.gms:play-services-maps:9.0.2'
+    compile 'com.google.android.gms:play-services-location:9.0.2'
+//  compile 'com.google.android.gms:play-services:9.0.2' // implementiert alle play-services
+//  compile 'com.google.android.gms:play-services-places:9.2.0' // places erst ab 9.2.0 vorhanden
+    compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.android.support:design:24.0.0'
     compile 'com.android.support:support-v4:24.0.0'
-    compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha1'
 }
