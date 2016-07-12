@@ -29,7 +29,7 @@ import swp.swp16_impl_nst.categories.activities.fragments.CategoryEditFragment;
 public class CategoryTabbedActivity extends AppCompatActivity
         implements CategoryEditFragment.OnClickListener{
 
-    private static int position;
+    private int position;
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -112,9 +112,9 @@ public class CategoryTabbedActivity extends AppCompatActivity
         public Fragment getItem(int tabPosition)
         {
             if (tabPosition == 0)
-                return CategoryDetailsFragment.newInstance(CategoryTabbedActivity.position);
+                return CategoryDetailsFragment.newInstance(position);
             else
-                return CategoryEditFragment.newInstance(CategoryTabbedActivity.position);
+                return CategoryEditFragment.newInstance(position);
         }
 
         @Override
