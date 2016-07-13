@@ -89,9 +89,6 @@ public class CategoryTabbedActivity extends AppCompatActivity
         CategoryProvider.categories.remove(position);
         CategoryProvider.categories.add(position, category);
 
-        mSectionsPagerAdapter.notifyDataSetChanged();
-        mViewPager.setCurrentItem(0);
-
         Toast toast = Toast.makeText(this, "Kategorie bearbeitet", Toast.LENGTH_SHORT);
         toast.show();
         navigateBack(null);
