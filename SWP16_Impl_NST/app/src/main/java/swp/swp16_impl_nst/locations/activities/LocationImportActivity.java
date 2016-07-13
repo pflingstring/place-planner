@@ -6,11 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
+
+import java.util.List;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.locations.ImportAdapter;
 import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.LocationStorage;
+import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
 /**
@@ -18,7 +22,6 @@ import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
  */
 public class LocationImportActivity extends AppCompatActivity
 {
-
     private RecyclerView recyclerView;
     private ImportAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -46,12 +49,24 @@ public class LocationImportActivity extends AppCompatActivity
                 String fileName = LocationStorage.getSavedLocations().get(position);
 
                 // TODO: fix bug, don't add duplicates
-                if (LocationStorage.readFromFile(fileName).charAt(0)  == '{')
-                    LocationProvider.locations.addAll(LocationProvider.importLocationFile(fileName));
-                else
-                    LocationProvider.locations.addAll(LocationProvider.importLocationArray(fileName));
+                String file = LocationStorage.readFromFile(fileName);
+                List<Location> result;
 
-                NavUtils.navigateUpFromSameTask(LocationImportActivity.this);
+                switch (file.charAt(0))
+                {
+                    case '{' :
+                        result = LocationProvider.importLocationFile(fileName);
+                        LocationProvider.locations.addAll(result);
+                        NavUtils.navigateUpFromSameTask(LocationImportActivity.this);
+                        break;
+                    case '[' :
+                        result = LocationProvider.importLocationArray(fileName);
+                        LocationProvider.locations.addAll(result);
+                        NavUtils.navigateUpFromSameTask(LocationImportActivity.this);
+                        break;
+                    default : Toast.makeText(LocationImportActivity.this,
+                                "Seems like an invalid file", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
