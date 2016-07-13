@@ -104,7 +104,6 @@
 
         <activity
             android:name=".friends.activities.FriendAddActivity"
-            android:theme="@style/AppTheme.NoActionBar">
             android:label="@string/title_activity_friend_add">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -127,6 +126,31 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".friends.activities.FriendShowActivity"/>
             android:parentActivityName=".friends.activities.FriendShowActivity"
+        </activity>
+        <activity
+            android:name=".groups.activities.GroupAddActivity"
+            android:label="@string/title_activity_group_add">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".groups.activities.GroupAddActivity" />
+            android:parentActivityName=".groups.activities.GroupAddActivity"
+        </activity>
+        <activity
+            android:name=".groups.activities.GroupShowActivity"
+            android:label="@string/title_activity_group_show">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".groups.activities.GroupShowActivity" />
+            android:parentActivityName=".groups.activities.GroupShowActivity"
+        </activity>
+        <activity
+            android:name=".groups.activities.GroupTabbedActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_group_tabbed">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".groups.activities.GroupShowActivity"/>
+            android:parentActivityName=".groups.activities.GroupShowActivity"
         </activity>
     </application>
 

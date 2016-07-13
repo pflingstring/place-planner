@@ -1,4 +1,5 @@
-package swp.swp16_impl_nst.friends.activities;
+package swp.swp16_impl_nst.groups.activities;
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,31 +11,27 @@ import android.view.MenuItem;
 import android.view.View;
 
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.friends.FriendAdapter;
-import swp.swp16_impl_nst.friends.FriendProvider;
-import swp.swp16_impl_nst.groups.activities.GroupAddActivity;
-import swp.swp16_impl_nst.groups.activities.GroupShowActivity;
+import swp.swp16_impl_nst.groups.GroupAdapter;
+import swp.swp16_impl_nst.groups.GroupProvider;
 import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
-
-public class FriendShowActivity extends AppCompatActivity
-{
-    public final static String CURRENT_POSITION = "swp.current_category";
+public class GroupShowActivity extends AppCompatActivity{
+    public final static String CURRENT_POSITION = "swp.current_group";
 
     RecyclerView recyclerView;
-    FriendAdapter adapter;
+    GroupAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
 
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_friend_show);
+        setContentView(R.layout.activity_group_show);
 
-        recyclerView = (RecyclerView) findViewById(R.id.rview_friend_show);
+        recyclerView = (RecyclerView) findViewById(R.id.rview_group_show);
         layoutManager = new LinearLayoutManager(this);
 
 
-        adapter = new FriendAdapter(FriendProvider.friends);
+        adapter = new GroupAdapter(GroupProvider.groups);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
@@ -47,7 +44,7 @@ public class FriendShowActivity extends AppCompatActivity
             {
                 Intent intent = new Intent();
                 intent.putExtra(CURRENT_POSITION, position);
-                intent.setClass(getApplicationContext(), FriendTabbedActivity.class);
+                intent.setClass(getApplicationContext(), GroupTabbedActivity.class);
                 startActivity(intent);
             }
 
@@ -61,7 +58,7 @@ public class FriendShowActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.menu_friend_show, menu);
+        getMenuInflater().inflate(R.menu.menu_group_show, menu);
         return true;
     }
 
@@ -69,14 +66,9 @@ public class FriendShowActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.action_add_friend:
-                startActivity(new Intent().setClass(getApplicationContext(), FriendAddActivity.class));
-                return true;
             case R.id.action_add_group:
                 startActivity(new Intent().setClass(getApplicationContext(), GroupAddActivity.class));
                 return true;
-            case R.id.action_show_group:
-                startActivity(new Intent().setClass(getApplicationContext(), GroupShowActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

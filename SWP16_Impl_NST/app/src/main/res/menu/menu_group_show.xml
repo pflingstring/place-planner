@@ -3,21 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".friend.views.FriendShowActivity">
-
-    <item
-        android:id="@+id/action_add_friend"
-        android:title="@string/add_friend"
-        app:showAsAction="never"/>
+    tools:context=".group.views.GroupShowActivity">
 
     <item
         android:id="@+id/action_add_group"
         android:title="@string/add_group"
-        app:showAsAction="never"/>
-
-    <item
-        android:id="@+id/action_show_group"
-        android:title="@string/show_group"
         app:showAsAction="never"/>
 
     <item

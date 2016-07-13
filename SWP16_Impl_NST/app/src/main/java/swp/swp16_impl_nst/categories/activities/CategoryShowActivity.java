@@ -64,7 +64,6 @@ public class CategoryShowActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
         switch (item.getItemId()) {
 
             case R.id.action_add_category:
