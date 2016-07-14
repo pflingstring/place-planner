@@ -36,7 +36,7 @@ import swp.swp16_impl_nst.map.GetLatLngIntentService;
 public class LocationTabbedActivity extends AppCompatActivity
     implements LocationEditFragment.OnClickListener
 {
-    private static int position;
+    private int position;
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -96,9 +96,6 @@ public class LocationTabbedActivity extends AppCompatActivity
         LocationProvider.locations.remove(position);
         LocationProvider.locations.add(position, location);
 
-        mSectionsPagerAdapter.notifyDataSetChanged();
-        mViewPager.setCurrentItem(0);
-
         if (location.getCoordinates().isEmpty())
         {
             final AlertDialog.Builder builder = new AlertDialog.Builder(this)
@@ -133,6 +130,8 @@ public class LocationTabbedActivity extends AppCompatActivity
 
         Toast toast = Toast.makeText(this, "Location edited", Toast.LENGTH_SHORT);
         toast.show();
+
+        navigateBack(null);
     }
 
     // `Cancel` button from EditFragment
@@ -150,9 +149,9 @@ public class LocationTabbedActivity extends AppCompatActivity
         public Fragment getItem(int tabPosition)
         {
             if (tabPosition == 0)
-                return LocationDetailsFragment.newInstance(LocationTabbedActivity.position);
+                return LocationDetailsFragment.newInstance(position);
             else
-                return LocationEditFragment.newInstance(LocationTabbedActivity.position);
+                return LocationEditFragment.newInstance(position);
         }
 
         @Override

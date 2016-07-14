@@ -68,7 +68,12 @@ public class LocationProvider
 
     public static List<Location> fromStringToLocationList(String locationString)
     {
-        return gson.fromJson(locationString, type);
+        List<Location> result = gson.fromJson(locationString, type);
+
+        if (result == null)
+            throw new IllegalArgumentException("Invalid Json file");
+
+        return result;
     }
 
     public static String currentLocationsToString()

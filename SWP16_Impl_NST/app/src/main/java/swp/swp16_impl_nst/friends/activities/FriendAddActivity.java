@@ -12,13 +12,12 @@ import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.friends.FriendProvider;
 import swp.swp16_impl_nst.friends.model.Friend;
 
-
-public class FriendAddActivity extends AppCompatActivity {
+public class FriendAddActivity extends AppCompatActivity
+{
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend_add);
-
     }
 
     @Override
@@ -26,21 +25,19 @@ public class FriendAddActivity extends AppCompatActivity {
     {
         getMenuInflater().inflate(R.menu.menu_friend_add, menu);
         return true;
-
-
     }
 
-    public void addFriend(View button){
-
+    public void addFriend(View button)
+    {
         View view = button.getRootView();
 
-        EditText nameView  = (EditText) view.findViewById(R.id.friend_name);
+        EditText nameView = (EditText) view.findViewById(R.id.friend_name);
         EditText streetView = (EditText) view.findViewById(R.id.friend_street);
-        EditText streetNumberView  = (EditText) view.findViewById(R.id.friend_street_number);
+        EditText streetNumberView = (EditText) view.findViewById(R.id.friend_street_number);
         EditText zipView = (EditText) view.findViewById(R.id.friend_zip);
-        EditText cityView  = (EditText) view.findViewById(R.id.friend_city);
+        EditText cityView = (EditText) view.findViewById(R.id.friend_city);
         EditText countryView = (EditText) view.findViewById(R.id.friend_country);
-        EditText telephoneView  = (EditText) view.findViewById(R.id.friend_telephone);
+        EditText telephoneView = (EditText) view.findViewById(R.id.friend_telephone);
         EditText emailView = (EditText) view.findViewById(R.id.friend_email);
 
         String name = nameView.getText().toString();
@@ -52,12 +49,13 @@ public class FriendAddActivity extends AppCompatActivity {
         String telephone = telephoneView.getText().toString();
         String email = emailView.getText().toString();
 
-        if (name.length() == 0) {
+        if (name.length() == 0)
+        {
             Toast toast = Toast.makeText(this, "Der Freund muss einen Namen besitzen", Toast.LENGTH_SHORT);
             toast.show();
         }
-
-        else {
+        else
+        {
             FriendProvider.add(new Friend(name, street, streetNumber, zip, city, country, telephone, email));
             Toast toast = Toast.makeText(this, "Freund wurde hinzugefügt", Toast.LENGTH_SHORT);
             toast.show();
@@ -66,5 +64,7 @@ public class FriendAddActivity extends AppCompatActivity {
     }
 
     public void navigateBack(View view)
-    { NavUtils.navigateUpFromSameTask(this); }
+    {
+        NavUtils.navigateUpFromSameTask(this);
+    }
 }

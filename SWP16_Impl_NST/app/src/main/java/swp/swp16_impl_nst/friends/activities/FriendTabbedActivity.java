@@ -28,7 +28,7 @@ import swp.swp16_impl_nst.friends.model.Friend;
  */
 public class FriendTabbedActivity extends AppCompatActivity
         implements FriendEditFragment.OnClickListener{
-    private static int position;
+    private int position;
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -111,9 +111,9 @@ public class FriendTabbedActivity extends AppCompatActivity
         public Fragment getItem(int tabPosition)
         {
             if (tabPosition == 0)
-                return FriendDetailsFragment.newInstance(FriendTabbedActivity.position);
+                return FriendDetailsFragment.newInstance(position);
             else
-                return FriendEditFragment.newInstance(FriendTabbedActivity.position);
+                return FriendEditFragment.newInstance(position);
         }
 
         @Override

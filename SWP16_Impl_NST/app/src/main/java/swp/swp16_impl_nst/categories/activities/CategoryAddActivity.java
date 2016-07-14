@@ -1,5 +1,6 @@
 package swp.swp16_impl_nst.categories.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -28,29 +29,31 @@ public class CategoryAddActivity extends AppCompatActivity
         return true;
     }
 
-    public void addCategory(View button){
-
+    public void addCategory(View button)
+    {
         View view = button.getRootView();
 
-        EditText nameView  = (EditText) view.findViewById(R.id.name);
+        EditText nameView = (EditText) view.findViewById(R.id.name);
         EditText descriptionView = (EditText) view.findViewById(R.id.description);
 
         String name = nameView.getText().toString();
         String description = descriptionView.getText().toString();
 
-        if (name.length() == 0) {
+        if (name.isEmpty())
+        {
+            // TODO: replace toast messages with resource
             Toast toast = Toast.makeText(this, "Die Kategorie muss einen Namen besitzen", Toast.LENGTH_SHORT);
             toast.show();
         }
-
-        else {
+        else
+        {
             CategoryProvider.add(new Category(0, name, description));
             Toast toast = Toast.makeText(this, "Kategorie wurde hinzugefügt", Toast.LENGTH_SHORT);
             toast.show();
-            navigateBack(null);
+            startActivity(new Intent().setClass(this, CategoryShowActivity.class));
         }
     }
 
     public void navigateBack(View view)
-        { NavUtils.navigateUpFromSameTask(this); }
+    { NavUtils.navigateUpFromSameTask(this); }
 }
