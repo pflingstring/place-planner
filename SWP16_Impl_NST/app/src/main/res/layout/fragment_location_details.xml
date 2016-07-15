@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".locations.activities.fragments.LocationEditFragment">
 
     <LinearLayout
@@ -12,51 +12,11 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
 
-        <!--Location name and category-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!--Category Icon-->
-            <ImageView
-                android:id="@+id/icon"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/category_icon"
-                android:src="@drawable/ic_category_default"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="10dp">
-
-                <!--Location name-->
-                <TextView
-                    android:id="@+id/location_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    />
-
-                <!--Category name-->
-                <TextView
-                    android:id="@+id/category_main_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <View style="@style/Divider"/>
-
-        <!--Address-->
         <TextView
-            style="@style/SmallAndItalic"
+            android:id="@+id/category_main_name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="@string/address"/>
+            android:layout_height="wrap_content"/>
+        <View style="@style/Divider"/>
 
         <!--Street and number-->
         <LinearLayout
@@ -93,24 +53,26 @@
                 android:id="@+id/address_city"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                />
-
+                android:layout_weight="1"/>
         </LinearLayout>
 
         <TextView
             android:id="@+id/country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-
         <View style="@style/Divider"/>
 
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:numStars="5"
-            style="?android:attr/ratingBarStyleIndicator"
+        <TextView
+            android:id="@+id/homepage"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"/>
+        <View style="@style/Divider"/>
+
+        <TextView
+            android:id="@+id/phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <View style="@style/Divider"/>
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
