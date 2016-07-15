@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.List;
@@ -33,21 +34,22 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
     {
         public ImageView icon;
         public TextView  locationName;
-        public TextView  locationComment;
+        public RatingBar ratingBar;
 
         public ViewHolder(View view)
         {
             super(view);
             icon = (ImageView) view.findViewById(R.id.icon);
             locationName    = (TextView) view.findViewById(R.id.location_name);
-            locationComment = (TextView) view.findViewById(R.id.location_comment);
+            ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
+
         }
 
         public void setLocationName(String name)
         { locationName.setText(name); }
 
-        public void setLocationComment(String comment)
-        { locationComment.setText(comment); }
+        public void setRatingBar(float stars)
+        { ratingBar.setRating(stars); }
     }
 
     @Override
@@ -63,7 +65,10 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.ViewHo
     {
         final Location location = dataSet.get(position);
         holder.setLocationName(location.getName());
-        holder.setLocationComment(location.getComment());
+        if (location.getRating() != null)
+        {
+            holder.setRatingBar(location.getRating().ordinal());
+        }
     }
 
     @Override

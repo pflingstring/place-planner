@@ -6,5 +6,6 @@
     <color name="colorHighlight">#4E342E</color>
 
     <color name="black">#212121</color>
+    <color name="rview_background">#FFF9C4</color>
     <color name="background">#FFFDE7</color>
 </resources>
