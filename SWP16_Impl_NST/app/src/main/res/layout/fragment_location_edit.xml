@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/name"/>
-        <View style="@style/Divider"/>
+        <View style="@style/DividerHorizontal"/>
 
 
         <!--Address-->
@@ -86,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/country"/>
-        <View style="@style/Divider"/>
+        <View style="@style/DividerHorizontal"/>
 
 
         <!--GPS Coordinates-->
@@ -123,7 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/get_curr_position"/>
-        <View style="@style/Divider"/>
+        <View style="@style/DividerHorizontal"/>
 
 
         <!--rating bar-->
@@ -133,7 +133,7 @@
             android:layout_height="wrap_content"
             android:stepSize="1"
             android:numStars="5"/>
-        <View style="@style/Divider"/>
+        <View style="@style/DividerHorizontal"/>
 
 
         <!--Contact details-->
@@ -161,7 +161,7 @@
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:hint="@string/phone_number"/>
-        <View style="@style/Divider"/>
+        <View style="@style/DividerHorizontal"/>
 
 
         <!--Comment-->
@@ -177,7 +177,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/comment"/>
-        <View style="@style/Divider"/>
+        <View style="@style/DividerHorizontal"/>
 
 
         <!--MediaUrl-->
@@ -194,7 +194,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/mediaUrl"
             android:inputType="textUri"/>
-        <View style="@style/Divider"/>
+        <View style="@style/DividerHorizontal"/>
 
 
         <!--Buttons-->

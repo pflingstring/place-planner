@@ -20,7 +20,7 @@
             android:textSize="18sp"
             />
 
-        <View style="@style/Divider"/>
+        <View style="@style/DividerHorizontal"/>
 
         <TextView
             android:id="@+id/friend_street"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="@string/street"/>
 
-        <View style="@style/Divider"/>
+        <View style="@style/DividerHorizontal"/>
 
         <TextView
             android:id="@+id/friend_street_number"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:text="@string/str_number"/>
 
-        <View style="@style/Divider"/>
+        <View style="@style/DividerHorizontal"/>
 
         <TextView
             android:id="@+id/friend_zip"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:text="@string/friend_zip"/>
 
-        <View style="@style/Divider"/>
+        <View style="@style/DividerHorizontal"/>
 
         <TextView
             android:id="@+id/friend_city"
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:text="@string/city"/>
 
-        <View style="@style/Divider"/>
+        <View style="@style/DividerHorizontal"/>
 
         <TextView
             android:id="@+id/friend_country"
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:text="@string/friend_telephone"/>
 
-        <View style="@style/Divider"/>
+        <View style="@style/DividerHorizontal"/>
 
         <TextView
             android:id="@+id/friend_email"

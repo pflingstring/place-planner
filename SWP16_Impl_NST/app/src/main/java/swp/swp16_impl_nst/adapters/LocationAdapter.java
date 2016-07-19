@@ -140,18 +140,28 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
 
             if (address.getStreet() != null)
                 holder.setStreetView(address.getStreet());
+            else
+                holder.getStreetView().setVisibility(View.GONE);
 
             if (address.getNumber() != null)
                 holder.setStreerNrView(address.getNumber());
+            else
+                holder.getStreerNrView().setVisibility(View.GONE);
 
-            if (address.getZip() != null)
+            if (address.getZip() != null && !address.getZip().isEmpty())
                 holder.setPostalCodeView(address.getZip());
+            else
+                holder.getPostalCodeView().setVisibility(View.GONE);
 
             if (address.getCity() != null)
                 holder.setCityView(address.getCity());
+            else
+                holder.getCityView().setVisibility(View.GONE);
 
-            if (address.getCountry() != null)
+            if (address.getCountry() != null && !address.getCountry().isEmpty())
                 holder.setCountry(address.getCountry());
+            else
+                holder.getCountry().setVisibility(View.GONE);
         }
 
         if (contact == null || contact.isEmpty())
