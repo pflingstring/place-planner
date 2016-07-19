@@ -7,10 +7,13 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SimpleItemAnimator;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.h6ah4i.android.widget.advrecyclerview.expandable.RecyclerViewExpandableItemManager;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -40,10 +43,6 @@ public class LocationsMainActivity extends AppCompatActivity
     public  final static String CURRENT_POSITION = "swp.current_location";
     private final static String SAVED_LOCATION_FILENAME = ".current_locations";
 
-    private RecyclerView recyclerView;
-    private LocationAdapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -55,28 +54,23 @@ public class LocationsMainActivity extends AppCompatActivity
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
-        recyclerView = (RecyclerView) findViewById(R.id.rview_locations);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        adapter = new LocationAdapter(LocationProvider.locations);
-        recyclerView.setAdapter(adapter);
 
-        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
-                this, recyclerView, new RecyclerItemClickListener.OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(View view, int position)
-            {
-                Intent intent = new Intent();
-                intent.putExtra(CURRENT_POSITION, position);
-                intent.setClass(getApplicationContext(), LocationTabbedActivity.class);
-                startActivity(intent);
-            }
-
-            @Override
-            public void onItemLongClick(View view, int position)
-            {}
-        }));
+//        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
+//                this, recyclerView, new RecyclerItemClickListener.OnItemClickListener()
+//        {
+//            @Override
+//            public void onItemClick(View view, int position)
+//            {
+//                Intent intent = new Intent();
+//                intent.putExtra(CURRENT_POSITION, position);
+//                intent.setClass(getApplicationContext(), LocationTabbedActivity.class);
+//                startActivity(intent);
+//            }
+//
+//            @Override
+//            public void onItemLongClick(View view, int position)
+//            {}
+//        }));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         if (fab != null)
@@ -115,6 +109,13 @@ public class LocationsMainActivity extends AppCompatActivity
         {
             e.printStackTrace();
         }
+
+        RecyclerViewExpandableItemManager expandableManager = new RecyclerViewExpandableItemManager(null);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rview_locations);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(expandableManager.createWrappedAdapter(new LocationAdapter()));
+        ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
+        expandableManager.attachRecyclerView(recyclerView);
 
     }
 

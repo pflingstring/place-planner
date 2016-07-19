@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.h6ah4i.android.widget.advrecyclerview.expandable.ExpandableItemConstants;
 import com.h6ah4i.android.widget.advrecyclerview.expandable.RecyclerViewExpandableItemManager;
 import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractExpandableItemAdapter;
 import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractExpandableItemViewHolder;
@@ -43,20 +44,12 @@ public class FriendAddActivity extends AppCompatActivity
     }
 
 
-//    static class MyGroupItem extends MyBaseItem {
-//        public final List<MyChildItem> children;
-//
-//        public MyGroupItem(long id, String text) {
-//            super(id, text);
-//            children = new ArrayList<>();
-//        }
-//    }
-
     static abstract class LocationHeadViewHolder extends AbstractExpandableItemViewHolder
     {
         RatingBar ratingBar;
         ImageView icon;
         TextView name;
+        View parrentView;
 
         public LocationHeadViewHolder(View view)
         {
@@ -64,6 +57,12 @@ public class FriendAddActivity extends AppCompatActivity
             ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
             icon = (ImageView) view.findViewById(R.id.icon);
             name = (TextView) view.findViewById(R.id.location_name);
+            parrentView = view;
+        }
+
+        public void setBackgroundColor(int color)
+        {
+            parrentView.setBackgroundResource(color);
         }
 
         public void setRatingBar(float stars)
@@ -223,6 +222,22 @@ public class FriendAddActivity extends AppCompatActivity
             {
                 holder.setRatingBar(location.getRating().ordinal());
             }
+
+            // set background resource (target view ID: container)
+            final int expandState = holder.getExpandStateFlags();
+
+            if ((expandState & ExpandableItemConstants.STATE_FLAG_IS_UPDATED) != 0)
+            {
+                if ((expandState & ExpandableItemConstants.STATE_FLAG_IS_EXPANDED) != 0)
+                {
+                    holder.setBackgroundColor(R.color.colorPrimary);
+                }
+                else
+                {
+                    holder.setBackgroundColor(R.color.rview_background);
+                }
+            }
+
         }
 
         @Override

@@ -50,7 +50,7 @@ public class LocationListFragment extends Fragment
         if (args != null)
         {
             List<Integer> positions = args.getIntegerArrayList(LOCATION_TAG);
-            adapter = new LocationAdapter(LocationUtils.positionsToLocations(positions));
+//            adapter = new LocationAdapter(LocationUtils.positionsToLocations(positions));
             layoutManager = new LinearLayoutManager(getActivity());
 
             LocationFilterActivity activity = (LocationFilterActivity) getActivity();
@@ -66,7 +66,7 @@ public class LocationListFragment extends Fragment
         View result = inflater.inflate(R.layout.recycler_view, container, false);
         recyclerView = (RecyclerView) result.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
+//        recyclerView.setAdapter(adapter);
 
         return result;
     }
