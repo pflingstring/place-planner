@@ -77,11 +77,13 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
 
         if (address == null || address.isEmpty())
         {
-            holder.setAddressInvisible();
+            holder.addressMakeVisible(false);
+            holder.warningMakeVisible(true);
         }
         else
         {
-            holder.hideWarning();
+            holder.addressMakeVisible(true);
+            holder.warningMakeVisible(false);
 
             if (address.getStreet() != null)
                 holder.setStreetView(address.getStreet());

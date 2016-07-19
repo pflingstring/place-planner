@@ -36,18 +36,32 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
     }
 
     // setters
-    public void hideWarning()
+    public void warningMakeVisible(boolean flag)
     {
-        warning.setVisibility(View.GONE);
+        if (flag)
+            warning.setVisibility(View.VISIBLE);
+        else
+            warning.setVisibility(View.GONE);
     }
 
-    public void setAddressInvisible()
+    public void addressMakeVisible(boolean flag)
     {
-        streetView.setVisibility(View.GONE);
-        streerNrView.setVisibility(View.GONE);
-        postalCodeView.setVisibility(View.GONE);
-        cityView.setVisibility(View.GONE);
-        country.setVisibility(View.GONE);
+        if (flag)
+        {
+            streetView.setVisibility(View.VISIBLE);
+            streerNrView.setVisibility(View.VISIBLE);
+            postalCodeView.setVisibility(View.VISIBLE);
+            cityView.setVisibility(View.VISIBLE);
+            country.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            streetView.setVisibility(View.GONE);
+            streerNrView.setVisibility(View.GONE);
+            postalCodeView.setVisibility(View.GONE);
+            cityView.setVisibility(View.GONE);
+            country.setVisibility(View.GONE);
+        }
     }
 
     public void setAllInvisible()
