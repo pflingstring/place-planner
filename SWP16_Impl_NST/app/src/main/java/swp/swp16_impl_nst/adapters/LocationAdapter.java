@@ -129,6 +129,11 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
                 holder.getHomepageView().setVisibility(View.GONE);
         }
 
+        if (location.getComment() == null || location.getComment().isEmpty())
+            holder.getCommentView().setVisibility(View.GONE);
+        else
+            holder.setCommentView(location.getComment());
+
     }
 
     //
