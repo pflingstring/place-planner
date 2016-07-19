@@ -19,7 +19,77 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
     TextView categoryView;
     TextView homepageView;
     TextView phonenumberView;
+    TextView emailView;
+
     ImageView homeIcon;
+
+    public ImageView getContactsIcon()
+    {
+        return contactsIcon;
+    }
+
+    ImageView contactsIcon;
+
+    public View getWarning()
+    {
+        return warning;
+    }
+
+    public ImageView getHomeIcon()
+    {
+        return homeIcon;
+    }
+
+    public TextView getEmailView()
+    {
+        return emailView;
+    }
+
+    public TextView getPhonenumberView()
+    {
+        return phonenumberView;
+    }
+
+    public TextView getHomepageView()
+    {
+        return homepageView;
+    }
+
+    public TextView getCategoryView()
+    {
+        return categoryView;
+    }
+
+    public TextView getCountry()
+    {
+        return country;
+    }
+
+    public TextView getCityView()
+    {
+        return cityView;
+    }
+
+    public TextView getPostalCodeView()
+    {
+        return postalCodeView;
+    }
+
+    public TextView getStreerNrView()
+    {
+        return streerNrView;
+    }
+
+    public TextView getStreetView()
+    {
+        return streetView;
+    }
+
+    public TextView getCommentView()
+    {
+        return commentView;
+    }
+
     View warning;
 
     public LocationTailViewHolder(View view)
@@ -36,6 +106,8 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
         phonenumberView = (TextView) view.findViewById(R.id.phone_number);
         homeIcon = (ImageView) view.findViewById(R.id.icon_home);
         warning = view.findViewById(R.id.warning);
+        emailView = (TextView) view.findViewById(R.id.email);
+        contactsIcon = (ImageView) view.findViewById(R.id.icon_contacts);
     }
 
     // setters
@@ -66,6 +138,22 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
             cityView.setVisibility(View.GONE);
             country.setVisibility(View.GONE);
             homeIcon.setVisibility(View.GONE);
+        }
+    }
+
+    public void contactMakeVisible(boolean flag)
+    {
+        if (flag)
+        {
+            phonenumberView.setVisibility(View.VISIBLE);
+            emailView.setVisibility(View.VISIBLE);
+            homepageView.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            phonenumberView.setVisibility(View.GONE);
+            emailView.setVisibility(View.GONE);
+            homepageView.setVisibility(View.GONE);
         }
     }
 
@@ -119,5 +207,10 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
     public void setPhonenumberView(String phonenumberView)
     {
         this.phonenumberView.setText(phonenumberView);
+    }
+
+    public void setEmailView(String email)
+    {
+        this.emailView.setText(email);
     }
 }

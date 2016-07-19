@@ -13,6 +13,7 @@ import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.adapters.viewholders.LocationHeadViewHolder;
 import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.model.Address;
+import swp.swp16_impl_nst.locations.model.Contact;
 import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.adapters.viewholders.LocationTailViewHolder;
 
@@ -72,6 +73,7 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
     {
         Location location = locations.get(groupPosition);
         Address address = location.getAddress();
+        Contact contact = location.getContactDetails();
 
         holder.setCategoryView(location.getCategory().getName());
 
@@ -101,7 +103,31 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
                 holder.setCountry(address.getCountry());
         }
 
-        holder.setAllInvisible();
+        if (contact == null || contact.isEmpty())
+        {
+            holder.contactMakeVisible(false);
+            holder.getContactsIcon().setVisibility(View.GONE);
+        }
+        else
+        {
+            holder.contactMakeVisible(true);
+
+            if (contact.getEmail() != null)
+                holder.setEmailView(contact.getEmail());
+            else
+                holder.getEmailView().setVisibility(View.GONE);
+
+            if (contact.getTelephone() != null)
+                holder.setPhonenumberView(contact.getTelephone());
+            else
+                holder.getPhonenumberView().setVisibility(View.GONE);
+
+            if (contact.getWeb() != null)
+                holder.setHomepageView(contact.getWeb());
+            else
+                holder.getHomepageView().setVisibility(View.GONE);
+        }
+
     }
 
     //
