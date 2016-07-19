@@ -1,5 +1,7 @@
 package swp.swp16_impl_nst.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +16,12 @@ import java.util.List;
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.adapters.viewholders.LocationHeadViewHolder;
 import swp.swp16_impl_nst.locations.LocationProvider;
-import swp.swp16_impl_nst.locations.activities.LocationsMainActivity;
+import swp.swp16_impl_nst.locations.activities.LocationTabbedActivity;
 import swp.swp16_impl_nst.locations.model.Address;
 import swp.swp16_impl_nst.locations.model.Contact;
 import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.adapters.viewholders.LocationTailViewHolder;
+import swp.swp16_impl_nst.utils.Constants;
 
 
 public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadViewHolder, LocationTailViewHolder>
@@ -94,7 +97,10 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
             @Override
             public void onClick(View view)
             {
-
+                Context context = view.getContext();
+                Intent intent = new Intent(context, LocationTabbedActivity.class);
+                intent.putExtra(Constants.LOCATION_ITEM, groupPosition);
+                context.startActivity(intent);
             }
         });
 
