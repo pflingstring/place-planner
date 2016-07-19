@@ -1,6 +1,7 @@
 package swp.swp16_impl_nst.adapters.viewholders;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractExpandableItemViewHolder;
@@ -18,6 +19,7 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
     TextView categoryView;
     TextView homepageView;
     TextView phonenumberView;
+    ImageView homeIcon;
     View warning;
 
     public LocationTailViewHolder(View view)
@@ -32,6 +34,7 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
         categoryView = (TextView) view.findViewById(R.id.category_main_name);
         homepageView = (TextView) view.findViewById(R.id.homepage);
         phonenumberView = (TextView) view.findViewById(R.id.phone_number);
+        homeIcon = (ImageView) view.findViewById(R.id.icon_home);
         warning = view.findViewById(R.id.warning);
     }
 
@@ -53,6 +56,7 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
             postalCodeView.setVisibility(View.VISIBLE);
             cityView.setVisibility(View.VISIBLE);
             country.setVisibility(View.VISIBLE);
+            homeIcon.setVisibility(View.VISIBLE);
         }
         else
         {
@@ -61,6 +65,7 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
             postalCodeView.setVisibility(View.GONE);
             cityView.setVisibility(View.GONE);
             country.setVisibility(View.GONE);
+            homeIcon.setVisibility(View.GONE);
         }
     }
 

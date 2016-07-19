@@ -16,6 +16,7 @@
             android:id="@+id/category_main_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
         <View style="@style/Divider"/>
 
         <LinearLayout
@@ -25,61 +26,86 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:contentDescription="@string/warning"
-                android:src="@mipmap/ic_warning"
+                android:src="@mipmap/ic_warning"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/no_address_found"/>
+        </LinearLayout>
+
+
+        <!--address-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/icon_home"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_home"
+                android:paddingRight="10dp"
                 android:layout_width="40dp"
                 android:layout_height="40dp"/>
 
-            <TextView
-                android:text="@string/no_address_found"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-
-        <!--Street and number-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/address_street"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingRight="10dp"/>
-
-            <TextView
-                android:id="@+id/street_number"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <!--city and postal code-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/address_postal_code"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="10dp"/>
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/address_city"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                <!--street-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/address_street"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingRight="10dp"/>
+
+                    <TextView
+                        android:id="@+id/street_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!--zip and city-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/address_postal_code"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"/>
+
+                    <TextView
+                        android:id="@+id/address_city"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+
+                <!--country -->
+                <TextView
+                    android:id="@+id/country"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/country"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/comment"
@@ -97,4 +123,5 @@
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
+
 </android.support.v4.widget.NestedScrollView>
