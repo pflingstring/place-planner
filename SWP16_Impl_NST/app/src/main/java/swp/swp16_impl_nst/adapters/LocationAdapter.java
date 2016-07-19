@@ -111,6 +111,7 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
         else
         {
             holder.contactMakeVisible(true);
+            holder.getContactsIcon().setVisibility(View.VISIBLE);
 
             if (contact.getEmail() != null)
                 holder.setEmailView(contact.getEmail());
