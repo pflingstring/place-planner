@@ -3,8 +3,10 @@ package swp.swp16_impl_nst.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.h6ah4i.android.widget.advrecyclerview.expandable.ExpandableItemConstants;
+import com.h6ah4i.android.widget.advrecyclerview.expandable.RecyclerViewExpandableItemManager;
 import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractExpandableItemAdapter;
 
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.adapters.viewholders.LocationHeadViewHolder;
 import swp.swp16_impl_nst.locations.LocationProvider;
+import swp.swp16_impl_nst.locations.activities.LocationsMainActivity;
 import swp.swp16_impl_nst.locations.model.Address;
 import swp.swp16_impl_nst.locations.model.Contact;
 import swp.swp16_impl_nst.locations.model.Location;
@@ -21,11 +24,13 @@ import swp.swp16_impl_nst.adapters.viewholders.LocationTailViewHolder;
 public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadViewHolder, LocationTailViewHolder>
 {
     private List<Location> locations;
+    private RecyclerViewExpandableItemManager itemManager;
 
-    public LocationAdapter()
+    public LocationAdapter(List<Location> list, RecyclerViewExpandableItemManager manager)
     {
         setHasStableIds(true); // this is required for expandable feature.
-        locations = LocationProvider.getLocationsCopy();
+        locations = list;
+        itemManager = manager;
     }
 
     //
@@ -69,11 +74,23 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
     }
 
     @Override
-    public void onBindChildViewHolder(LocationTailViewHolder holder, int groupPosition, int childPosition, int viewType)
+    public void onBindChildViewHolder(final LocationTailViewHolder holder, final int groupPosition, int childPosition, int viewType)
     {
-        Location location = locations.get(groupPosition);
+        final Location location = locations.get(groupPosition);
         Address address = location.getAddress();
         Contact contact = location.getContactDetails();
+
+        ImageButton editBth = holder.getEditBtn();
+        editBth.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                locations.remove(location);
+                itemManager.collapseAll();
+                notifyDataSetChanged();
+            }
+        });
 
         holder.setCategoryView(location.getCategory().getName());
 

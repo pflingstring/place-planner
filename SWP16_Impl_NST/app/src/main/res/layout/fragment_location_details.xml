@@ -158,8 +158,8 @@
             android:layout_height="wrap_content">
 
             <ImageButton
+                android:id="@+id/edit_btn"
                 android:src="@mipmap/ic_edit"
-                android:clickable="true"
                 android:background="@color/background"
                 android:layout_weight="1"
                 android:layout_width="0dp"

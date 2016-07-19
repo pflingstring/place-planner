@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 import swp.swp16_impl_nst.R;
 import swp.swp16_impl_nst.categories.activities.CategoryAddActivity;
@@ -31,8 +32,8 @@ import swp.swp16_impl_nst.friends.activities.FriendAddActivity;
 import swp.swp16_impl_nst.friends.activities.FriendShowActivity;
 import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.adapters.LocationAdapter;
+import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.map.MapActivity;
-import swp.swp16_impl_nst.utils.RecyclerItemClickListener;
 
 /**
  * This is the welcome Page in the App
@@ -42,6 +43,7 @@ public class LocationsMainActivity extends AppCompatActivity
 {
     public  final static String CURRENT_POSITION = "swp.current_location";
     private final static String SAVED_LOCATION_FILENAME = ".current_locations";
+    private final List<Location> locations = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -53,24 +55,6 @@ public class LocationsMainActivity extends AppCompatActivity
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-
-
-//        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
-//                this, recyclerView, new RecyclerItemClickListener.OnItemClickListener()
-//        {
-//            @Override
-//            public void onItemClick(View view, int position)
-//            {
-//                Intent intent = new Intent();
-//                intent.putExtra(CURRENT_POSITION, position);
-//                intent.setClass(getApplicationContext(), LocationTabbedActivity.class);
-//                startActivity(intent);
-//            }
-//
-//            @Override
-//            public void onItemLongClick(View view, int position)
-//            {}
-//        }));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         if (fab != null)
@@ -110,10 +94,12 @@ public class LocationsMainActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
+        locations.addAll(LocationProvider.getLocationsCopy());
+
         RecyclerViewExpandableItemManager expandableManager = new RecyclerViewExpandableItemManager(null);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rview_locations);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(expandableManager.createWrappedAdapter(new LocationAdapter()));
+        recyclerView.setAdapter(expandableManager.createWrappedAdapter(new LocationAdapter(locations, expandableManager)));
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
         expandableManager.attachRecyclerView(recyclerView);
 
@@ -131,7 +117,7 @@ public class LocationsMainActivity extends AppCompatActivity
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream, "UTF-8");
             BufferedWriter writer = new BufferedWriter(outputStreamWriter);
 
-            writer.write(LocationProvider.currentLocationsToString());
+            writer.write(LocationProvider.locationsToString(locations));
 
             writer.close();
         }

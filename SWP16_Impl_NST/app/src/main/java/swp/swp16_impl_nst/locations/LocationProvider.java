@@ -8,7 +8,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -62,7 +61,7 @@ public class LocationProvider
 
     public static void exportCurrentLocations(String fileName)
     {
-        String json = currentLocationsToString();
+        String json = locationsToString(locations);
         LocationStorage.writeToFile(json, fileName);
     }
 
@@ -76,8 +75,8 @@ public class LocationProvider
         return result;
     }
 
-    public static String currentLocationsToString()
+    public static String locationsToString(List<Location> locationList)
     {
-        return gson.toJson(locations, type);
+        return gson.toJson(locationList, type);
     }
 }

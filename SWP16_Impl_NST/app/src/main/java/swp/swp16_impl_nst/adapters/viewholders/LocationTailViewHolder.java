@@ -1,6 +1,7 @@
 package swp.swp16_impl_nst.adapters.viewholders;
 
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +23,12 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
     TextView emailView;
 
     ImageView homeIcon;
+    ImageButton editBtn;
+
+    public ImageButton getEditBtn()
+    {
+        return editBtn;
+    }
 
     public ImageView getContactsIcon()
     {
@@ -108,6 +115,7 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
         warning = view.findViewById(R.id.warning);
         emailView = (TextView) view.findViewById(R.id.email);
         contactsIcon = (ImageView) view.findViewById(R.id.icon_contacts);
+        editBtn = (ImageButton) view.findViewById(R.id.edit_btn);
     }
 
     // setters
