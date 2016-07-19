@@ -149,6 +149,39 @@
 
         <View style="@style/Divider"/>
 
+
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:src="@mipmap/ic_edit"
+                android:clickable="true"
+                android:background="@color/background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="38dp"/>
+
+            <ImageButton
+                android:src="@mipmap/ic_delete"
+                android:background="@color/background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="38dp"/>
+
+            <ImageButton
+                android:src="@mipmap/ic_gps_map"
+                android:background="@color/background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="38dp"/>
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
