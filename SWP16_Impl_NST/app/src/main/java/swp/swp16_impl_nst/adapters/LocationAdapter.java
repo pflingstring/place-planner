@@ -58,9 +58,9 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
         final int expandState = holder.getExpandStateFlags();
         if ((expandState & ExpandableItemConstants.STATE_FLAG_IS_UPDATED) != 0)
             if ((expandState & ExpandableItemConstants.STATE_FLAG_IS_EXPANDED) != 0)
-                holder.setBackgroundColor(R.color.rview_background);
+                holder.setBackgroundColor(R.color.rview_selected);
             else
-                holder.setBackgroundColor(R.color.background);
+                holder.setBackgroundColor(R.color.rview_background);
     }
 
     //
@@ -79,6 +79,14 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
         final Location location = locations.get(groupPosition);
         Address address = location.getAddress();
         Contact contact = location.getContactDetails();
+
+        // set background resource (target view ID: container)
+        final int expandState = holder.getExpandStateFlags();
+        if ((expandState & ExpandableItemConstants.STATE_FLAG_IS_UPDATED) != 0)
+            if ((expandState & ExpandableItemConstants.STATE_FLAG_IS_EXPANDED) != 0)
+                holder.setBackgroundColor(R.color.background);
+            else
+                holder.setBackgroundColor(R.color.background);
 
         ImageButton editBtn = holder.getEditBtn();
         editBtn.setOnClickListener(new View.OnClickListener()

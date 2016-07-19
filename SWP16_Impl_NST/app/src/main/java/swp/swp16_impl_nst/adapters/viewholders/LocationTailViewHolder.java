@@ -21,6 +21,7 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
     TextView homepageView;
     TextView phonenumberView;
     TextView emailView;
+    View parentView;
     View warning;
 
     ImageView homeIcon;
@@ -32,6 +33,7 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
     public LocationTailViewHolder(View view)
     {
         super(view);
+        parentView = view;
         cityView = (TextView) view.findViewById(R.id.address_city);
         country = (TextView) view.findViewById(R.id.country);
         streetView = (TextView) view.findViewById(R.id.address_street);
@@ -147,6 +149,10 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
         this.emailView.setText(email);
     }
 
+    public void setBackgroundColor(int color)
+    {
+        parentView.setBackgroundResource(color);
+    }
 
     // getters
     public ImageButton getEditBtn()
