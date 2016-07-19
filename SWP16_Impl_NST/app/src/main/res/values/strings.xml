@@ -110,4 +110,8 @@
     <string name="distance">Distance</string>
     <string name="last_edit_on">Last edit on</string>
     <string name="words">String search</string>
+
+    <string name="no_address_found">This location does not have an address</string>
+    <string name="warning">Warning</string>
+
 </resources>

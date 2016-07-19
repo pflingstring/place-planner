@@ -18,6 +18,26 @@
             android:layout_height="wrap_content"/>
         <View style="@style/Divider"/>
 
+        <LinearLayout
+            android:id="@+id/warning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:contentDescription="@string/warning"
+                android:src="@mipmap/ic_warning"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+
+            <TextView
+                android:text="@string/no_address_found"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
         <!--Street and number-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,6 +78,11 @@
 
         <TextView
             android:id="@+id/country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

@@ -106,28 +106,36 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<HeadViewHolde
     @Override
     public void onBindChildViewHolder(TailViewHolder holder, int groupPosition, int childPosition, int viewType)
     {
-
         Location location = locations.get(groupPosition);
+        Address address = location.getAddress();
+
         holder.setCategoryView(location.getCategory().getName());
 
-        if (location.getAddress() != null)
+        if (address == null || address.isEmpty())
         {
-            Address address = location.getAddress();
+            holder.setAddressInvisible();
+        }
+        else
+        {
+            holder.hideWarning();
+
+            if (address.getStreet() != null)
+                holder.setStreetView(address.getStreet());
+
+            if (address.getNumber() != null)
+                holder.setStreerNrView(address.getNumber());
+
             if (address.getZip() != null)
-            {
                 holder.setPostalCodeView(address.getZip());
-            }
-            holder.setCityView(address.getCity());
-            holder.setStreetView(address.getStreet());
-            holder.setStreerNrView(address.getNumber());
-            //                if (address.getCountry() != null)
-            //                {
-            //                    holder.setCountry(address.getCountry());
-            //                }
+
+            if (address.getCity() != null)
+                holder.setCityView(address.getCity());
+
+            if (address.getCountry() != null)
+                holder.setCountry(address.getCountry());
         }
 
-        //            if (location.getComment() != null)
-        //                holder.setCommentView(location.getComment());
+        holder.setAllInvisible();
     }
 
     @Override
@@ -179,13 +187,13 @@ abstract class LocationTailViewHolder extends AbstractExpandableItemViewHolder
     TextView categoryView;
     TextView homepageView;
     TextView phonenumberView;
-
+    View warning;
 
     public LocationTailViewHolder(View view)
     {
         super(view);
         cityView = (TextView) view.findViewById(R.id.address_city);
-        country = (TextView) view.findViewById(R.id.address_country);
+        country = (TextView) view.findViewById(R.id.country);
         streetView = (TextView) view.findViewById(R.id.address_street);
         streerNrView = (TextView) view.findViewById(R.id.street_number);
         postalCodeView = (TextView) view.findViewById(R.id.address_postal_code);
@@ -193,9 +201,31 @@ abstract class LocationTailViewHolder extends AbstractExpandableItemViewHolder
         categoryView = (TextView) view.findViewById(R.id.category_main_name);
         homepageView = (TextView) view.findViewById(R.id.homepage);
         phonenumberView = (TextView) view.findViewById(R.id.phone_number);
+        warning = view.findViewById(R.id.warning);
     }
 
     // setters
+    public void hideWarning()
+    {
+        warning.setVisibility(View.GONE);
+    }
+
+    public void setAddressInvisible()
+    {
+        streetView.setVisibility(View.GONE);
+        streerNrView.setVisibility(View.GONE);
+        postalCodeView.setVisibility(View.GONE);
+        cityView.setVisibility(View.GONE);
+        country.setVisibility(View.GONE);
+    }
+
+    public void setAllInvisible()
+    {
+        commentView.setVisibility(View.GONE);
+        homepageView.setVisibility(View.GONE);
+        phonenumberView.setVisibility(View.GONE);
+    }
+
     public void setCommentView(String commentView)
         { this.commentView.setText(commentView); }
 

@@ -179,6 +179,9 @@ public class LocationsMainActivity extends AppCompatActivity
             case R.id.menu_add_friend:
                 startActivity(new Intent().setClass(getApplicationContext(), FriendAddActivity.class));
                 return true;
+            case R.id.menu_clear_list:
+                LocationProvider.locations.clear();
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
