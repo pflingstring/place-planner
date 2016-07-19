@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".locations.activities.fragments.LocationEditFragment">
 
     <LinearLayout
@@ -12,37 +12,93 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
 
-        <!--Location name and category-->
+        <TextView
+            android:id="@+id/category_main_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <View style="@style/Divider"/>
+
+        <LinearLayout
+            android:id="@+id/warning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/warning"
+                android:src="@mipmap/ic_warning"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/no_address_found"/>
+        </LinearLayout>
+
+
+        <!--address-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <!--Category Icon-->
             <ImageView
-                android:id="@+id/icon"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/category_icon"
-                android:src="@drawable/ic_category_default"/>
+                android:id="@+id/icon_home"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_home"
+                android:paddingRight="10dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="10dp">
+                android:orientation="vertical">
 
-                <!--Location name-->
-                <TextView
-                    android:id="@+id/location_name"
-                    android:layout_width="wrap_content"
+                <!--street-->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    />
+                    android:orientation="horizontal">
 
-                <!--Category name-->
+                    <TextView
+                        android:id="@+id/address_street"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingRight="10dp"/>
+
+                    <TextView
+                        android:id="@+id/street_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!--zip and city-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/address_postal_code"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"/>
+
+                    <TextView
+                        android:id="@+id/address_city"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+
+                <!--country -->
                 <TextView
-                    android:id="@+id/category_main_name"
+                    android:id="@+id/country"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -50,67 +106,84 @@
 
         <View style="@style/Divider"/>
 
-        <!--Address-->
-        <TextView
-            style="@style/SmallAndItalic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="@string/address"/>
-
-        <!--Street and number-->
         <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/address_street"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingRight="10dp"/>
+            <ImageView
+                android:src="@mipmap/ic_contacts"
+                android:id="@+id/icon_contacts"
+                android:layout_gravity="center"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
 
-            <TextView
-                android:id="@+id/street_number"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/phone_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/homepage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
         </LinearLayout>
 
-        <!--city and postal code-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/address_postal_code"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="10dp"/>
-
-            <TextView
-                android:id="@+id/address_city"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                />
-
-        </LinearLayout>
+        <View style="@style/Divider"/>
 
         <TextView
-            android:id="@+id/country"
+            android:id="@+id/comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <View style="@style/Divider"/>
 
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:numStars="5"
-            style="?android:attr/ratingBarStyleIndicator"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
+
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/edit_btn"
+                android:src="@mipmap/ic_edit"
+                android:background="@color/background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="38dp"/>
+
+            <ImageButton
+                android:id="@+id/delete_btn"
+                android:src="@mipmap/ic_delete"
+                android:background="@color/background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="38dp"/>
+
+            <ImageButton
+                android:id="@+id/gpsMap_btn"
+                android:src="@mipmap/ic_gps_map"
+                android:background="@color/background"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="38dp"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
+
 </android.support.v4.widget.NestedScrollView>

@@ -40,6 +40,12 @@ public class Address
         return result;
     }
 
+    public boolean isEmpty()
+    {
+        return zip.isEmpty()    && city.isEmpty() && street.isEmpty() &&
+               number.isEmpty() && country.isEmpty();
+    }
+
 
     // getters
     public String getZip()

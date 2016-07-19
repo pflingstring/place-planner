@@ -21,4 +21,9 @@ public class Contact
 
     public String getWeb()
     { return web; }
+
+    public boolean isEmpty()
+    {
+        return web.isEmpty() && email.isEmpty() && telephone.isEmpty();
+    }
 }

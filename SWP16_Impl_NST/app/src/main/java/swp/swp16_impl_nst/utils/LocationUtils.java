@@ -1,84 +1,20 @@
 package swp.swp16_impl_nst.utils;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import swp.swp16_impl_nst.R;
-import swp.swp16_impl_nst.adapters.LocationAdapter;
-import swp.swp16_impl_nst.locations.LocationProvider;
 import swp.swp16_impl_nst.locations.activities.fragments.LocationDetailsFragment;
 import swp.swp16_impl_nst.locations.activities.fragments.LocationEditFragment;
-import swp.swp16_impl_nst.utils.RecyclerItemClickListener.OnItemClickListener;
 import swp.swp16_impl_nst.locations.model.Location;
 
 public class LocationUtils
 {
-    public static RecyclerItemClickListener rviewClickListener(
-            final Context context,
-            final RecyclerView recyclerView,
-            final OnItemClickListener listener)
-    {
-        return new RecyclerItemClickListener(context, recyclerView, listener);
-    }
-
-    public static OnItemClickListener onRViewItemClick(final Activity context, final  Activity activity)
-    {
-        return new OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(View view, int position)
-            {
-                Intent intent = new Intent();
-                intent.putExtra(Constants.LOCATION_ITEM, position);
-                intent.setClass(context, activity.getClass());
-                context.startActivity(intent);
-            }
-
-            @Override
-            public void onItemLongClick(View view, int position)
-            {
-            }
-    };}
-
-    public static List<Location> positionsToLocations(List<Integer> positions)
-    {
-        List<Location> result = new ArrayList<>();
-        for (int i : positions)
-            result.add(LocationProvider.locations.get(i));
-
-        return result;
-    }
-
-    public static void setupRecyclerView(
-            RecyclerView recyclerView,
-            Activity context,
-            Activity activity,
-            List<Location> locations)
-    {
-        RecyclerItemClickListener.OnItemClickListener listener =
-                LocationUtils.onRViewItemClick(context, activity);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(new LocationAdapter(locations));
-        recyclerView.addOnItemTouchListener(LocationUtils.rviewClickListener(
-                context, recyclerView, listener));
-    }
-
-
     // TODO: refactor. eliminate code duplication
-    // TODO:
     public static void populateViews(
             @NonNull Fragment fragment,
             @NonNull View view,
