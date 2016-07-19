@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SWP16_Impl_NST</string>
+    <string name="app_name">PlacePlanner</string>
     <string name="action_settings">Settings</string>
 
     <string name="google_api_key">AIzaSyCqO1Q-1Qx2z_YOa7bGc8IacYVhJJSAOIQ</string>
@@ -13,13 +13,13 @@
     <!--activity titles-->
     <string name="title_activity_location_import">Import locations</string>
     <string name="title_activity_location_export">Export locations</string>
-    <string name="title_activity_location_add">Add location</string>
-    <string name="title_activity_category_add">Add categorie</string>
-    <string name="title_activity_category_show">Categories</string>
-    <string name="title_activity_category_tabbed">View/Edit</string>
+    <string name="title_activity_location_add">Location hinzufügen</string>
+    <string name="title_activity_category_add">Kategorie hinzufügen</string>
+    <string name="title_activity_category_show">Kategorien</string>
+    <string name="title_activity_category_tabbed">Kategorien</string>
     <string name="title_activity_friend_add">Freund hinzufügen</string>
     <string name="title_activity_friend_show">Kontaktliste</string>
-    <string name="title_activity_friend_tabbed">View/Edit</string>
+    <string name="title_activity_friend_tabbed">Kontaktliste</string>
     <string name="title_activity_group_add">Gruppe hinzufügen</string>
     <string name="title_activity_group_show">Gruppen</string>
     <string name="title_activity_group_tabbed">Gruppendetails</string>
@@ -51,7 +51,7 @@
 
     <!--location Tabs-->
     <string name="details">Details</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Bearbeiten</string>
 
     <!--location Details/Edit-->
     <string name="cancel">Abbrechen</string>
@@ -73,14 +73,14 @@
     <string name="categoryName">Name</string>
 
     <string name="name">Name</string>
-    <string name="comment">Comment</string>
-    <string name="address">Address</string>
+    <string name="comment">Kommentar</string>
+    <string name="address">Addresse</string>
     <string name="mediaUrl">MediaURL</string>
     <string name="rating">Rating</string>
-    <string name="owner">Owner</string>
-    <string name="coordinates">GPS-Coordinates</string>
-    <string name="contactDetails">Contacts</string>
-    <string name="categories">Categories</string>
+    <string name="owner">Besitzer</string>
+    <string name="coordinates">GPS-Koordinaten</string>
+    <string name="contactDetails">Kontakte</string>
+    <string name="categories">Kategorien</string>
 
     <!--location Import-->
     <string name="importbutton">Importieren</string>
