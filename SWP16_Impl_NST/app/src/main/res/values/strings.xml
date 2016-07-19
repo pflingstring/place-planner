@@ -113,5 +113,6 @@
 
     <string name="no_address_found">This location does not have an address</string>
     <string name="warning">Warning</string>
+    <string name="get_address">Get Address</string>
 
 </resources>

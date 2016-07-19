@@ -20,6 +20,7 @@
 
         <View style="@style/DividerHorizontal"/>
 
+
         <LinearLayout
             android:id="@+id/warning"
             android:layout_width="match_parent"
@@ -27,20 +28,31 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:layout_gravity="center"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:contentDescription="@string/warning"
                 android:src="@mipmap/ic_warning"/>
-
             <View style="@style/DividerVertical"/>
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/no_address_found"/>
-        </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_address_found"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/get_address"
+                    android:drawableLeft="@drawable/ic_get_address"/>
+
+            </LinearLayout>
+        </LinearLayout>
 
         <!--address-->
         <LinearLayout
@@ -193,10 +205,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="38dp"/>
-
         </LinearLayout>
-
-
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
