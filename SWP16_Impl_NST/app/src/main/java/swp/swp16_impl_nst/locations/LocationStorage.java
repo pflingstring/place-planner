@@ -18,7 +18,7 @@ import java.util.List;
 public class LocationStorage
 {
     private final static String DIR_NAME = Environment.DIRECTORY_PODCASTS;
-    private final static File   PATH_DIR = createDir(".place-planner");
+    private final static File   PATH_DIR = createDir("place-planner");
 
     public static File createDir(String name)
     {
