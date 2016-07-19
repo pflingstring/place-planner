@@ -43,7 +43,6 @@ public class LocationsMainActivity extends AppCompatActivity
 {
     public  final static String CURRENT_POSITION = "swp.current_location";
     private final static String SAVED_LOCATION_FILENAME = ".current_locations";
-    private final List<Location> locations = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -94,12 +93,10 @@ public class LocationsMainActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
-        locations.addAll(LocationProvider.getLocationsCopy());
-
         RecyclerViewExpandableItemManager expandableManager = new RecyclerViewExpandableItemManager(null);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rview_locations);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(expandableManager.createWrappedAdapter(new LocationAdapter(locations, expandableManager)));
+        recyclerView.setAdapter(expandableManager.createWrappedAdapter(new LocationAdapter(expandableManager)));
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
         expandableManager.attachRecyclerView(recyclerView);
 
@@ -117,7 +114,7 @@ public class LocationsMainActivity extends AppCompatActivity
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream, "UTF-8");
             BufferedWriter writer = new BufferedWriter(outputStreamWriter);
 
-            writer.write(LocationProvider.locationsToString(locations));
+            writer.write(LocationProvider.locationsToString(LocationProvider.locations));
 
             writer.close();
         }

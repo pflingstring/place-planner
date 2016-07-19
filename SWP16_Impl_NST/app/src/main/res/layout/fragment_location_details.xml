@@ -166,6 +166,7 @@
                 android:layout_height="38dp"/>
 
             <ImageButton
+                android:id="@+id/delete_btn"
                 android:src="@mipmap/ic_delete"
                 android:background="@color/background"
                 android:layout_weight="1"
@@ -173,6 +174,7 @@
                 android:layout_height="38dp"/>
 
             <ImageButton
+                android:id="@+id/gpsMap_btn"
                 android:src="@mipmap/ic_gps_map"
                 android:background="@color/background"
                 android:layout_weight="1"

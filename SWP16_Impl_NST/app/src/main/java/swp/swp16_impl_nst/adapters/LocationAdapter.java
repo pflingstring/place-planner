@@ -26,10 +26,10 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
     private List<Location> locations;
     private RecyclerViewExpandableItemManager itemManager;
 
-    public LocationAdapter(List<Location> list, RecyclerViewExpandableItemManager manager)
+    public LocationAdapter(RecyclerViewExpandableItemManager manager)
     {
         setHasStableIds(true); // this is required for expandable feature.
-        locations = list;
+        locations = LocationProvider.locations;
         itemManager = manager;
     }
 
@@ -80,8 +80,18 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
         Address address = location.getAddress();
         Contact contact = location.getContactDetails();
 
-        ImageButton editBth = holder.getEditBtn();
-        editBth.setOnClickListener(new View.OnClickListener()
+        ImageButton editBtn = holder.getEditBtn();
+        editBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+
+            }
+        });
+
+        ImageButton deleteBtn = holder.getDeleteBtn();
+        deleteBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -89,6 +99,16 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
                 locations.remove(location);
                 itemManager.collapseAll();
                 notifyDataSetChanged();
+            }
+        });
+
+        ImageButton gpsMapBtn = holder.getGpsMapBtn();
+        gpsMapBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+
             }
         });
 
