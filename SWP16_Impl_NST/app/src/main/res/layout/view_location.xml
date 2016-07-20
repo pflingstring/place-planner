@@ -43,5 +43,5 @@
         </LinearLayout>
 
     </LinearLayout>
-    <View style="@style/Divider"/>
+    <View style="@style/DividerHorizontal"/>
 </LinearLayout>

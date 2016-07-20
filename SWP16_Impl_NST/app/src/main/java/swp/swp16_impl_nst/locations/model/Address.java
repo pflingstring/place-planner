@@ -6,6 +6,32 @@ public class Address
     private String number;
     private String street;
     private String country;
+
+    public void setZip(String zip)
+    {
+        this.zip = zip;
+    }
+
+    public void setCountry(String country)
+    {
+        this.country = country;
+    }
+
+    public void setStreet(String street)
+    {
+        this.street = street;
+    }
+
+    public void setNumber(String number)
+    {
+        this.number = number;
+    }
+
+    public void setCity(String city)
+    {
+        this.city = city;
+    }
+
     private String zip;
 
     public Address(String _street, String _number, String _postal_code,
@@ -42,8 +68,11 @@ public class Address
 
     public boolean isEmpty()
     {
-        return zip.isEmpty()    && city.isEmpty() && street.isEmpty() &&
-               number.isEmpty() && country.isEmpty();
+        if (zip == null || city == null || street == null || number == null || country == null)
+            return false;
+
+            return zip.isEmpty()    && city.isEmpty() && street.isEmpty() &&
+                   number.isEmpty() && country.isEmpty();
     }
 
 

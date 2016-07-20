@@ -26,6 +26,6 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
-    <View style="@style/Divider"/>
+    <View style="@style/DividerHorizontal"/>
 
 </LinearLayout>

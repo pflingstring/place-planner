@@ -20,7 +20,7 @@
             android:textSize="28sp"
             />
 
-        <View style="@style/Divider"/>
+        <View style="@style/DividerHorizontal"/>
 
 
     </LinearLayout>
