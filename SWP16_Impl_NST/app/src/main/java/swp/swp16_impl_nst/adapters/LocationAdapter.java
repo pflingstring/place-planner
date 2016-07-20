@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.h6ah4i.android.widget.advrecyclerview.expandable.ExpandableItemConstants;
 import com.h6ah4i.android.widget.advrecyclerview.expandable.RecyclerViewExpandableItemManager;
 import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractExpandableItemAdapter;
@@ -116,9 +120,30 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
             @Override
             public void onClick(View view)
             {
-                locations.remove(location);
-                itemManager.collapseAll();
-                notifyDataSetChanged();
+                new MaterialDialog.Builder(view.getContext())
+                        .title("DELETE LOCATION ?")
+                        .onPositive(new MaterialDialog.SingleButtonCallback()
+                        {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which)
+                            {
+                                locations.remove(location);
+                                itemManager.collapseAll();
+                                notifyDataSetChanged();
+                            }
+                        })
+                        .onNegative(new MaterialDialog.SingleButtonCallback()
+                        {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which)
+                            {
+                                dialog.dismiss();
+                            }
+                        })
+                        .positiveText("Delete")
+                        .negativeText("Cancel")
+                        .icon(ContextCompat.getDrawable(view.getContext(), R.mipmap.ic_delete))
+                        .show();
             }
         });
 
