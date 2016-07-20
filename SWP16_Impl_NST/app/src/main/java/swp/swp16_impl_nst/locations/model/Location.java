@@ -170,5 +170,9 @@ public class Location
             default: return Rating.NO_RATING;
         }
     }
-}
 
+    public void setAddress(Address address)
+    {
+        this.address = address;
+    }
+}

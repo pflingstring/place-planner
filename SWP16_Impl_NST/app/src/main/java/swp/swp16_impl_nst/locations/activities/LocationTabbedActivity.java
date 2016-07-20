@@ -90,7 +90,7 @@ public class LocationTabbedActivity extends AppCompatActivity
                     {
                         String[] res = data.getStringArray(GetLatLngIntentService.RECEIVER);
 
-                        if (resultCode == GetLatLngIntentService.SUCCESS_RESULT)
+                        if (resultCode == GetLatLngIntentService.FROM_ADDRESS_NAME)
                         {
                             double lat = Double.parseDouble(res[0]);
                             double lon = Double.parseDouble(res[1]);

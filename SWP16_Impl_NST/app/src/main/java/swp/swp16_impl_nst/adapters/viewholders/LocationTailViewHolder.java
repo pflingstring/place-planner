@@ -1,6 +1,7 @@
 package swp.swp16_impl_nst.adapters.viewholders;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +31,9 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
     ImageButton deleteBtn;
     ImageButton gpsMapBtn;
 
+
+    Button getAddressBtn;
+
     public LocationTailViewHolder(View view)
     {
         super(view);
@@ -50,6 +54,7 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
         editBtn = (ImageButton) view.findViewById(R.id.edit_btn);
         deleteBtn = (ImageButton) view.findViewById(R.id.delete_btn);
         gpsMapBtn = (ImageButton) view.findViewById(R.id.gpsMap_btn);
+        getAddressBtn = (Button) view.findViewById(R.id.get_address_btn);
     }
 
     // setters
@@ -234,5 +239,10 @@ public class LocationTailViewHolder extends AbstractExpandableItemViewHolder
     public ImageButton getGpsMapBtn()
     {
         return gpsMapBtn;
+    }
+
+    public Button getGetAddressBtn()
+    {
+        return getAddressBtn;
     }
 }

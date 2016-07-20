@@ -2,9 +2,14 @@ package swp.swp16_impl_nst.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.ResultReceiver;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.h6ah4i.android.widget.advrecyclerview.expandable.ExpandableItemConstants;
@@ -21,6 +26,7 @@ import swp.swp16_impl_nst.locations.model.Address;
 import swp.swp16_impl_nst.locations.model.Contact;
 import swp.swp16_impl_nst.locations.model.Location;
 import swp.swp16_impl_nst.adapters.viewholders.LocationTailViewHolder;
+import swp.swp16_impl_nst.map.GetLatLngIntentService;
 import swp.swp16_impl_nst.utils.Constants;
 
 
@@ -126,12 +132,64 @@ public class LocationAdapter extends AbstractExpandableItemAdapter<LocationHeadV
             }
         });
 
+
+
         holder.setCategoryView(location.getCategory().getName());
 
         if (address == null || address.isEmpty())
         {
             holder.addressMakeVisible(false);
             holder.warningMakeVisible(true);
+
+
+            Button getAddressBtn = holder.getGetAddressBtn();
+            getAddressBtn.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    final Intent intent = new Intent(view.getContext(), GetLatLngIntentService.class);
+
+                    intent.putExtra(GetLatLngIntentService.COORDINATES,
+                        new double[]
+                            {
+                                location.getCoordinates().getLat(),
+                                location.getCoordinates().getLon()
+                            });
+
+                    intent.putExtra(GetLatLngIntentService.RECEIVER,
+                            new ResultReceiver(new Handler())
+                            {
+                                @Override
+                                protected void onReceiveResult(int resultCode, Bundle data)
+                                {
+                                    String[] res = data.getStringArray(GetLatLngIntentService.RECEIVER);
+
+                                    for (String s : res)
+                                    {
+                                        Log.i("GPSS", s);
+                                    }
+
+                                    switch (resultCode)
+                                    {
+                                        case GetLatLngIntentService.FROM_ADDRESS_NAME :
+                                            double lat = Double.parseDouble(res[0]);
+                                            double lon = Double.parseDouble(res[1]);
+                                            location.setGpsCoordinates(lat, lon);
+                                            break;
+                                        case GetLatLngIntentService.FROM_GPS_COORDINATES:
+                                            Address newAddress = new Address(res[0], null, null, null, null);
+                                            location.setAddress(newAddress);
+                                            locations.set(groupPosition, location);
+                                            notifyDataSetChanged();
+                                            break;
+                                    }
+                                }
+                            }
+                    );
+                    view.getContext().startService(intent);
+                }
+            });
         }
         else
         {
