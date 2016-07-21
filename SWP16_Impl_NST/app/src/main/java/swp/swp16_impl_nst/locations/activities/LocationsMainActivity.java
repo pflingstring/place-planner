@@ -43,6 +43,7 @@ public class LocationsMainActivity extends AppCompatActivity
 {
     public  final static String CURRENT_POSITION = "swp.current_location";
     private final static String SAVED_LOCATION_FILENAME = ".current_locations";
+    private final RecyclerViewExpandableItemManager expandableManager = new RecyclerViewExpandableItemManager(null);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -93,7 +94,6 @@ public class LocationsMainActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
-        RecyclerViewExpandableItemManager expandableManager = new RecyclerViewExpandableItemManager(null);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rview_locations);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(expandableManager.createWrappedAdapter(new LocationAdapter(expandableManager)));

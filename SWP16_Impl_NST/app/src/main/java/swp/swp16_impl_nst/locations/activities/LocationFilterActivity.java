@@ -132,7 +132,7 @@ public class LocationFilterActivity extends AppCompatActivity
     @Override
     public void onMapReady(GoogleMap googleMap)
     {
-        final List<Location> locations = locationsFragment.getAdapter().getDataSet();
+        final List<Location> locations = LocationProvider.getLocationsCopy();
         map = googleMap;
 
         if (locations != null && !locations.isEmpty())
