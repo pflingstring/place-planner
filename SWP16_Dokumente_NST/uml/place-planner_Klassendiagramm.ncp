@@ -55,11 +55,12 @@
       <Entity type="Class">
         <Name>Category</Name>
         <Access>Public</Access>
-        <Location left="299" top="403" />
-        <Size width="162" height="128" />
+        <Location left="298" top="402" />
+        <Size width="162" height="145" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int Icon</Member>
         <Member type="Field">String name</Member>
+        <Member type="Field">String description</Member>
         <Member type="Method">public String getName()</Member>
         <Modifier>None</Modifier>
       </Entity>
@@ -102,9 +103,10 @@
       <Entity type="Class">
         <Name>Rating</Name>
         <Access>Public</Access>
-        <Location left="512" top="269" />
+        <Location left="512" top="268" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">int rating</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -135,36 +137,48 @@
     </Entities>
     <Relationships>
       <Relationship type="Association" first="0" second="3">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="5">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
