@@ -27,7 +27,7 @@ public class LocationUtils
             EditText gpsLat  = (EditText) view.findViewById(R.id.gpsLat);
             EditText gpsLong = (EditText) view.findViewById(R.id.gpsLong);
             EditText comment = (EditText) view.findViewById(R.id.comment);
-            EditText web_address = (EditText) view.findViewById(R.id.email);
+            EditText web_address = (EditText) view.findViewById(R.id.web_address);
             EditText mediaUrl    = (EditText) view.findViewById(R.id.mediaUrl);
             EditText phone_number = (EditText) view.findViewById(R.id.phone_number);
             EditText address_city = (EditText) view.findViewById(R.id.address_city);

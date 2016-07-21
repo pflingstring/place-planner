@@ -127,7 +127,7 @@ public class LocationEditFragment extends Fragment
         EditText gpsLatView  = (EditText) view.findViewById(R.id.gpsLat);
         EditText gpsLongView = (EditText) view.findViewById(R.id.gpsLong);
         EditText commentView = (EditText) view.findViewById(R.id.comment);
-        EditText web_addressView = (EditText) view.findViewById(R.id.email);
+        EditText web_addressView = (EditText) view.findViewById(R.id.web_address);
         EditText mediaUrlView    = (EditText) view.findViewById(R.id.mediaUrl);
         EditText phone_numberView = (EditText) view.findViewById(R.id.phone_number);
         EditText address_cityView = (EditText) view.findViewById(R.id.address_city);
