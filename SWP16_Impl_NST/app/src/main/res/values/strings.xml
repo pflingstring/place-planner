@@ -48,6 +48,7 @@
     <string name="add_group">Gruppe erstellen</string>
     <string name="show_group">Gruppen anzeigen</string>
     <string name="delete_group">Gruppe löschen</string>
+    <string name="clear_locations">Alle Locations löschen</string>
 
     <!--location Tabs-->
     <string name="details">Details</string>
